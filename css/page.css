@@ -67,11 +67,15 @@ body, html {
 
 .circleImg {
     border-radius: 50%;
-    height: 200px;
+    height: 250px;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
     float: right;
+    border: 15px groove #241e18;
+    /* border-radiu s: 20%; */
+    /* padding: 10px; */
+    /* filter: blur(5px); */
 }
 
 .pad20 {
