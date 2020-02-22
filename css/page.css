@@ -72,7 +72,7 @@ body, html {
     top: 50%;
     transform: translateY(-50%);
     float: right;
-    border: 15px groove #241e18;
+    border: 15px none #241e18;
     /* border-radiu s: 20%; */
     /* padding: 10px; */
     /* filter: blur(5px); */
@@ -179,11 +179,12 @@ body, html {
     color: #b5b5b5;
 }
 
-.electronicsBack {
+.projectsQuick {
     /* background-image: url("../images/IMG_1716.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    background-color: white;
 }
 
 .centerTitle {
