@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Henrik Gerdes</title>
+    <title>Henrik Gerdes Home</title>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" type="text/css" href="css/nav.css"/>
     <link rel="stylesheet" type="text/css" href="css/page.css"/>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/footer.css"/>
 
     <link rel="stylesheet" type="text/css" href="css/spacing.css">
     <link rel="stylesheet" type="text/css" href="css/fonts.css" >
@@ -16,8 +17,9 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/nav.js"></script>
   </head>
+
       <body>
-            <nav class="navbar fixed-top navbar-expand-lg toggle-height " id="global-nav">
+            <nav class="navbar fixed-top navbar-expand-lg toggle-height" ;" id="global-nav">
               <div class="container">
                 <a class="navbar-brand scrollN" href="/">Henrik Gerdes</a>
                 <button class="navbar-toggler custom-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,7 +28,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                   <ul class="navbar-nav mr-auto">
-                    <li> <a class="nav-link scrollN" href="#">Projects</a></li>
+                    <li> <a class="nav-link scrollN" href="content/projects.html">Projects</a></li>
                     <li> <a class="nav-link scrollN" href="#">Papers</a></li>
                     <li><a class="nav-link scrollN" href="#">Tools</a></li>
                   </ul>
@@ -37,28 +39,28 @@
               </div>
             </nav>
 
-            <div class="homeImg">
-                    <div class="homeDiv center">
+            <div class="homeRow homeImg">
+                    <div class="GravityFont center">
                       <h1 class="titleMain">HENRIK GERDES</h1>
-                        <h3 style="text-indent:1em; color:rgba(41, 41, 41, 0.795)">an University student form Osnabrück with passion for coding.</h3>
+                        <h3 style="margin-left: 1em; color:rgba(41, 41, 41, 0.795)">an university student form Osnabrück with passion for coding.</h3>
                       </div>
                     <div class="homeSouth">
-                      <h4><a class="stealthLink subPmin padX0" href="#">Read More</a></h4>
-                        <button class="smoothScrollBtn" type="button"><img src="icon/arrow.png" width="30"/></button>
+                      <h4><a class="stealthLink subTitle" style="color: white;" href="#me">Read More</a></h4>
+                        <button class="smoothScrollBtn " type="button"><img src="img/icon/arrow_white.png" width="30"/></button>
                       </div>
                 </div>
 
                 <div class="container-fluid aboutMe" >
-                    <div class="container aboutMe">
+                  <a name="me"></a>
+                    <div class="container">
                       <div class="row rowPad" >
                             <div class="col-md-4">
                               <img src="img/me.png" class="circleImg"></img>
                             </div>
-                            <div class="col-md-8">
-                              <p class="pad20">Welcome to my website. My name is Henrik Gerdes. I'm a computer scientist student at the university of Osnabrück (Germany). My passion is to solve general, specific and specially hard problems in an elegant and efficient way and to automate recurring tasks. In the last year I did some projects with computer/game graphics, low level socket programming and worked with routing in graphs.<br>
-                                Recently I did an internship at a security company and started learning some web- technology. Examples are in the software area.<br><br>
-
-                                More is coming soon.</p>
+                            <div class="white col-md-8">
+                              <p class="pad20">Welcome to my website. My name is Henrik Gerdes. I'm a computer scientist student at the university of Osnabrück (Germany). My passion is to solve general, specific and specially hard problems in an elegant and efficient way and to automate recurring tasks. In the last year I did some projects with computer/game graphics, low level socket programming and worked with routing in graphs.<br></p>
+                              <p class="pad20">Recently I did an internship at a security company and started learning some web- technology. Examples are in the software area.<br><br>
+                                </p>
                             </div>
                           </div>
                     </div>
@@ -102,8 +104,6 @@
                             <div class="col-md-6 tilePadWide softTileBack col1Pad">
                                 <h3 class="white regTitle cenX">JAVA</h3>
                                 <h5 class="tileDesc subPmin white">3 years of object oriented programming, multimedia tools, datatypes and software-engineering concepts.</h5>
-                                <!-- <h5 class="tileDesc subPmin white">3 years of object oriented programming and engineering concepts in Java.
-                                  Was used to implement different graph algorithms, set up an Enterprise Service Bus (ESB) with Apache Camel and code multimedia tools.</h5> -->
                                 <ul class="centerLinks">
                                     <li style="display:inline-block;">
                                         <a href="#"><p style="border-width:0px" id="PSDPlug">Example Project</p></a>
@@ -115,7 +115,7 @@
                                 </ul>
                             </div>
                             <div class="col-md-6 tilePadWide softTileBack col2Pad">
-                                <h3 class="white regTitle cenX">C/C</h3>
+                                <h3 class="white regTitle cenX">C/C++</h3>
                                 <h5 class="tileDesc subPmin white">1 1/2 years developing algorithms, OpenGL vertices and GUI elements using QT</h5>
                                 <ul class="centerLinks">
                                     <li style="display:inline-block;">
@@ -144,11 +144,28 @@
                             </div>
                             <div class="col-md-6 tilePadWide softTileBack col2Pad">
                                 <h3 class="white regTitle cenX">WEB</h3>
-                                <h5 class="tileDesc subPmin white">Basic experience with HTML, CSS, JavaScript to create this responsive website</h5>
+                                <h5 class="tileDesc subPmin white">Basic experience with HTML, CSS, JavaScript [NodeJS, MongoDB, JWT] to create this and other responsive website</h5>
                             </div>
                             <a class="btn btn-outline-secondary btn-lg centerBtn" href="software" role="button">Learn More</a>
                         </div>
                     </div>
                 </div>
+
+
+
+                <footer class="footer container-fluid">
+                  <div class="container extraSpace">
+                    <ul class="centerLinks socialIcons">
+                      <li style="display:inline-block">
+                      <li style="display:inline-block">
+                        <a href="https://github.com/hegerdes"><img src="/img/icon/github.png"></img></a>
+                      </li>
+                      <li style="display:inline-block">
+                        <a href="/contact"><img src="/img/icon/email.png"></img></a>
+                      </li>
+                    </ul>
+                    <p class="footerText subP">Email me with any suggestions,collaborations, or just to talk!<br>hegerdes@uos.de</p>
+                  </div>
+                </footer>
     </body>
 </html>

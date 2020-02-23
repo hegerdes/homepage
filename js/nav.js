@@ -6,18 +6,20 @@ var toggle = 0;
 var url = window.location.pathname;
 var filename = (url.substring(0, url.lastIndexOf('/')));
 filename = filename.substring(filename.lastIndexOf('/') + 1);
+var page = document.title
+var title_page = page.includes("Home")
 
 function navScroll(){
     if($(window).width() >= 992) {
         var scrollTop = 0;
-          scrollTop = $(window).scrollTop();
-           $('.counter').html(scrollTop);
+        scrollTop = $(window).scrollTop();
+        $('.counter').html(scrollTop);
 
-          if (scrollTop >= 100) {
-              $('#global-nav').css({
-                  "padding":"0px"
-              })
-              $(".scrollN").css({
+        if (scrollTop >= 100 ) {
+            $('#global-nav').css({
+                "padding":"0px"
+            })
+            $(".scrollN").css({
                   "color":"#101010",
                   "padding-bottom":"0px",
                   "padding-top":"0px"
@@ -29,12 +31,9 @@ function navScroll(){
                 "padding-bottom":"10px",
                 "padding-top":"10px"
             })
-            if(!(filename === 'timelapse-auto-ramp') && !(filename === 'pathfinding')
-                && !(filename === 'air-conditioner-DIY') && !(filename === 'contact') && !(filename === 'yt-desc')
-                && !(filename === 'software') && !(filename === 'electronics')
-                && !(filename === 'films') && !(filename === 'photography')) {
+            if(!title_page) {
                 $(".scrollN").css({
-                    "color":"white"
+                    "color":"black"
                 })
             }
 

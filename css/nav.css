@@ -42,6 +42,11 @@ body .scrollN, body .scrollN:hover {
         -webkit-transition: height .5s, line-height .5s;
         transition: height .5s, line-height .5s;
     }
+    global-nav.black{
+        background-color: white;
+        height: 60px !important;
+        line-height: 60px
+    }
     .scrolled-nav {
         background-color: white;
         height: 60px !important;
