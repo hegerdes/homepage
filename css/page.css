@@ -5,7 +5,6 @@ body, html {
     color: black
 }
 
-
 .homeRow {
     height: 100%;
     background-position: center;
@@ -22,18 +21,73 @@ body, html {
     height: 240px;
 }
 
-.GravityFont {
-    font-family: "Gravity-Book";
+.blackRow{
+    color: white;
+    background-color: #282828;
 }
 
-.white {
-    color: white;
+.whiteRow {
+    color: black;
+    background-color: white;
+}
+
+.softwareImg {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+
+.GravityFont {
+    font-family: "Gravity-Book";
 }
 
 .homeSouth {
     text-align: center;
     position: relative;
     top: calc(100% - 120px);
+}
+
+.borderProj {
+    padding-left: 70px;
+    padding-right: 70px;
+}
+
+.borderProj .row, .borderProj h3, .borderProj p {
+    -webkit-transition: -webkit-transform .15s ease;
+    -moz-transition: -moz-transform .15s ease;
+    -o-transition: -o-transform .15s ease;
+    -ms-transition: -ms-transform .15s ease;
+    transition: transform .15s ease;
+    position: relative;
+  }
+.borderProj .row {
+    border-width: 2px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #282828;
+}
+.borderProj h3 {
+    padding-top: 8pt;
+}
+
+.borderProj .row:hover, .borderProj h3, .borderProj p {
+    -webkit-transform: scale(1.05);
+    -moz-transform: scale(1.05);
+    -o-transform: scale(1.05);
+    -ms-transform: scale(1.05);
+    transform: scale(1.05);
+    z-index: 5;
+}
+
+.pad10{
+    padding: 10pt;
+}
+
+.projImg {
+    width: 100%;
+    vertical-align: middle;
+    border: 1px solid #101010;
 }
 
 .smoothScrollBtn {
@@ -78,11 +132,12 @@ body, html {
 
 .pad20 {
     padding: 20px;
-    padding-bottom: 4px;
+    padding-bottom: 5px;
 }
 
 .rowPad {
     padding: 40px;
+    text-align: justify;
 }
 
 .passionDiv {
@@ -122,13 +177,6 @@ body, html {
     color: white;
 }
 
-.softwareImg {
-    background-color: #282828;
-
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
 .sub {
     font-family: "Gravity-Regular";
@@ -223,59 +271,6 @@ body, html {
     background-color: rgba(0,0,0,0.4);
 }
 
-/* Mobile devices */
-@media (max-width: 767px) {
-    .circleImg {
-        float: none;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        height: 120px;
-    }
-    .rowPad {
-        padding-right: 0px;
-        padding-left: 0px;
-    }
-    .tilePadWide {
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-}
-
-@media (min-width: 768px) {
-    .softwareDiv, .electronicsDiv {
-        padding-top: 60px;
-        padding-bottom: 80px;
-    }
-    .aboutMe {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-    .tilePad {
-        padding: 10px;
-        padding-top: 80px;
-        padding-bottom: 80px;
-    }
-
-}
-
-@media (max-width: 991px) {
-    .extraSpace {
-        padding-top: 60px;
-        padding-bottom: 60px;
-    }
-    .centerTitle {
-        padding-bottom: 40px;
-    }
-}
-
-@media (min-width: 992px) {
-    .videoBack div div .tilePadMin {
-        padding-top: 40px;
-        padding-bottom: 40px;
-    }
-}
-
 .landImg {
     height: 100%;
     background-position: center;
@@ -291,11 +286,6 @@ body .padX0 {
     padding-left: 0px;
     padding-right: 0px;
 }
-
-.sec > .container {
-    padding-bottom: 60px;
-}
-
 
 
 .centerImg {
@@ -438,7 +428,63 @@ body .padX0 {
     padding-bottom: 120px;
 }
 
+@media (max-width: 767px) {
+    .circleImg {
+        float: none;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 150px;
+    }
 /* Suitable for mobile devices */
+
+
+/* Mobile devices */
+/*
+.rowPad {
+        padding-right: 0px;
+        padding-left: 0px;
+    }
+    .tilePadWide {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+
+@media (min-width: 768px) {
+    .softwareDiv, .electronicsDiv {
+        padding-top: 60px;
+        padding-bottom: 80px;
+    }
+    .aboutMe {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .tilePad {
+        padding: 10px;
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+}
+
+@media (max-width: 991px) {
+    .extraSpace {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+    .centerTitle {
+        padding-bottom: 40px;
+    }
+}
+
+@media (min-width: 992px) {
+    .videoBack div div .tilePadMin {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+} */
+
 
 @media (max-width: 991px) {
     .sub {
