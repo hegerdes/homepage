@@ -1,5 +1,7 @@
 # My personal HomePage
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b0d8c38e-c68e-4f8f-81a2-5104ba2ba919/deploy-status)](https://app.netlify.com/sites/henrikgerdes/deploys)
+
 **This is a collection of all the HTML, CSS and JS for personal site.**
 
 ## Structure
