@@ -16,6 +16,10 @@
     color: white;
 }
 
+.footerSpace{
+    padding-bottom: 50px;
+}
+
 .bottomLinksDiv {
     background-color: #191919;
     padding: 30px;

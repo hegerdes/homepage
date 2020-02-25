@@ -10,6 +10,7 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    padding-bottom: 20px;
 }
 
 .homeImg {
@@ -18,6 +19,11 @@ body, html {
 
 .homeBanner {
     background-image: url("../img/code.jpg");
+    height: 240px;
+}
+
+.homeBannerPaper {
+    background-image: url("../img/paper2.png");
     height: 240px;
 }
 
@@ -43,6 +49,8 @@ body, html {
 }
 
 .homeSouth {
+    padding-top: 30px;
+    padding-bottom:50px;
     text-align: center;
     position: relative;
     top: calc(100% - 120px);
@@ -52,6 +60,12 @@ body, html {
     padding-left: 70px;
     padding-right: 70px;
 }
+
+
+/* .paperrow {
+    padding-left: 70px;
+    padding-right: 70px;
+} */
 
 .borderProj .row, .borderProj h3, .borderProj p {
     -webkit-transition: -webkit-transform .15s ease;
@@ -90,6 +104,15 @@ body, html {
     border: 1px solid #101010;
 }
 
+.paperImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    /* vertical-align: middle; */
+    border: 1px solid #101010;
+}
+
 .smoothScrollBtn {
     position: relative;
     border: none;
@@ -117,6 +140,22 @@ body, html {
     text-align: center;
 }
 
+.stealthLinkWhite {
+    color: rgb(209, 209, 209);
+    outline: 0;
+    text-decoration: none;
+    font-family: "Gravity-Regular";
+    text-align: center;
+}
+
+.stealthLinkWhite:focus, .stealthLinkWhite:hover{
+    color: rgb(255, 255, 255);
+    outline: 0;
+    text-decoration: none;
+    font-family: "Gravity-Regular";
+    text-align: center;
+}
+
 .circleImg {
     border-radius: 50%;
     height: 250px;
@@ -132,8 +171,17 @@ body, html {
 
 .pad20 {
     padding: 20px;
-    padding-bottom: 5px;
+    padding-bottom: 20px;
 }
+
+.papers {
+    font-family: "Gravity-Regular";
+    letter-spacing: 10px;
+    padding-left: 60px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 0px;
+    text-align: left;}
 
 .rowPad {
     padding: 40px;
@@ -466,6 +514,7 @@ body .padX0 {
         padding-bottom: 80px;
     }
 
+} */
 }
 
 @media (max-width: 991px) {
@@ -476,14 +525,21 @@ body .padX0 {
     .centerTitle {
         padding-bottom: 40px;
     }
-}
 
+    .paperImg {
+        width: 30%;
+        /* border: none; */
+        /* vertical-align: center; */
+        /* border: 1px solid #101010; */
+    }
+
+}
+/*
 @media (min-width: 992px) {
     .videoBack div div .tilePadMin {
         padding-top: 40px;
         padding-bottom: 40px;
-    }
-} */
+    } */
 
 
 @media (max-width: 991px) {
