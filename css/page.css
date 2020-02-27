@@ -204,11 +204,12 @@ html {
   padding-bottom: 20px;
 }
 
-.papers {
+.papers , .papers h3{
   font-family: "Gravity-Regular";
   letter-spacing: 10px;
   padding-left: 60px;
   padding-top: 40px;
+  text-align: center;
   padding-bottom: 40px;
   margin-bottom: 0px;
   text-align: left;
@@ -391,6 +392,7 @@ body .padX0 {
   font-family: "Gravity-Regular";
   font-size: 1em;
   letter-spacing: 1px;
+  text-align: justify;
 }
 
 .subPmin {
