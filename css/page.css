@@ -126,14 +126,22 @@ html {
   padding: 10pt;
 }
 
+.exampleProj {
+  bottom: 0;
+  width: 100%;
+  padding-top: 10%;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
 .projCenter {
   padding-top: 20%;
   padding-bottom: 20%;
-    /* position: absolute;
+  /* position: absolute;
     top: auto;
     left: auto; */
-    /* bottom: auto; */
-    /* transform: translateX(-20%) translateY(-20%); */
+  /* bottom: auto; */
+  /* transform: translateX(-20%) translateY(-20%); */
   /* display: block;
   margin-left: auto;
   margin-right: auto;
@@ -222,7 +230,8 @@ html {
   padding-bottom: 20px;
 }
 
-.papers , .papers h3{
+.papers,
+.papers h3 {
   font-family: "Gravity-Regular";
   letter-spacing: 10px;
   padding-left: 60px;
@@ -249,7 +258,7 @@ html {
 }
 
 .tileDesc {
-  text-align: center;
+  text-align: justify;
   padding: 10px;
   padding-left: 5%;
   padding-right: 5%;

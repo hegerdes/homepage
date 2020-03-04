@@ -10,10 +10,10 @@ The site is build with the following sub-pages:
 
 | Page     | Purpose                   | Status                                |
 |----------|---------------------------|---------------------------------------|
-| Home     | Start page                | Style done; Missing example projects  |
-| Projects | List of personal projects | Style done; Missing projects Text  |
-| Papers   | List of written papers    | Done |
-| Tools    | List of tools/equipment   | Done                                 |
+| Home     | Start page                | Done; Minor BugFixes                  |
+| Projects | List of personal projects | Done; Minor BugFixes                  |
+| Papers   | List of written papers    | Done                                  |
+| Tools    | List of tools/equipment   | Done                                  |
 
 ## Address
 
