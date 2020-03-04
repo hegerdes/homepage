@@ -126,6 +126,24 @@ html {
   padding: 10pt;
 }
 
+.projCenter {
+  padding-top: 20%;
+  padding-bottom: 20%;
+    /* position: absolute;
+    top: auto;
+    left: auto; */
+    /* bottom: auto; */
+    /* transform: translateX(-20%) translateY(-20%); */
+  /* display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  margin-bottom: auto; */
+  /* padding-top: 10px;
+  padding-bottom: 10px;
+  align-content: center; */
+}
+
 .projImg {
   width: 100%;
   vertical-align: middle;
@@ -153,9 +171,9 @@ html {
 }
 
 .stealthLink {
-  color: rgb(15, 14, 14);
+  color: rgb(51, 49, 49);
   outline: 0;
-  text-decoration: none;
+  text-decoration: underline;
   font-family: "Gravity-Regular";
   text-align: center;
 }
@@ -404,6 +422,7 @@ body .padX0 {
 .extPad {
   padding: 60px;
   padding-top: 20px;
+  text-align: justify;
 }
 
 .listPad li {
