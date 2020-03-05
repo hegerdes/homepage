@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<!-- Welcome to the
+
+ /$$$$$$$                      /$$       /$$           /$$                                            /$$$$$$  /$$$$$$$$ /$$$$$$$$
+| $$__  $$                    | $$      | $$          | $$                                           /$$__  $$|__  $$__/| $$_____/
+| $$  \ $$  /$$$$$$   /$$$$$$ | $$$$$$$ | $$  /$$$$$$ | $$$$$$$   /$$$$$$   /$$$$$$  /$$   /$$      | $$  \__/   | $$   | $$
+| $$$$$$$  /$$__  $$ /$$__  $$| $$__  $$| $$ /$$__  $$| $$__  $$ /$$__  $$ /$$__  $$|  $$ /$$/      | $$         | $$   | $$$$$
+| $$__  $$| $$$$$$$$| $$$$$$$$| $$  \ $$| $$| $$$$$$$$| $$  \ $$| $$  \__/| $$  \ $$ \  $$$$/       | $$         | $$   | $$__/
+| $$  \ $$| $$_____/| $$_____/| $$  | $$| $$| $$_____/| $$  | $$| $$      | $$  | $$  >$$  $$       | $$    $$   | $$   | $$
+| $$$$$$$/|  $$$$$$$|  $$$$$$$| $$$$$$$/| $$|  $$$$$$$| $$$$$$$/| $$      |  $$$$$$/ /$$/\  $$      |  $$$$$$/   | $$   | $$
+|_______/  \_______/ \_______/|_______/ |__/ \_______/|_______/ |__/       \______/ |__/  \__/       \______/    |__/   |__/
+
+
+by Henrik Gerdes
+
+
+ Your goal isto find the passwords for all levels.
+
+RULES:
+Try hard        -> Dont give up easy
+Play fair 1     -> Dont let expensive prosseses running
+Play fair 2     -> Dont post wirtups or solutions
+
+To connect to the next room use ssh ctf_[LEVEL_NUMBER]@localhost or if a ip was given ssh ctf_[LEVEL_NUMBER]@[IP]
+There is a Website for every level. Just open a Browser with localhost[:PORT] or IP[:PORT].
+
+To help you to compleate the levels the flowwowing additional software have benn installed:
+
+    1. Wireshark
+    2. Burpsuite/Postman
+    3. nmap -->
+
+<html lang="en">
+<title>Beeblebrox CTF General Tipps</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel='stylesheet' href='stylesheets/style.css'>
+<link rel='stylesheet' href='stylesheets/w3-schools.css'>
+<link rel='stylesheet' href='stylesheets/w3-black.css'>
+<link rel='stylesheet' href='stylesheets/font-google.css'>
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-black.css"> -->
+<!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif;}
+.w3-sidebar {
+  z-index: 3;
+  width: 250px;
+  top: 43px;
+  bottom: 0;
+  height: inherit;
+}
+</style>
+
+<!-- This above is the header and has nothing to do with the site -->
+<body>
+
+<!-- Navbar -->
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-left w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+      <!-- Picture or not? -->
+      <!-- <a href="https://www.Beeblebrox.de/"><img class="w3-bar-item w3-button w3-hide-small w3-hover-white" src="/pics/Beeblebrox_logo.jpg" alt="Beeblebrox Logo" width="120" height="45"></a> -->
+      <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Beeblebrox<sub><code class="CS-Logo"></sub></code></a>
+      <a href="index.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Home</a>
+      <a href="solution.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Solutions</a>
+      <a href="about.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
+      <a href="credits.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Credits</a>
+      <a href="tipps.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">General Tipps</a>
+
+        <a href="login.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">Login</a>
+
+    </div>
+  </div>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Levels</b></h4>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf0.html" title= " Beeblebrox CTF Level 0 " >Go To Level 0</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf1.html" title= " Beeblebrox CTF Level 1 " >Go To Level 1</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf2.html" title= " Beeblebrox CTF Level 2 " >Go To Level 2</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf3.html" title= " Beeblebrox CTF Level 3 " >Go To Level 3</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf4.html" title= " Beeblebrox CTF Level 4 " >Go To Level 4</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf5.html" title= " Beeblebrox CTF Level 5 " >Go To Level 5</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf6.html" title= " Beeblebrox CTF Level 6 " >Go To Level 6</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf7.html" title= " Beeblebrox CTF Level 7 " >Go To Level 7</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf8.html" title= " Beeblebrox CTF Level 8 " >Go To Level 8</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf9.html" title= " Beeblebrox CTF Level 9 " >Go To Level 9</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf10.html" title= " Beeblebrox CTF Level 10 " >Go To Level 10</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf11.html" title= " Beeblebrox CTF Level 11 " >Go To Level 11</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf12.html" title= " Beeblebrox CTF Level 12 " >Go To Level 12</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf13.html" title= " Beeblebrox CTF Level 13 " >Go To Level 13</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf14.html" title= " Beeblebrox CTF Level 14 " >Go To Level 14</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf15.html" title= " Beeblebrox CTF Level 15 " >Go To Level 15</a>
+
+    <a class="w3-bar-item w3-button w3-hover-black" href= "task/ctf16.html" title= " Beeblebrox CTF Level 16 " >Go To Level 16</a>
+
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal"> General Tipps</h1>
+      <div class="w3-third w3-container"></div>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h3 class="w3-text-teal">The Terminal</h3>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://towardsdatascience.com/basics-of-bash-for-beginners-92e53a4c117a" title="Get to know the terminal">Get to know the Terminal</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell" title="Git Branching">Git Branching</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://www.cyberciti.biz/faq/bash-for-loop/" title="Some basic bash scripts">Some basic bash scripts</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/" title="Getting started with nano">Getting started with nano</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="http://www.jesshamrick.com/2012/09/10/absolute-beginners-guide-to-emacs/" title="Getting started with emacs">Getting started with emacs</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://ryanstutorials.net/linuxtutorial/piping.php" title="Piping and Redirection">Piping and Redirection</a></p>
+      <p>Ctr+Shift+C to <b>copy</b> text form the terminal.</p>
+      <p>Ctr+Shift+Past to <b>past</b> text to the terminal.</p>
+      <p>Use <b>">"</b> or <b>"<"</b> to send the output of a programm to a file. </p>
+      <p>Use <b>"|"</b> to send the output to another programm. Like: <code> cat ReadMe.md | grep Hello </code> </p>
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h3 class="w3-text-teal">The Web</h3>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://developer.mozilla.org/de/docs/Tools" title="Docs Firefox dev-tools">Docs Firefox dev-tools</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://developers.google.com/web/tools/chrome-devtools/" title="Docs Firefox dev-tools">Docs Chrome dev-tools</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://www.tutorialspoint.com/de/http/http_methods.htm" title="How do http reqests work">How do http reqests work</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://learning.getpostman.com/docs/postman/launching_postman/sending_the_first_request/" title="Postman your first request">Postman your first request</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://mariadb.com/kb/en/library/basic-sql-statements/" title="SQL Querys">SQL Querys</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://mariadb.com/kb/en/library/basic-sql-statements/" title="SQL Querys">SQL Querys</a></p>
+    </div>
+   </div>
+
+    <div class="w3-row w3-padding-16">
+      <div class="w3-twothird w3-container">
+        <h3 class="w3-text-teal">Other</h3>
+        <p>Take notes with code or sublime</p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://code.visualstudio.com/docs/introvideos/basics" title="VSCode">VSCode</a></p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://hackernoon.com/sublime-text-101-a-quick-overview-for-beginners-7cc5cd1dd9bb" title="Sublime-Text">Sublime-Text</a></p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://www.python.org/about/gettingstarted/" title="Python getting started">Python getting started</a></p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://pypi.org/project/requests/2.7.0/" title="Python-requests doku">Python-requests doku</a></p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://www.openwall.com/john/doc/" title="Python-requests doku"> john the ripper doku</a></p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://nmap.org/docs.html" title="nmap doku">nmap doku</a></p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://wiki.ubuntuusers.de/Steghide/" title="Steghide">Steghide</a></p>
+      </div>
+    </div>
+
+  <!-- Footer -->
+  <!-- Footer -->
+<footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>Beeblebrox CTF</h4>
+      <h6>A UNIX and IT-Secirity program.</h6>
+    </div>
+
+    <div class="w3-container w3-theme-l1">
+      <h5>Created by Henrik Gerdes <br> Website CSS by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></h5>
+    </div>
+  </footer>
+
+<!-- END MAIN -->
+</div>
+
+
+<!-- Scripts -->
+<!-- Scripts -->
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+
+</body>
+</html>
