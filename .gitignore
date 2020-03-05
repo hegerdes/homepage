@@ -1,5 +1,6 @@
 #Stuff to ignore
 .vscode/**
+node_modules/**
 
 #Files
 *.mp4
