@@ -230,6 +230,11 @@ html {
   padding-bottom: 20px;
 }
 
+.pad40 {
+  padding: 40px;
+  padding-bottom: 40px;
+}
+
 .papers,
 .papers h3 {
   font-family: "Gravity-Regular";
@@ -603,6 +608,11 @@ body .padX0 {
   .sub {
     letter-spacing: 0px;
   }
+
+  .borderProj {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -630,6 +640,11 @@ body .padX0 {
   .listPad li {
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  .borderProj {
+    padding-left: 30px;
+    padding-right: 30px;
   }
 }
 
