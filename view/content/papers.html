@@ -143,12 +143,12 @@
     </div>
     <div class="container-fluid whiteRow pad20">
         <div class="container">
-            <h3 class="papers" style="text-align: center;">Pacman Poster - <br>Metrics about game movement models</h3>
+            <h3 class="papers" style="text-align: center;">Pacman Poster - <br>Implementing Pacman on real streets</h3>
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="mycenter">
-                        <a href="../../public/docs/poster.pdf"><img src="../../public/img/pac-poster.png"
-                                class="paperImg"></a>
+                        <a href="../../public/docs/pac-poster-general.pdf"><img
+                                src="../../public/img/pac-poster_general.png" class="paperImg"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12">
@@ -157,13 +157,41 @@
                         on real street maps. The goal is to acquire as many packages as possible without loosing them to
                         the ghosts or other players. <br>
                         Maps can be dynamically generated. Street information are provided by the API of the
-                        OpenStreetMap (OSM) project. The ghost movement are based on MSLAW and RandomStreet, both models
-                        simulate real human movement. Rendering and game-logic are implemented with PyGame. <br>
-                        The poster systematical analyses the impact of MSLAW and RandomStreet parameters on game
-                        difficulty. For consistent testing purposes an AI player was created. Its movement was
-                        controlled by the OpenStreet-Routing-Machine (OSRM).
+                        OpenStreetMap (OSM) project. The ghost movement are based on the MSLAW and RandomStreet movement
+                        models,
+                        both models simulate real human movement. Rendering and game-logic are implemented with PyGame.
+                        <br>
+                        The poster gives a general overview about the project. It lists the used tools and process of
+                        development. All basic gameplay concepts are explained and design decisions are discussed.
                     </p>
                     <p class="subP">View the paper <a href="../../public/docs/poster.pdf">here.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid whiteRow pad20">
+        <div class="container">
+            <h3 class="papers" style="text-align: center;">Pacman Poster - <br>Metrics about game movement models</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <div class="mycenter">
+                        <a href="../../public/docs/pac-poster-specific.pdf"><img src="../../public/img/pac-poster.png"
+                                class="paperImg"></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12">
+                    <p class="subP"><em><i>Abstract:</i></em><br /><br />
+                        This poster is a more specific purpose based poster to the same Pacman project. After the
+                        development phase
+                        was done we were ask to do some scientific analyses on the game. <br>
+                        The poster systematical analyses the impact of MSLAW and RandomStreet movement parameters on
+                        game
+                        difficulty. For consistent testing purposes an AI player was created. Its movement was
+                        controlled by the OpenStreet-Routing-Machine (OSRM).<br>
+                        Every parameter variation was run several times and gameplay events were logged. The data was
+                        than alkalized and visually processed.
+                    </p>
+                    <p class="subP">View the paper <a href="../../public/docs/pac-poster-specific.pdf">here.</a></p>
                 </div>
             </div>
         </div>
