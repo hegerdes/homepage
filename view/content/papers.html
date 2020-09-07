@@ -51,8 +51,9 @@
         </div>
 
         <div class="homeSouth">
-            <h4><a class="stealthLink subTitle pad20" href="#">VIEW PAPERS</a></h4>
-            <button class="smoothScrollBtn" type="button"><img src="../../public/img/icon/arrow_black.png" width="30" /></button>
+            <h4><a class="stealthLink subTitle pad20" href="#papers">VIEW PAPERS</a></h4>
+            <button class="smoothScrollBtn" type="button"><img src="../../public/img/icon/arrow_black.png"
+                    width="30" /></button>
         </div>
     </div>
 
@@ -62,13 +63,15 @@
 
     <div class="container-fluid whiteRow pad20">
         <div class="container">
+            <a name="papers"></a>
             <h3 class="papers" style="text-align: center;">Connecting Software - <br
                     style="line-height:22px; padding-bottom: 50px;">ESB
                 principles and solutions</h3>
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="mycenter">
-                        <a href="../../public/docs/swe_connecting.pdf"><img src="../../public/img/SWE-Connect.png" class="paperImg"></a>
+                        <a href="../../public/docs/swe_connecting.pdf"><img src="../../public/img/SWE-Connect.png"
+                                class="paperImg"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12">
@@ -90,21 +93,25 @@
     </div>
     <div class="container-fluid whiteRow pad20">
         <div class="container">
-            <h3 class="papers" style="text-align: center;">Connecting Software - <br>LaTeX Presentation</h3>
+            <h3 class="papers" style="text-align: center;">MPTCP Scheduler</h3>
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="mycenter">
-                        <a href="../../public/docs/connecting_pres.pdf"><img src="../../public/img/SWE-Pres.png" class="paperImg"></a>
+                        <a href="../../public/docs/mptcp_scheduler.pdf"><img
+                                src="../../public/img/SYS_MPTCP_Scheduler.png" class="paperImg"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12">
                     <p class="subP"><em><i>Abstract:</i></em><br /><br />
-                        This presentation belongs to the paper about Connecting Software. It summarizes the acquired
-                        knowledge for the paper and visualizes the information in a appealing form.
-                        It introduces the fundamental concepts of application communication and functions of an ESB <br>
-                        The document was created with LaTeX. Source can be found at my GitHub.
+                        An increasing number of mobile nodes provide the ability to utilize multiple network
+                        paths. Multi-path connections are able to combine different network paths to
+                        enable increased goodput, resilience and seamless handovers between paths. MPTCP
+                        promises to do this while being backwards compatible. The performance achieved for
+                        latency and goodput depends on the network paths and how packets are scheduled
+                        on these paths. The following paper will summarize different scheduling algorithms,
+                        show their areas of application and point out their strengths and weaknesses.
                     </p>
-                    <p class="subP">View the paper <a href="../../public/docs/connecting_pres.pdf">here.</a></p>
+                    <p class="subP">View the paper <a href="../../public/docs/mptcp_scheduler.pdf">here.</a></p>
                 </div>
             </div>
         </div>
@@ -115,7 +122,8 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="mycenter">
-                        <a href="../../public/docs/ctf_paper.pdf"><img src="../../public/img/ctf_paper.png" class="paperImg"></a>
+                        <a href="../../public/docs/ctf_paper.pdf"><img src="../../public/img/ctf_paper.png"
+                                class="paperImg"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12">
@@ -138,11 +146,12 @@
     </div>
     <div class="container-fluid whiteRow pad20">
         <div class="container">
-            <h3 class="papers" style="text-align: center;">Pacman Poster - <br>Metrics about game movement models</h3>
+            <h3 class="papers" style="text-align: center;">Pacman Poster - <br>Implementing Pacman on real streets</h3>
             <div class="row">
                 <div class="col-lg-4 col-md-12">
                     <div class="mycenter">
-                        <a href="../../public/docs/poster.pdf"><img src="../../public/img/pac-poster.png" class="paperImg"></a>
+                        <a href="../../public/docs/pac-poster-general.pdf"><img
+                                src="../../public/img/pac-poster_general.png" class="paperImg"></a>
                     </div>
                 </div>
                 <div class="col-lg-8 col-md-12">
@@ -151,13 +160,63 @@
                         on real street maps. The goal is to acquire as many packages as possible without loosing them to
                         the ghosts or other players. <br>
                         Maps can be dynamically generated. Street information are provided by the API of the
-                        OpenStreetMap (OSM) project. The ghost movement are based on MSLAW and RandomStreet, both models
-                        simulate real human movement. Rendering and game-logic are implemented with PyGame. <br>
-                        The poster systematical analyses the impact of MSLAW and RandomStreet parameters on game
-                        difficulty. For consistent testing purposes an AI player was created. Its movement was
-                        controlled by the OpenStreet-Routing-Machine (OSRM).
+                        OpenStreetMap (OSM) project. The ghost movement are based on the MSLAW and RandomStreet movement
+                        models,
+                        both models simulate real human movement. Rendering and game-logic are implemented with PyGame.
+                        <br>
+                        The poster gives a general overview about the project. It lists the used tools and process of
+                        development. All basic gameplay concepts are explained and design decisions are discussed.
                     </p>
-                    <p class="subP">View the paper <a href="../../public/docs/poster.pdf">here.</a></p>
+                    <p class="subP">View the paper <a href="../../public/docs/pac-poster-general.pdf">here.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid whiteRow pad20">
+        <div class="container">
+            <h3 class="papers" style="text-align: center;">Pacman Poster - <br>Metrics about game movement models</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <div class="mycenter">
+                        <a href="../../public/docs/pac-poster-specific.pdf"><img src="../../public/img/pac-poster.png"
+                                class="paperImg"></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12">
+                    <p class="subP"><em><i>Abstract:</i></em><br /><br />
+                        This poster is a more specific purpose based poster to the same Pacman project. After the
+                        development phase
+                        was done we were ask to do some scientific analyses on the game. <br>
+                        The poster systematical analyses the impact of MSLAW and RandomStreet movement parameters on
+                        game
+                        difficulty. For consistent testing purposes an AI player was created. Its movement was
+                        controlled by the OpenStreet-Routing-Machine (OSRM).<br>
+                        Every parameter variation was run several times and gameplay events were logged. The data was
+                        than alkalized and visually processed.
+                    </p>
+                    <p class="subP">View the paper <a href="../../public/docs/pac-poster-specific.pdf">here.</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid whiteRow pad20">
+        <div class="container">
+            <h3 class="papers" style="text-align: center;">Connecting Software - <br>LaTeX Presentation</h3>
+            <div class="row">
+                <div class="col-lg-4 col-md-12">
+                    <div class="mycenter">
+                        <a href="../../public/docs/connecting_pres.pdf"><img src="../../public/img/SWE-Pres.png"
+                                class="paperImg"></a>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-12">
+                    <p class="subP"><em><i>Abstract:</i></em><br /><br />
+                        This presentation belongs to the paper about Connecting Software. It summarizes the acquired
+                        knowledge for the paper and visualizes the information in a appealing form.
+                        It introduces the fundamental concepts of application communication and functions of an ESB <br>
+                        The document was created with LaTeX. Source can be found at my GitHub.
+                    </p>
+                    <p class="subP">View the paper <a href="../../public/docs/connecting_pres.pdf">here.</a></p>
                 </div>
             </div>
         </div>
