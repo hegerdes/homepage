@@ -15,10 +15,14 @@ The site is build with the following sub-pages:
 | Papers   | List of written papers    | Done                                  |
 | Tools    | List of tools/equipment   | Done                                  |
 
+#### TODO:
+ * Create a automatic script to update porjects
+ * Few improvments for mobile version
+
 ## Address
 
 The website can be found at [henrikgerdes.me](https://henrikgerdes.me).
 
 ## Deployment
 
-The website is deployed through [Netlify](https://www.netlify.com) and [GitHub](https://www.github.com)
+The website is deployed through a automatic [Netlify](https://www.netlify.com) and [GitHub](https://www.github.com) CI
