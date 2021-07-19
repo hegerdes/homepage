@@ -1,5 +1,5 @@
 <template>
-  <b-navbar toggleable="lg" type="light" variant="faded" :sticky="true">
+  <b-navbar toggleable="sm" type="light" variant="faded" :sticky="true">
     <b-navbar-brand tag="h1" href="/">Henrik Gerdes</b-navbar-brand>
     <div class="container">
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>

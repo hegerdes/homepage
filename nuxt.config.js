@@ -21,7 +21,10 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-
+  env: {
+    BASE_URL: process.env.BASE_URL || 'http://localhost:3000',
+    PAGE_OWNER: process.env.PAGE_OWNER || 'Henrik Gerdes'
+  },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
   ],
