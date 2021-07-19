@@ -15,13 +15,13 @@
       @sliding-end="onSlideEnd"
     >
       <!-- Text slides with image -->
+      <!-- TODO -->
       <b-carousel-slide
         img-src="~/assets/img/home-sliede-1.jpg"
-        content-visible-up="sm"
         img-alt="Sunset image"
       >
         <h1>{{ owner }}</h1>
-        <p>an university student form Osnabrück with passion for coding</p>
+        <p> {{ ownerSlug }} </p>
       </b-carousel-slide>
 
       <!-- Slides with custom text -->
@@ -30,8 +30,8 @@
         content-visible-up="sm"
         img-alt="Plant on whater image"
       >
-        <h1>Henrik Gerdes</h1>
-        <p>an university student form Osnabrück with passion for coding</p>
+        <h1>{{ owner }}</h1>
+        <p> {{ ownerSlug }} </p>
       </b-carousel-slide>
 
       <!-- Slides with image only -->
@@ -40,8 +40,8 @@
         content-visible-up="sm"
         img-alt="Sky with mountin summit image"
       >
-        <h1>Henrik Gerdes</h1>
-        <p>an university student form Osnabrück with passion for coding</p>
+        <h1>{{ owner }}</h1>
+        <p> {{ ownerSlug }} </p>
       </b-carousel-slide>
     </b-carousel>
   </div>
@@ -59,6 +59,7 @@ export default Vue.extend({
       slide: 0,
       sliding: false,
       owner: process.env.PAGE_OWNER,
+      ownerSlug: process.env.PAGE_OWNER_SLUG
     }
   },
   methods: {
@@ -73,6 +74,18 @@ export default Vue.extend({
 </script>
 
 <style>
+
+.carousel-inner {
+
+max-height: 650px;
+
+}
+.carousel-inner .img {
+
+max-height: 650px;
+
+
+}
 .carousel-caption {
   top: 5%;
   right: 65%;

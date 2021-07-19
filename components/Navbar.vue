@@ -1,9 +1,7 @@
 <template>
   <b-navbar toggleable="sm" type="light" variant="faded" :sticky="true">
     <b-navbar-brand tag="h1" href="/">Henrik Gerdes</b-navbar-brand>
-    <div class="container">
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
-
       <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
         <b-nav-item href="#">Projects</b-nav-item>
@@ -18,7 +16,6 @@
 
       </b-navbar-nav>
     </b-collapse>
-    </div>
   </b-navbar>
 </template>
 
