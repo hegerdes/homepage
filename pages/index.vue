@@ -4,10 +4,13 @@
       <Navbar />
     </div>
     <div>
-    <HomeImage />
+      <HomeImage />
     </div>
     <div>
       <AboutMe />
+    </div>
+    <div>
+      <MyFavProjects />
     </div>
   </div>
 </template>
@@ -18,6 +21,7 @@ import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import Navbar from '~/components/Navbar.vue'
 import HomeImage from '~/components/HomeImage.vue'
 import AboutMe from '~/components/AboutMe.vue'
+import MyFavProjects from '~/components/MyFavProjects.vue'
 
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
@@ -26,7 +30,8 @@ export default Vue.extend({
   components: {
     Navbar,
     HomeImage,
-    AboutMe
+    AboutMe,
+    MyFavProjects,
   },
 })
 </script>

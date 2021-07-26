@@ -9,32 +9,29 @@ export default {
   head: {
     title: 'NewPage',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
     },
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   env: {
     BASE_URL: process.env.BASE_URL || 'http://localhost:3000',
     PAGE_OWNER: process.env.PAGE_OWNER || 'Joh Doe',
-    PAGE_OWNER_SLUG: process.env.PAGE_OWNER_SLUG || 'Your super individual quote here'
+    PAGE_OWNER_SLUG:
+      process.env.PAGE_OWNER_SLUG || 'Your super individual quote here',
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-  ],
+  css: ['~layouts/global.css'],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [],
   generate: {
-    fallback: true
+    fallback: true,
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -53,6 +50,5 @@ export default {
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {
-  }
+  build: {},
 }
