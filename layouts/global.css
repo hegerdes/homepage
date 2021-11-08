@@ -21,3 +21,17 @@
 html {
   font-family: 'Gravity-Regular';
 }
+.centerTitle {
+  text-align: center;
+  font-family: Gravity-Regular;
+}
+
+.stealth-link a {
+  color: gray;
+  font-family: 'Gravity-Regular';
+  transition: 0.2s ease-in-out;
+}
+
+.stealth-link a:hover {
+  color: white;
+}

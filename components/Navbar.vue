@@ -4,10 +4,9 @@
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
       <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item href="#">Projects</b-nav-item>
-        <b-nav-item href="#" >Career</b-nav-item>
-        <b-nav-item href="#" >Papers</b-nav-item>
-        <b-nav-item href="#" >Tools</b-nav-item>
+        <b-nav-item href="/projects">Projects</b-nav-item>
+        <b-nav-item href="#" >Blog</b-nav-item>
+        <b-nav-item href="/mix" >MixMax</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
