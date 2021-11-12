@@ -30,7 +30,7 @@ import AboutMe from '~/components/AboutMe.vue'
 import MyFavProjects from '~/components/MyFavProjects.vue'
 import Languages from '~/components/Languages.vue'
 import Footer from '~/components/PageFooter.vue'
-import pageData from '~/content/index-content.json'
+import pageData from '~/meta-content/index-content.json'
 
 
 Vue.use(BootstrapVue)

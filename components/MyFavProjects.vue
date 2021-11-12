@@ -39,7 +39,7 @@
     </b-row>
     <b-row align-v="center">
       <b-col class="text-center"
-        ><b-button href="view/content/projects.html" size="lg"
+        ><b-button href="/projects.html" size="lg"
           >Learn More</b-button
         ></b-col
       >

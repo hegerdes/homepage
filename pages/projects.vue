@@ -2,7 +2,7 @@
   <div id="main">
     <Navbar />
     <HomeRow :hometitle="'CODE REPOSITORY'" :homeimg="homeimg" :homemsg="'JAVA | C/C++ | Python | WEB | IT-Sec'"/>
-    <ProjectEntry :projectontent="projetcs"/>
+    <ProjectEntry :projectcontent="projetcs"/>
     <Colab/>
     <Footer />
   </div>
@@ -16,7 +16,7 @@ import Footer from '~/components/PageFooter.vue'
 import HomeRow from '~/components/HomeRow.vue'
 import ProjectEntry from '~/components/ProjectEntry.vue'
 import Colab from '~/components/Colab.vue'
-import pageData from '~/content/projects-content.json'
+import pageData from '~/meta-content/projects-content.json'
 
 
 Vue.use(BootstrapVue)

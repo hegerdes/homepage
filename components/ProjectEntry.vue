@@ -1,7 +1,7 @@
 <template>
   <div>
     <a name="first"></a>
-    <b-container v-for="(val, index) in projectontent" :key="index" fluid>
+    <b-container v-for="(val, index) in projectcontent" :key="index" fluid>
       <a :name="val.title"></a>
       <div class="proj">
         <b-row class="align-self-stretch justify-content-md-center my-5">
@@ -40,7 +40,7 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'ProjectEntry',
-  props: ['projectontent'],
+  props: ['projectcontent'],
   data() {
     return {}
   },

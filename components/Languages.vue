@@ -35,7 +35,7 @@
             <p class="text-muted stealth-link">
               <a :href="val.link" style="border-width: 0px"> Example Project</a>
               |
-              <a href="content/projects.html"> View all projects </a>
+              <a href="/projects.html"> View all projects </a>
             </p>
           </template>
         </b-card>

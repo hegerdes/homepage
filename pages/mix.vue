@@ -14,7 +14,7 @@ import Navbar from '~/components/Navbar.vue'
 import HomeRow from '~/components/HomeRow.vue'
 import PaperEntry from '~/components/PaperEntry.vue'
 import Footer from '~/components/PageFooter.vue'
-import mixData from '~/content/mix-content.json'
+import mixData from '~/meta-content/mix-content.json'
 
 
 Vue.use(BootstrapVue)
