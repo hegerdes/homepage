@@ -27,21 +27,15 @@
           style="max-width: 25rem"
           class="h-100"
         >
-          <b-card-text>
-            A round based 2D strategy game with 3D PvP fights.
-          </b-card-text>
-          <b-card-text>
-            Its basically a collection of my C++ skills. Including
-            Templates,Boost, QT, OpenGL and SDL.
+          <b-card-text v-for="(msg, msg_index) in val.msg" :key="msg_index">
+            {{ msg }}
           </b-card-text>
         </b-card>
       </b-col>
     </b-row>
     <b-row align-v="center">
       <b-col class="text-center"
-        ><b-button href="/projects.html" size="lg"
-          >Learn More</b-button
-        ></b-col
+        ><b-button href="/projects.html" size="lg">Learn More</b-button></b-col
       >
     </b-row>
   </b-container>

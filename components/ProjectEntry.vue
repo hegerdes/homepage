@@ -49,10 +49,10 @@ export default Vue.extend({
 
 <style >
 .proj {
-  margin-right: 10%;
-  margin-left: 10%;
-  padding-left: 70px;
-  padding-right: 70px;
+  margin-right: 15%;
+  margin-left: 15%;
+  padding-left: 80px;
+  padding-right: 80px;
 }
 .proj h3 {
   padding-top: 5%;
@@ -84,7 +84,7 @@ export default Vue.extend({
   z-index: 5;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .proj {
     padding-left: 2%;
     padding-right: 2%;
