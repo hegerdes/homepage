@@ -24,8 +24,6 @@ export default {
     PAGE_OWNER_GITHUB: process.env.PAGE_OWNER_GITHUB || 'https://www.github.com',
     BASE_URL: process.env.BASE_URL || 'http://localhost:3000',
     PAGE_OWNER: process.env.PAGE_OWNER || 'Joh Doe',
-    PAGE_OWNER_SLUG:
-      process.env.PAGE_OWNER_SLUG || 'Your super individual quote here',
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~layouts/global.css'],

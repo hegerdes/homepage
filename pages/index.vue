@@ -1,23 +1,11 @@
 <template>
   <div id="main">
-    <div>
       <Navbar />
-    </div>
-    <div>
-      <HomeImage />
-    </div>
-    <div>
-      <AboutMe />
-    </div>
-    <div>
+      <HomeImage :homeRowContent="homeRowContent"/>
+      <AboutMe :aboutmeontent="aboutMeContent"/>
       <MyFavProjects :projectontent="projectContent"/>
-    </div>
-    <div>
       <Languages :language-content="languageContent" :skill-content="skillContent" />
-    </div>
-    <div>
       <Footer />
-    </div>
   </div>
 </template>
 
@@ -59,7 +47,9 @@ export default Vue.extend({
       projectContent: {
           cols: 3,
           content: pageData.fav_projects
-      }
+      },
+      homeRowContent: pageData.home_row,
+      aboutMeContent: pageData.about_me
     }
   },
 })

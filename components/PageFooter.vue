@@ -58,6 +58,11 @@ export default Vue.extend({
   display: inline-block;
 }
 
+.black-row {
+  background-color: #282828;
+  color: white;
+}
+
 .centerLinks {
   list-style-type: none;
   padding: 0px;
