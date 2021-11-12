@@ -2,7 +2,7 @@
   <b-container fluid>
     <b-row align-v="center" class="mt-4">
       <b-col class="text-center">
-        <h1>{{hometitle}}</h1>
+        <h1 style="letter-spacing: 8px">{{hometitle}}</h1>
       </b-col>
     </b-row>
     <b-row align-self-stretch justify-content-md-center>
@@ -19,7 +19,7 @@
     </b-row>
     <b-row align-v="center" class="my-5">
       <b-col class="text-center">
-        <h3 style="line-height: 150%">
+        <h3 style="line-height: 150%; letter-spacing: 5px">
           {{ homemsg }}
         </h3>
       </b-col>

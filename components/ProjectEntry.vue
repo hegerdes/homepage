@@ -1,37 +1,37 @@
 <template>
   <div>
-    <b-container fluid >
-        <a name="flappy"></a>
-        <b-row>
-
-        </b-row>
-
-    </b-container>
-    <div class="container-fluid whiteRow pad20">
-        <a name="flappy"></a>
-        <div class="container pad20">
-            <div class="borderProj">
-                <div class="row">
-                    <div class="col-lg-4 col-md-12">
-                        <div class="projCenter">
-                            <img src="/img/flappy.gif" class="projImg">
-                        </div>
-                    </div>
-                    <div class="projText col-lg-8 col-md-12">
-                        <h3 class="regTitle">FlappyBird | Java</h3>
-                        <p class="subP italic">A OpenGL FlappyBird clone</p>
-                        <p class="subText white extPad" id="desc">You gotta jump on the hype. This is a simple
-                            FlappyBird clone written in Java using LWJGL. It uses OpenGL Shaders and Vertices for
-                            rendering. Just like the mobile version this game is hard. But installation is easy. Just
-                            clone the code and run maven on the pom file. Maven takes care of all dependency's. <br><br>
-                            <a class="btn btn-secondary btn-lg w100" href="https://github.com/hegerdes/FlappyBird"
-                                role="button">View Repository</a>
-                        </p>
-                    </div>
-                </div>
+    <a name="first"></a>
+    <b-container v-for="(val, index) in projectontent" :key="index" fluid>
+      <a :name="val.title"></a>
+      <div class="proj">
+        <b-row class="align-self-stretch justify-content-md-center my-5">
+          <b-col lg="5" class="d-flex justify-content-center">
+            <div class="projPicCenter">
+              <b-img :src="val.pic" fluid-grow alt="Responsive image"></b-img>
             </div>
-        </div>
-    </div>
+          </b-col>
+          <b-col class="px-5 pb-2 mx-auto">
+            <h3>{{ val.title }}</h3>
+            <p class="subP italic">{{ val.undertitle }}</p>
+            <p
+              v-for="(msg, msg_index) in val.msg"
+              :key="msg_index"
+              class="subText white extPad"
+            >
+              {{ msg }}
+            </p>
+            <br />
+            <b-button
+              v-for="(link, link_index) in val.links"
+              :key="link_index"
+              :href="link.url"
+              class="mr-2 mb-2"
+              >{{ link.text }}
+            </b-button>
+          </b-col>
+        </b-row>
+      </div>
+    </b-container>
   </div>
 </template>
 
@@ -39,6 +39,67 @@
 import Vue from 'vue'
 
 export default Vue.extend({
-  name: 'ProjectEntry'
+  name: 'ProjectEntry',
+  props: ['projectontent'],
+  data() {
+    return {}
+  },
 })
 </script>
+
+<style >
+.proj {
+  margin-right: 10%;
+  margin-left: 10%;
+  padding-left: 70px;
+  padding-right: 70px;
+}
+.proj h3 {
+  padding-top: 5%;
+}
+
+.projPicCenter {
+  padding-top: 15%;
+  padding-bottom: 15%;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.proj .row {
+  border-width: 2px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #282828;
+}
+
+.proj .row:hover,
+.proj h3,
+.proj p {
+  -webkit-transform: scale(1.05);
+  -moz-transform: scale(1.05);
+  -o-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+  z-index: 5;
+}
+
+@media (max-width: 900px) {
+  .proj {
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .proj h3 {
+    padding-top: 0%;
+  }
+  .projPicCenter {
+    margin-top: 0%;
+    margin-bottom: 0%;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+</style>

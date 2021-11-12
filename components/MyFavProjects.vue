@@ -18,8 +18,6 @@
         :md="12 / projectontent.cols"
         class="d-flex justify-content-center my-4"
       >
-        {{ index }}
-
         <b-card
           :title="val.title"
           :img-src="val.pic"

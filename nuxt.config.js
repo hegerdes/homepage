@@ -7,7 +7,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'NewPage',
+    title: process.env.PAGE_OWNER || 'Joh Doe' + ' HomePage',
     htmlAttrs: {
       lang: 'en',
     },
@@ -20,6 +20,8 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   env: {
+    PAGE_OWNER_MAIL: process.env.PAGE_OWNER_MAIL || 'example@example.com',
+    PAGE_OWNER_GITHUB: process.env.PAGE_OWNER_GITHUB || 'https://www.github.com',
     BASE_URL: process.env.BASE_URL || 'http://localhost:3000',
     PAGE_OWNER: process.env.PAGE_OWNER || 'Joh Doe',
     PAGE_OWNER_SLUG:
@@ -41,6 +43,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    '@nuxtjs/vuetify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

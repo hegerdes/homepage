@@ -2,7 +2,8 @@
   <div id="main">
     <Navbar />
     <HomeRow :hometitle="'CODE REPOSITORY'" :homeimg="homeimg" :homemsg="'JAVA | C/C++ | Python | WEB | IT-Sec'"/>
-    <ProjectEntry/>
+    <ProjectEntry :projectontent="projetcs"/>
+    <Colab/>
     <Footer />
   </div>
 </template>
@@ -14,15 +15,19 @@ import Navbar from '~/components/Navbar.vue'
 import Footer from '~/components/PageFooter.vue'
 import HomeRow from '~/components/HomeRow.vue'
 import ProjectEntry from '~/components/ProjectEntry.vue'
+import Colab from '~/components/Colab.vue'
+import pageData from '~/content/projects-content.json'
+
 
 Vue.use(BootstrapVue)
 Vue.use(BootstrapVueIcons)
 
 export default Vue.extend({
-  components: { Navbar, Footer, HomeRow, ProjectEntry },
+  components: { Navbar, Footer, HomeRow, ProjectEntry, Colab },
   data() {
     return {
       homeimg: '/img/code.jpg',
+      projetcs: pageData.projects
     }
   },
 })

@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /public/docs/*
-Disallow: /public/img/*
+Disallow: /docs/*
+Disallow: /img/*
 Disallow: /view/content/ctf/*

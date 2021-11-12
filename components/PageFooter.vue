@@ -1,5 +1,6 @@
 <template>
   <b-container fluid class="black-row p-4">
+    <a name="conatact" ></a>
     <footer class="footer" style="padding-bottom: 50px">
       <a name="contact"></a>
       <b-row align-v="center" class="my-4">
@@ -9,12 +10,12 @@
       </b-row>
       <ul class="centerLinks socialIcons">
         <li>
-          <a href="https://github.com/hegerdes"
+          <a :href="github"
             ><img src="~/static/img/icon/github.png" />
           </a>
         </li>
         <li>
-          <a href="mailto:hegerdes@uos.de"
+          <a :href="'mailto:' + mail"
             ><img src="~/static/img/icon/email.png" />
           </a>
         </li>
@@ -23,8 +24,8 @@
         <b-col>
           <p class="centerTitle stealth-link">
             Email me with any suggestions, collaborations or just to talk!<br /><a
-              href="mailto:hegerdes@uos"
-              >hegerdes@uos.de</a
+              :href="'mailto:' + mail"
+              >{{ mail }}</a
             >
           </p>
         </b-col>
@@ -38,6 +39,12 @@ import Vue from 'vue'
 
 export default Vue.extend({
   name: 'Footer',
+  data() {
+    return {
+      mail: process.env.PAGE_OWNER_MAIL,
+      github: process.env.PAGE_OWNER_GITHUB,
+    }
+  },
 })
 </script>
 
