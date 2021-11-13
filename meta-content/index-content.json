@@ -1,0 +1,103 @@
+{
+  "about_me": {
+    "pic": "/img/me.jpg",
+    "msg": [
+      "Welcome to my website!",
+      "My name is Henrik Gerdes. I'm a computer scientist student at the university of Osnabrück (Germany). I have a passion for solving general, specific or hard problems in computer since. I love to find elegant and efficient ways to automate recurring tasks. In the last year I did some projects with computer/game graphics, low level socket programming and worked with routing in graphs.",
+      "Recently I did an internship at a security company and finished my bachlor thesis while working for an local software company. I love experimenting with different technologies and aumulated a knowlage in a varity of different fields. Examples are in the software area."
+    ]
+  },
+  "home_row": [
+    {
+      "msg": "an university student from Osnabrück with passion for coding",
+      "pic": "/img/slides/slide (1).jpg"
+    },
+    {
+      "msg": "an university student from Osnabrück with passion for coding",
+      "pic": "/img/slides/slide (2).jpg"
+    },
+    {
+      "msg": "an university student from Osnabrück with passion for coding",
+      "pic": "/img/slides/slide (3).jpg"
+    },
+    {
+      "msg": "an university student from Osnabrück with passion for coding",
+      "pic": "/img/slides/slide (4).jpg"
+    }
+  ],
+
+  "fav_projects": [
+    {
+      "title": "Galaxy Fight",
+      "msg": [
+        "A round based 2D strategy game with 3D PvP fights.",
+        "Its basically a collection of my C++ skills. Including Templates,Boost, QT, OpenGL and SDL."
+      ],
+      "pic": "/img/galaxy.png"
+    },
+    {
+      "title": "Pacmap",
+      "msg": [
+        "Want to play Pacman in your home town streets? Want to compete with your friends?",
+        "Than play Pacmap. Its an multiplayer Pacman on street maps."
+      ],
+      "pic": "/img/pac.png"
+    },
+    {
+      "title": "Beeblebrox CTF",
+      "msg": [
+        "A VM for IT-Sec starters to learn Unix and find common IT Security flaws.",
+        "It includes Bash-Scripting, Web-Scraping and manipulation of Web-Authentication."
+      ],
+      "pic": "/img/ctf.png"
+    }
+  ],
+  "language": [
+    {
+      "title": "PYTHON",
+      "msg": "2 years data mining and manipulation. Also use of AI algorithms, PyGame and general scripting with Python 3.",
+      "link": "none"
+    },
+    {
+      "title": "WEB",
+      "msg": "Fluid with HTML, CSS, JavaScript, TypeScript. NodeJS backend and frontend projects using express, OAS and VUE.JS. I can to create REST APIs and responsive website with bootstrab.",
+      "link": "none"
+    },
+    {
+      "title": "C/C++",
+      "msg": "1 1/2 years developing algorithms, OpenGL vertices and GUI elements using QT",
+      "link": "none"
+    },
+    {
+      "title": "JAVA",
+      "msg": "3 years of object oriented programming, multimedia tools, datatypes and software-engineering concepts.",
+      "link": "none"
+    }
+  ],
+  "skill": [
+    "Git/SVN",
+    "GitLab CI",
+    "GitHub Actions",
+    "Azure",
+    "AWS",
+    "Horoku",
+    "Netify",
+    "Linux",
+    "Docker",
+    "MariaDB",
+    "MongoDB",
+    "Nginx",
+    "Grafana",
+    "Wireshark",
+    "LaTeX",
+    "Markdown",
+    "REST",
+    "GraphQL",
+    "WebSockets",
+    "Dash",
+    "Pandas",
+    "Flask",
+    "Silenium",
+    "Boost"
+  ]
+}
