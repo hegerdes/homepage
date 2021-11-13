@@ -14,7 +14,7 @@
         <b-nav-item>|</b-nav-item>
         <b-nav-item href="/projects">Projects</b-nav-item>
         <b-nav-item>|</b-nav-item>
-        <b-nav-item href="/mix">MixMax</b-nav-item>
+        <b-nav-item href="/papers">Academic </b-nav-item>
         <b-nav-item>|</b-nav-item>
         <b-nav-item href="/blog">Blog</b-nav-item>
       </b-navbar-nav>

@@ -1,7 +1,7 @@
 <template>
-  <b-container fluid class="black-row p-4">
+  <b-container fluid class="black-row p-4 my-footer" >
     <a name="conatact" ></a>
-    <footer class="footer" style="padding-bottom: 50px">
+    <footer  style="padding-bottom: 50px">
       <a name="contact"></a>
       <b-row align-v="center" class="my-4">
         <b-col>
@@ -61,6 +61,10 @@ export default Vue.extend({
 .black-row {
   background-color: #282828;
   color: white;
+}
+
+.my-footer {
+    z-index: 1;
 }
 
 .centerLinks {

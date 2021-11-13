@@ -7,8 +7,6 @@
       :homemsg="'Plog Posts'"
     />
     <BlogEntry />
-    <!-- <h1>{{ page.title }}</h1>
-    <nuxt-content :document="page"/> -->
     <Footer />
   </div>
 </template>
@@ -26,12 +24,12 @@ Vue.use(BootstrapVueIcons)
 
 export default Vue.extend({
   components: { Navbar, Footer, HomeRow, BlogEntry },
-  async asyncData({ $content }) {
-    const page = await $content('hello').fetch()
+  // async asyncData({ $content }) {
+  //   const page = await $content('hello').fetch()
 
-    return {
-      page,
-    }
-  },
+  //   return {
+  //     page,
+  //   }
+  // },
 })
 </script>
