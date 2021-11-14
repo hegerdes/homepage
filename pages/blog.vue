@@ -45,7 +45,7 @@
   </div>
 </template>
 
-<script >
+<script lang='ts'>
 import Vue from 'vue'
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import Navbar from '~/components/Navbar.vue'
