@@ -5,7 +5,7 @@
     type="light"
     variant="faded"
     :sticky="true"
-    class="navbar-nav"
+    class="navbar-nav shadow "
   >
     <b-navbar-brand  href="/" class="nav-brand mr-auto">{{owner}}</b-navbar-brand>
     <b-navbar-toggle target="nav-collapse"  class="mr-auto "></b-navbar-toggle>
@@ -39,8 +39,8 @@ export default Vue.extend({
     }
   },
   mounted() {
-    window.addEventListener('scroll', () => {
-    })
+    // window.addEventListener('scroll', () => {
+    // })
   },
 })
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div id="main">
       <Navbar />
-      <HomeImage :homeRowContent="homeRowContent"/>
+      <HomeImage :home-row-content="homeRowContent"/>
       <AboutMe :aboutmeontent="aboutMeContent"/>
       <MyFavProjects :projectontent="projectContent"/>
       <Languages :language-content="languageContent" :skill-content="skillContent" />
