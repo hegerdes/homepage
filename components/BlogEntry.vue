@@ -18,6 +18,3 @@ export default Vue.extend({
   props: ['blogcontent'],
 })
 </script>
-
-<style >
-</style>

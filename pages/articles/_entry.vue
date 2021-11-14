@@ -113,27 +113,26 @@ export default {
   components: { Navbar, Footer, ArticleCard },
   store: mystore,
   vuetify: myvuetify,
-    data() {
+  data() {
     return {
       articles: [],
       baseurl: process.env.BASE_URL,
       page: {},
       social: [
-      'facebook',
-      'twitter',
-      'reddit',
-      'whatsapp',
-      'linkedin',
-      'email',
-    ]
+        'facebook',
+        'twitter',
+        'reddit',
+        'whatsapp',
+        'linkedin',
+        'email',
+      ],
     }
   },
   async fetch() {
     const file = this.$nuxt.$route.path.split('/')[2]
     const year = file.split('-')[0]
     const slug = 'articles/' + year + '/' + file
-    this.page = await this.$ssrContext.$content(slug)
-      .fetch()
+    this.page = await this.$ssrContext.$content(slug).fetch()
 
     this.articles = await this.$ssrContext
       .$content('articles', { deep: true })
@@ -141,44 +140,6 @@ export default {
       .sortBy('date', 'desc')
       .fetch()
   },
-  // computed: {
-
-  // },
-  // async asyncData({ $content, params, error }) {
-  //   let slug
-  //   if (params.entry) {
-  //     slug = 'articles/' + params.entry.split('-')[0] + '/' + params.entry
-  //   } else {
-  //     slug = 'index'
-  //   }
-  //   const page = await $content(slug)
-  //     .fetch()
-  //     .catch(() => {
-  //       error({ statusCode: 404, message: 'Article not found' })
-  //     })
-  //   const articles = await $content('articles', { deep: true })
-  //     .only(['title', 'description', 'date', 'pic'])
-  //     .sortBy('date', 'desc')
-  //     .limit(4)
-  //     .fetch()
-
-  //   const baseurl = process.env.BASE_URL
-    // const social = [
-    //   'facebook',
-    //   'twitter',
-    //   'reddit',
-    //   'whatsapp',
-    //   'linkedin',
-    //   'email',
-    // ]
-
-  //   return {
-  //     page,
-  //     articles,
-  //     baseurl,
-  //     social,
-  //   }
-  // },
   head() {
     return {
       title: this.page.title,
@@ -225,6 +186,7 @@ export default {
   font-size: 1.2em;
   text-align: justify;
 }
+
 .nuxt-content img {
   margin-left: auto !important;
   margin-right: auto !important;
@@ -239,32 +201,20 @@ export default {
   border: 2px solid #575757;
   margin-bottom: 20px;
 }
+
 .nuxt-content th {
   border-bottom: 1px solid #575757;
 }
+
 .nuxt-content hr {
   border: 1px solid #575757;
 }
+
 .nuxt-content ol ul {
   font-size: 1.1em;
 }
 
-.post-margin {
-  margin-left: 10%;
-  margin-right: 10%;
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-@media (max-width: 1200px) {
-  .post-margin {
-    margin-left: 5%;
-    margin-right: 5%;
-    padding-left: 2%;
-    padding-right: 2%;
-  }
-}
-
+/* Code sty;e */
 .line-numbers {
   background: #f4f4f4;
   border: 2px solid #ddd;
@@ -282,4 +232,23 @@ export default {
   display: block;
   word-wrap: break-word;
 }
+
+/* Other css */
+.post-margin {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+/* Small Secreen */
+@media (max-width: 1200px) {
+  .post-margin {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+
 </style>

@@ -23,7 +23,7 @@
                 <v-card-title class="text-h5" v-text="val.title"></v-card-title>
 
                 <v-card-subtitle v-text="val">
-                  {{val}}
+                  {{val.description}}
                 </v-card-subtitle>
 
                 <v-card-actions>
@@ -71,21 +71,5 @@ export default Vue.extend({
       .sortBy('date', 'desc')
       .fetch()
   },
-  // async asyncData({ $content, error }) {
-  //   let articles = await $content('articles', { deep: true })
-  //     .only(['title', 'description', 'date', 'pic'])
-  //     .sortBy('date', 'desc')
-  //     .fetch()
-  //     .catch(() => {
-  //       error({ statusCode: 404, message: 'Page not found' })
-  //     })
-  //   if (!articles) {
-  //     articles = []
-  //   }
-
-  //   return {
-  //     articles,
-  //   }
-  // },
 })
 </script>
