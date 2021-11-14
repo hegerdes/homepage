@@ -1,6 +1,6 @@
 export default {
-  // Disable server-side rendering: https://go.nuxtjs.dev/ssr-mode
-  ssr: false,
+  // Enable server-side rendering: https://go.nuxtjs.dev/ssr-mode
+  ssr: true,
 
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
@@ -33,6 +33,9 @@ export default {
   plugins: [],
   generate: {
     fallback: true,
+    exclude: ['/ctf'],
+    generate: {
+    }
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components

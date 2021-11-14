@@ -8,7 +8,7 @@
         :key="index"
         :title="val.title"
         :desc="val.description"
-        :path="val.path"
+        :path="val.path.split('/')[3]"
         :pic="val.pic"
       >
       </article-card>
@@ -19,7 +19,7 @@
           <v-col>
             <v-switch
               v-model="$vuetify.theme.dark"
-              class="ma-0 pa-0 ml-16"
+              class="ma-0"
               label="Switch Theme"
               dense
               @change="themeToggle"
@@ -29,17 +29,14 @@
             <p class="text-right mr-6">Published on: {{ page.date }}</p>
           </v-col>
         </v-row>
-        <v-row class="mx-16">
-          <v-col>
-            <NuxtContent
-              class="prose prose-sm sm:prose lg:prose-lg xl:prose-2xl mx-auto"
-              :document="page"
-            />
+        <v-row>
+          <v-col class="post-margin">
+            <NuxtContent :document="page" />
           </v-col>
         </v-row>
 
         <v-row class="ml-14">
-          <v-col>
+          <v-col class="post-magrin">
             <ShareNetwork
               v-for="(val, index) in social"
               :key="index"
@@ -66,7 +63,6 @@ import { Store } from 'vuex'
 
 import { BootstrapVue, BootstrapVueIcons } from 'bootstrap-vue'
 import VueSocialSharing from 'vue-social-sharing'
-import createPersistedState from 'vuex-persistedstate'
 import Navbar from '~/components/Navbar.vue'
 import Footer from '~/components/PageFooter.vue'
 import ArticleCard from '~/components/ArticleCard.vue'
@@ -77,7 +73,6 @@ Vue.use(BootstrapVueIcons)
 Vue.use(VueSocialSharing)
 
 const mystore = new Store({
-  plugins: [createPersistedState()],
   state: {
     darkmode: false,
   },
@@ -118,33 +113,72 @@ export default {
   components: { Navbar, Footer, ArticleCard },
   store: mystore,
   vuetify: myvuetify,
-  // @ts-ignore
-  async asyncData({ $content, params, error }) {
-    let slug
-    if (params.entry) {
-      slug = 'articles/' + params.entry.split('-')[0] + '/' + params.entry
-    } else {
-      slug = 'index'
-    }
-    const page = await $content(slug)
-      .fetch()
-      .catch(() => {
-        error({ statusCode: 404, message: 'Article not found' })
-      })
-    const articles = await $content('articles', { deep: true })
-      .only(['title', 'description']).limit(4)
-      .fetch()
-
-    const baseurl = process.env.BASE_URL
-    const social = ['facebook', 'twitter', 'reddit', 'whatsapp', 'linkedin', 'email']
-
+    data() {
     return {
-      page,
-      articles,
-      baseurl,
-      social,
+      articles: [],
+      baseurl: process.env.BASE_URL,
+      page: {},
+      social: [
+      'facebook',
+      'twitter',
+      'reddit',
+      'whatsapp',
+      'linkedin',
+      'email',
+    ]
     }
   },
+  async fetch() {
+    const file = this.$nuxt.$route.path.split('/')[2]
+    const year = file.split('-')[0]
+    const slug = 'articles/' + year + '/' + file
+    this.page = await this.$ssrContext.$content(slug)
+      .fetch()
+
+    this.articles = await this.$ssrContext
+      .$content('articles', { deep: true })
+      .only(['title', 'description', 'date', 'pic', 'path'])
+      .sortBy('date', 'desc')
+      .fetch()
+  },
+  // computed: {
+
+  // },
+  // async asyncData({ $content, params, error }) {
+  //   let slug
+  //   if (params.entry) {
+  //     slug = 'articles/' + params.entry.split('-')[0] + '/' + params.entry
+  //   } else {
+  //     slug = 'index'
+  //   }
+  //   const page = await $content(slug)
+  //     .fetch()
+  //     .catch(() => {
+  //       error({ statusCode: 404, message: 'Article not found' })
+  //     })
+  //   const articles = await $content('articles', { deep: true })
+  //     .only(['title', 'description', 'date', 'pic'])
+  //     .sortBy('date', 'desc')
+  //     .limit(4)
+  //     .fetch()
+
+  //   const baseurl = process.env.BASE_URL
+    // const social = [
+    //   'facebook',
+    //   'twitter',
+    //   'reddit',
+    //   'whatsapp',
+    //   'linkedin',
+    //   'email',
+    // ]
+
+  //   return {
+  //     page,
+  //     articles,
+  //     baseurl,
+  //     social,
+  //   }
+  // },
   head() {
     return {
       title: this.page.title,
@@ -173,20 +207,10 @@ export default {
       ],
     }
   },
-  mounted() {
-    this.$store.state.darkmode =
-      window.localStorage.getItem('darkmode') === 'true'
-    if (process.env.PAGE_MODE !== 'dev') {
-      window.location = window.location.origin + '/blog'
-    }
-  },
+  mounted() {},
   methods: {
     themeToggle() {
       this.$store.state.darkmode = this.$vuetify.theme.dark
-      window.localStorage.setItem(
-        'darkmode',
-        String(this.$vuetify.theme.dark)
-      )
     },
   },
 }
@@ -209,7 +233,9 @@ export default {
 }
 
 .nuxt-content table {
-  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
   border: 2px solid #575757;
   margin-bottom: 20px;
 }
@@ -221,6 +247,22 @@ export default {
 }
 .nuxt-content ol ul {
   font-size: 1.1em;
+}
+
+.post-margin {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+@media (max-width: 1200px) {
+  .post-margin {
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+  }
 }
 
 .line-numbers {

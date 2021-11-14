@@ -89,15 +89,19 @@
     "Nginx",
     "Grafana",
     "Wireshark",
-    "LaTeX",
     "Markdown",
+    "LaTeX",
     "REST",
     "GraphQL",
     "WebSockets",
-    "Dash",
+    "Vue",
+    "Vuetify",
+    "Bootstab",
     "Pandas",
+    "Numpy",
     "Flask",
-    "Silenium",
-    "Boost"
+    "Dash",
+    "Boost",
+    "Silenium"
   ]
 }

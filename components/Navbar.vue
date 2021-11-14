@@ -39,8 +39,8 @@ export default Vue.extend({
     }
   },
   mounted() {
-    window.addEventListener('scroll', () => {
-    })
+    // window.addEventListener('scroll', () => {
+    // })
   },
 })
 </script>
