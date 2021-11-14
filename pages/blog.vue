@@ -7,6 +7,7 @@
       :homemsg="'Plog Posts'"
     />
     <BlogEntry />
+    <!-- {{articles}} -->
     <Footer />
   </div>
 </template>
@@ -24,12 +25,15 @@ Vue.use(BootstrapVueIcons)
 
 export default Vue.extend({
   components: { Navbar, Footer, HomeRow, BlogEntry },
-  // async asyncData({ $content }) {
-  //   const page = await $content('hello').fetch()
+  async asyncData({ $content }) {
+    const articles = await $content('articles', { deep: true })
+      .only(['title', 'description'])
+      .fetch()
 
-  //   return {
-  //     page,
-  //   }
-  // },
+
+    return {
+      articles,
+    }
+  },
 })
 </script>

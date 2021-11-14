@@ -2,8 +2,8 @@
   <div>
     <a name="first"></a>
     <b-container v-for="(val, index) in papers" :key="index">
-      <b-row class="mb-2">
-        <b-col class="paper-header">
+      <b-row class="mb-0">
+        <b-col class="paper-header pb-4">
           <h2 v-if="val.title.includes('-')">
             {{ val.title.split('-')[0] }} -
             <br />
@@ -56,6 +56,11 @@ export default Vue.extend({
 </script>
 
 <style >
+
+.container {
+  max-width: 1700px;
+}
+
 .paper-header {
   font-family: 'Gravity-Regular';
   font-size: 3em;
@@ -72,6 +77,11 @@ export default Vue.extend({
 }
 
 @media (max-width: 1800px) {
+.container {
+  max-width: 1200px;
+}
+
+
   .paper {
     padding-left: 2%;
     padding-right: 2%;

@@ -22,8 +22,9 @@ export default {
   env: {
     PAGE_OWNER_MAIL: process.env.PAGE_OWNER_MAIL || 'example@example.com',
     PAGE_OWNER_GITHUB: process.env.PAGE_OWNER_GITHUB || 'https://www.github.com',
-    BASE_URL: process.env.BASE_URL || 'http://localhost:3000',
+    BASE_URL: process.env.BASE_URL || 'https://henrikgerdes.me',
     PAGE_OWNER: process.env.PAGE_OWNER || 'Joh Doe',
+    PAGE_MODE: process.env.PAGE_MODE || 'Prouction',
   },
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: ['~layouts/global.css'],
@@ -48,11 +49,12 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
-    '@nuxt/content'
+    '@nuxt/content',
+    'vue-social-sharing/nuxt'
   ],
 
   content: {
-    liveEdit: true
+    liveEdit: true,
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
