@@ -22,9 +22,7 @@
               <div>
                 <v-card-title class="text-h5" v-text="val.title"></v-card-title>
 
-                <v-card-subtitle v-text="val">
-                  {{val.description}}
-                </v-card-subtitle>
+                <v-card-subtitle v-text="val.description"> </v-card-subtitle>
 
                 <v-card-actions>
                   <v-btn
