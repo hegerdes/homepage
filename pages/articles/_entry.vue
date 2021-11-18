@@ -8,7 +8,7 @@
         :key="index"
         :title="val.title"
         :desc="val.description"
-        :path="val.path.split('/')[3]"
+        :path="'/articles/' + val.path.split('/')[3]"
         :pic="val.pic"
       >
       </article-card>
