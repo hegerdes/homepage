@@ -8,15 +8,15 @@
     />
     <BlogEntry />
     <b-container v-if="articles.length > 0">
-      <b-row v-for="n in articles.length / 2" :key="n" class="mx-4">
+      <b-row v-for="n in Math.floor(articles.length / 2)" :key="n" class="mx-4">
         <b-col
           v-for="(val, index) in articles.slice((n - 1) * 2, (n - 1) * 2 + 2)"
           :key="index"
           class="d-flex justify-content-center my-4"
         >
-          <v-card color="blue" dark>
+          <v-card :href="'/articles/' + val.path.split('/')[3]" color="blue" dark>
             <div class="d-flex flex-no-wrap justify-space-between">
-              <v-avatar class="ma-3" size="125" tile>
+              <v-avatar class="ma-3" size="150" tile>
                 <v-img :src="val.pic"></v-img>
               </v-avatar>
               <div>

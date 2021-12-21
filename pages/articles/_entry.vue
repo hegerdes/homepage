@@ -35,6 +35,15 @@
           </v-col>
         </v-row>
 
+        <v-row>
+          <v-col class="post-margin support-me">
+              <p><b>❤️ Is this article helpful?</b></p>
+              <p><a href="https://paypal.me/hegerdes?country.x=DE&locale.x=de_DE">Buy me a coffee☕</a> or support this space to keep is 🖖 and ad-free.</p>
+              <p>If you can't, do send some 💖 or help to share this article.</p>
+            </v-col
+          >
+        </v-row>
+
         <v-row class="ml-14">
           <v-col class="post-magrin">
             <ShareNetwork
@@ -241,6 +250,12 @@ export default {
   padding-right: 5%;
 }
 
+/* Other css */
+.support-me {
+  background: bisque;
+  border-radius: 10px;
+}
+
 /* Small Secreen */
 @media (max-width: 1200px) {
   .post-margin {
@@ -250,5 +265,4 @@ export default {
     padding-right: 2%;
   }
 }
-
 </style>
