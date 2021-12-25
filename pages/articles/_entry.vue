@@ -38,10 +38,9 @@
         <v-row>
           <v-col class="post-margin support-me">
               <p><b>❤️ Is this article helpful?</b></p>
-              <p><a href="https://paypal.me/hegerdes?country.x=DE&locale.x=de_DE">Buy me a coffee☕</a> or support this space to keep is 🖖 and ad-free.</p>
+              <p><a href="https://www.buymeacoffee.com/hegerdes">Buy me a coffee☕</a>, <a href="https://paypal.me/hegerdes?country.x=DE&locale.x=de_DE">PayPal me</a> or support this space to keep it 🖖 and ad-free.</p>
               <p>If you can't, do send some 💖 or help to share this article.</p>
-            </v-col
-          >
+            </v-col>
         </v-row>
 
         <v-row class="ml-14">
