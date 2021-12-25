@@ -5,17 +5,19 @@
     type="light"
     variant="faded"
     :sticky="true"
-    class="navbar-nav shadow "
+    class="navbar-nav shadow"
   >
-    <b-navbar-brand  href="/" class="nav-brand mr-auto">{{owner}}</b-navbar-brand>
-    <b-navbar-toggle target="nav-collapse"  class="mr-auto "></b-navbar-toggle>
+    <b-navbar-brand href="/" class="nav-brand mr-auto">{{
+      owner
+    }}</b-navbar-brand>
+    <b-navbar-toggle target="nav-collapse" class="mr-auto"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item>|</b-nav-item>
+        <b-nav-item v-if="!mobile">|</b-nav-item>
         <b-nav-item href="/projects">Projects</b-nav-item>
-        <b-nav-item>|</b-nav-item>
+        <b-nav-item v-if="!mobile">|</b-nav-item>
         <b-nav-item href="/papers">Academic </b-nav-item>
-        <b-nav-item>|</b-nav-item>
+        <b-nav-item v-if="!mobile">|</b-nav-item>
         <b-nav-item href="/blog">Blog</b-nav-item>
       </b-navbar-nav>
 
@@ -29,18 +31,23 @@
 
 <script lang='ts'>
 import Vue from 'vue'
+import Vuetify from 'vuetify'
 import { NavbarPlugin } from 'bootstrap-vue'
 Vue.use(NavbarPlugin)
+Vue.use(Vuetify)
+
 export default Vue.extend({
   name: 'Navbar',
   data() {
     return {
+      nav_cllapsed: true,
       owner: process.env.PAGE_OWNER,
     }
   },
-  mounted() {
-    // window.addEventListener('scroll', () => {
-    // })
+  computed: {
+    mobile() {
+      return this.$vuetify.breakpoint.xs
+    },
   },
 })
 </script>
@@ -53,13 +60,10 @@ export default Vue.extend({
 .navbar-nav {
   font-size: 1.1em;
   background-color: rgb(255, 255, 255);
-  /* padding-bottom: 5px; */
-  /* padding-top: 5px; */
 }
 
 .navbar-nav {
   -webkit-transition: all 0.7s ease-out;
   transition: all 0.7s ease-out;
 }
-
 </style>
