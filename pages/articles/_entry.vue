@@ -1,65 +1,85 @@
 <template>
   <v-app>
     <Navbar />
-    <v-navigation-drawer right app class="mt-16">
-      <h4>See also:</h4>
-      <article-card
-        v-for="(val, index) in articles"
-        :key="index"
-        :title="val.title"
-        :desc="val.description"
-        :path="'/articles/' + val.path.split('/')[3]"
-        :pic="val.pic"
-      >
-      </article-card>
-    </v-navigation-drawer>
-    <v-main>
-      <v-container fluid class="mb-8">
-        <v-row>
-          <v-col>
-            <v-switch
-              v-model="$vuetify.theme.dark"
-              class="ma-0"
-              label="Switch Theme"
-              dense
-              @change="themeToggle"
-            ></v-switch>
-          </v-col>
-          <v-col>
-            <p class="text-right mr-6">Published on: {{ page.date }}</p>
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col class="post-margin">
-            <NuxtContent :document="page" />
-          </v-col>
-        </v-row>
+    <v-container fluid>
+      <v-main>
+        <!-- Other Posts -->
+        <v-navigation-drawer right app class="mt-16">
+          <h4>See also:</h4>
+          <article-card
+            v-for="(val, index) in articles"
+            :key="index"
+            :title="val.title"
+            :desc="val.description"
+            :path="'/articles/' + val.path.split('/')[3]"
+            :pic="val.pic"
+          >
+          </article-card>
+        </v-navigation-drawer>
 
-        <v-row>
-          <v-col class="post-margin support-me">
-              <p><b>❤️ Is this article helpful?</b></p>
-              <p><a href="https://www.buymeacoffee.com/hegerdes">Buy me a coffee☕</a>, <a href="https://paypal.me/hegerdes?country.x=DE&locale.x=de_DE">PayPal me</a> or support this space to keep it 🖖 and ad-free.</p>
-              <p>If you can't, do send some 💖 or help to share this article.</p>
+        <!-- MAIN -->
+        <v-container>
+          <!-- Dark mode toggel -->
+          <v-row>
+            <v-col>
+              <v-switch
+                v-model="$vuetify.theme.dark"
+                class="ma-0"
+                label="Switch Theme"
+                dense
+                @change="themeToggle"
+              ></v-switch>
             </v-col>
-        </v-row>
+            <v-col>
+              <p class="text-right mr-6">Published on: {{ page.date }}</p>
+            </v-col>
+          </v-row>
 
-        <v-row class="ml-14">
-          <v-col class="post-magrin">
-            <ShareNetwork
-              v-for="(val, index) in social"
-              :key="index"
-              :network="val"
-              :url="baseurl + '/articles/' + page.path.split('/')[3]"
-              :title="page.title"
-              :description="page.description"
-            >
-              <v-icon large color=""> mdi-{{ val }} </v-icon>
-            </ShareNetwork>
-          </v-col>
-        </v-row>
-      </v-container>
-      <Footer />
-    </v-main>
+          <!-- CONTENT -->
+          <v-row justify="center" class="mx-4">
+            <v-col>
+              <NuxtContent :document="page" />
+            </v-col>
+          </v-row>
+
+          <!-- Sponsering links -->
+          <v-row>
+            <v-col class="post-margin support-me">
+              <p><b>❤️ Is this article helpful?</b></p>
+              <p>
+                <a href="https://www.buymeacoffee.com/hegerdes"
+                  >Buy me a coffee☕</a
+                >,
+                <a href="https://paypal.me/hegerdes?country.x=DE&locale.x=de_DE"
+                  >PayPal me</a
+                >
+                or support this space to keep it 🖖 and ad-free.
+              </p>
+              <p>
+                If you can't, do send some 💖 or help to share this article.
+              </p>
+            </v-col>
+          </v-row>
+
+          <!-- Social -->
+          <v-row >
+            <v-col >
+              <ShareNetwork
+                v-for="(val, index) in social"
+                :key="index"
+                :network="val"
+                :url="baseurl + '/articles/' + page.path.split('/')[3]"
+                :title="page.title"
+                :description="page.description"
+              >
+                <v-icon large color=""> mdi-{{ val }} </v-icon>
+              </ShareNetwork>
+            </v-col>
+          </v-row>
+        </v-container>
+        <Footer />
+      </v-main>
+    </v-container>
   </v-app>
 </template>
 
@@ -242,26 +262,8 @@ export default {
 }
 
 /* Other css */
-.post-margin {
-  margin-left: 10%;
-  margin-right: 10%;
-  padding-left: 5%;
-  padding-right: 5%;
-}
-
-/* Other css */
 .support-me {
   background: bisque;
   border-radius: 10px;
-}
-
-/* Small Secreen */
-@media (max-width: 1200px) {
-  .post-margin {
-    margin-left: 5%;
-    margin-right: 5%;
-    padding-left: 2%;
-    padding-right: 2%;
-  }
 }
 </style>
