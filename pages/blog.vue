@@ -4,7 +4,7 @@
     <HomeRow
       :hometitle="'BLOG STUFF...'"
       :homeimg="'/img/blog_narrow.png'"
-      :homemsg="'Plog Posts'"
+      :homemsg="'Blog Posts'"
     />
     <BlogEntry />
     <b-container v-if="articles.length > 0">
