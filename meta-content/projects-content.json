@@ -47,6 +47,26 @@
       ]
     },
     {
+      "title": "ReddVid | Python & JS",
+      "undertitle": "Flask & Vue based",
+      "msg": [
+        "Having a hard time to download Videos from Reddit?",
+        "ReddVid might be the perfect solution. It consits of two parts: the backend written in Python and the frontend written in VUE.js. The backend scrapes Reddit with the help of BeautifulSoup and combines the seperated video and audio with ffmpeg.",
+        "The API can be used in the terminal or by the frontend. Visit the live version:"
+      ],
+      "pic": "/img/reddvid.png",
+      "links": [
+        {
+          "url": "https://reddvid.netlify.app/",
+          "text": "Live Version"
+        },
+        {
+          "url": "https://github.com/hegerdes/ReddVid/tree/master",
+          "text": "View Repository"
+        }
+      ]
+    },
+    {
       "title": "URL Shortner | JavaScript",
       "undertitle": "NodeJS & Vue based",
       "msg": [
