@@ -1,10 +1,10 @@
 <template>
   <v-app>
     <Navbar />
-    <v-container fluid>
-      <v-main>
+    <v-main>
+      <v-container fluid>
         <!-- Other Posts -->
-        <v-navigation-drawer right app class="mt-16">
+        <v-navigation-drawer right app>
           <h4>See also:</h4>
           <article-card
             v-for="(val, index) in articles"
@@ -62,8 +62,8 @@
           </v-row>
 
           <!-- Social -->
-          <v-row >
-            <v-col >
+          <v-row>
+            <v-col>
               <ShareNetwork
                 v-for="(val, index) in social"
                 :key="index"
@@ -78,8 +78,8 @@
           </v-row>
         </v-container>
         <Footer />
-      </v-main>
-    </v-container>
+      </v-container>
+    </v-main>
   </v-app>
 </template>
 

@@ -13,12 +13,9 @@
     <b-navbar-toggle target="nav-collapse" class="mr-auto"></b-navbar-toggle>
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item v-if="!mobile">|</b-nav-item>
-        <b-nav-item href="/projects">Projects</b-nav-item>
-        <b-nav-item v-if="!mobile">|</b-nav-item>
-        <b-nav-item href="/papers">Academic </b-nav-item>
-        <b-nav-item v-if="!mobile">|</b-nav-item>
-        <b-nav-item href="/blog">Blog</b-nav-item>
+        <b-nav-item href="/projects">| Projects</b-nav-item>
+        <b-nav-item href="/papers">| Academic </b-nav-item>
+        <b-nav-item href="/blog">| Blog</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
@@ -31,23 +28,15 @@
 
 <script lang='ts'>
 import Vue from 'vue'
-import Vuetify from 'vuetify'
 import { NavbarPlugin } from 'bootstrap-vue'
 Vue.use(NavbarPlugin)
-Vue.use(Vuetify)
 
 export default Vue.extend({
   name: 'Navbar',
   data() {
     return {
-      nav_cllapsed: true,
       owner: process.env.PAGE_OWNER,
     }
-  },
-  computed: {
-    mobile() {
-      return this.$vuetify.breakpoint.xs
-    },
   },
 })
 </script>
