@@ -1,4 +1,7 @@
+import articlesFiles from "./utils/getUrls";
+
 export default {
+
   // Enable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: true,
 
@@ -45,13 +48,13 @@ export default {
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
     '@nuxtjs/vuetify',
+    '@nuxtjs/sitemap',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',
     '@nuxt/content',
+    'bootstrap-vue/nuxt',
     'vue-social-sharing/nuxt'
   ],
 
@@ -61,5 +64,9 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  sitemap: {
+    hostname: process.env.BASE_URL || 'https://exmaple.com',
+    routes: articlesFiles
+  },
   telemetry: false
 }

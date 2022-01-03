@@ -18,7 +18,7 @@
         </v-navigation-drawer>
 
         <!-- MAIN -->
-        <v-container>
+        <v-container id="printable">
           <!-- Dark mode toggel -->
           <v-row>
             <v-col>
@@ -240,6 +240,14 @@ export default {
 
 .nuxt-content ol ul {
   font-size: 1.1em;
+}
+
+.icon.icon-link {
+  background-image: url('~assets/img/hashtag.svg');
+  display: inline-block;
+  width: 24px;
+  height: 22px;
+  background-size: 20px 20px;
 }
 
 /* Code sty;e */
