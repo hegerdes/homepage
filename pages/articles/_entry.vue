@@ -5,7 +5,7 @@
       <v-container fluid>
         <!-- Other Posts -->
         <v-navigation-drawer right app>
-          <h4>See also:</h4>
+          <h4 class="pt-16">See also:</h4>
           <article-card
             v-for="(val, index) in articles"
             :key="index"
@@ -77,8 +77,8 @@
             </v-col>
           </v-row>
         </v-container>
-        <Footer />
       </v-container>
+      <Footer />
     </v-main>
   </v-app>
 </template>
