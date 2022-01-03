@@ -3,12 +3,12 @@
     <a name="conatact" ></a>
     <footer  style="padding-bottom: 50px">
       <a name="contact"></a>
-      <b-row align-v="center" class="my-4">
+      <b-row align-v="center" class="my-4 d-print-none">
         <b-col>
-          <h1 class="centerTitle">CONTACT INFORMATION</h1>
+          <h1 class="centerTitle ">CONTACT INFORMATION</h1>
         </b-col>
       </b-row>
-      <ul class="centerLinks socialIcons">
+      <ul class="centerLinks socialIcons d-print-none">
         <li>
           <a :href="github"
             ><img src="~/static/img/icon/github.png" />

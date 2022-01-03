@@ -4,7 +4,7 @@
     <v-main>
       <v-container fluid>
         <!-- Other Posts -->
-        <v-navigation-drawer right app>
+        <v-navigation-drawer right app class="d-print-none">
           <h4 class="pt-16">See also:</h4>
           <article-card
             v-for="(val, index) in articles"
