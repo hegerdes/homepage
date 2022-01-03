@@ -22,7 +22,7 @@ export default {
   env: {
     PAGE_OWNER_MAIL: process.env.PAGE_OWNER_MAIL || 'example@example.com',
     PAGE_OWNER_GITHUB: process.env.PAGE_OWNER_GITHUB || 'https://www.github.com',
-    BASE_URL: process.env.BASE_URL || 'https://henrikgerdes.me',
+    BASE_URL: process.env.BASE_URL || 'https://exmaple.com',
     PAGE_OWNER: process.env.PAGE_OWNER || 'Joh Doe',
     PAGE_MODE: process.env.PAGE_MODE || 'Prouction',
   },
@@ -34,8 +34,7 @@ export default {
   generate: {
     fallback: true,
     exclude: ['/ctf'],
-    generate: {
-    }
+    subFolders: false
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -62,4 +61,5 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
+  telemetry: false
 }
