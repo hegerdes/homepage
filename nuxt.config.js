@@ -1,7 +1,6 @@
-import articlesFiles from "./utils/getUrls";
+import articlesFiles from './utils/getUrls'
 
 export default {
-
   // Enable server-side rendering: https://go.nuxtjs.dev/ssr-mode
   ssr: true,
 
@@ -24,7 +23,8 @@ export default {
   },
   env: {
     PAGE_OWNER_MAIL: process.env.PAGE_OWNER_MAIL || 'example@example.com',
-    PAGE_OWNER_GITHUB: process.env.PAGE_OWNER_GITHUB || 'https://www.github.com',
+    PAGE_OWNER_GITHUB:
+      process.env.PAGE_OWNER_GITHUB || 'https://www.github.com',
     BASE_URL: process.env.BASE_URL || 'https://exmaple.com',
     PAGE_OWNER: process.env.PAGE_OWNER || 'Joh Doe',
     PAGE_MODE: process.env.PAGE_MODE || 'Prouction',
@@ -37,7 +37,17 @@ export default {
   generate: {
     fallback: true,
     exclude: ['/ctf'],
-    subFolders: false
+    subFolders: false,
+  },
+
+  hooks: {
+    'content:file:beforeInsert': (document) => {
+      if (document.extension === '.md') {
+        const { minutes } = require('reading-time')(document.text)
+
+        document.readingTime = minutes
+      }
+    }
   },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -52,13 +62,13 @@ export default {
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    '@nuxt/content',
-    'bootstrap-vue/nuxt',
-    'vue-social-sharing/nuxt'
-  ],
+  modules: ['@nuxt/content', 'bootstrap-vue/nuxt', 'vue-social-sharing/nuxt'],
 
   content: {
+    markdown: {
+      remarkPlugins: ['remark-math'],
+      rehypePlugins: ['rehype-katex'],
+    },
     liveEdit: true,
   },
 
@@ -66,7 +76,7 @@ export default {
   build: {},
   sitemap: {
     hostname: process.env.BASE_URL || 'https://exmaple.com',
-    routes: articlesFiles
+    routes: articlesFiles,
   },
-  telemetry: false
+  telemetry: false,
 }

@@ -31,19 +31,22 @@
               ></v-switch>
             </v-col>
             <v-col>
-              <p class="text-right mr-6">Published on: {{ page.date }}</p>
+              <p class="text-right mr-6">
+                Published on: {{ page.date }}<br />Reading Time ≈
+                {{ Math.ceil(page.readingTime) }} min
+              </p>
             </v-col>
           </v-row>
 
           <!-- CONTENT -->
-          <v-row justify="center" class="mx-4">
+          <v-row :class="artice_padding">
             <v-col>
               <NuxtContent :document="page" />
             </v-col>
           </v-row>
 
           <!-- Sponsering links -->
-          <v-row>
+          <v-row :class="artice_padding">
             <v-col class="post-margin support-me">
               <p><b>❤️ Is this article helpful?</b></p>
               <p>
@@ -146,6 +149,7 @@ export default {
       articles: [],
       baseurl: process.env.BASE_URL,
       page: {},
+      artice_padding: 'mx-14',
       social: [
         'facebook',
         'twitter',
@@ -196,8 +200,22 @@ export default {
       ],
     }
   },
-  mounted() {},
+  mounted() {
+    this.handleResize()
+    window.addEventListener('resize', this.handleResize)
+    if (window && window.innerWidth < 450) {
+        this.artice_padding = 'mx-2'
+    }
+  },
+  destroyed() {
+    window.removeEventListener('resize', this.handleResize)
+  },
   methods: {
+    handleResize() {
+      if (window.innerWidth < 450) {
+        this.artice_padding = 'mx-2'
+      }
+    },
     themeToggle() {
       this.$store.state.darkmode = this.$vuetify.theme.dark
     },
@@ -216,8 +234,10 @@ export default {
 }
 
 .nuxt-content img {
-  margin-left: auto !important;
-  margin-right: auto !important;
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+  padding-top: 2% !important;
+  padding-bottom: 2% !important;
   display: block;
   width: 100%;
 }
