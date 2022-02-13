@@ -26,7 +26,7 @@ Keeping up with all the tasks of today's life is exhausting. So you need time to
 
 ## Recurring Tasks
 ### Routine
-Certain tasks keep recurring and need to be done over and over again. Plan these tasks in advance, do not be surprised by them and try to develop regular processes so that they become a routine. Once these tasks have entered the daily routine, you can do them in your sleep. If you notice that the current task exhausts you or you get stuck, you can take a break and eat in the city to complete these recurring tasks. The brain can relax during this time and you don't feel guilty for interrupting your current task, because you are doing other tasks. These breaks may help you to find a new point of view to the previous task. More than once the visit to the restroom or quick shower gave me a new approach for autually solving my previos task 😁  
+Certain tasks keep recurring and need to be done over and over again. Plan these tasks in advance, do not be surprised by them and try to develop regular processes so that they become a routine. Once these tasks have entered the daily routine, you can do them in your sleep. If you notice that the current task exhausts you, or you get stuck, you can take a break and while going for a walk you can complete some of these recurring tasks. The brain can relax during this time and you don't feel guilty for interrupting your current task, because you are doing other tasks. These breaks may help you to find a new point of view to the previous task. More than once the visit to the restroom or quick shower gave me a new approach for autually solving my previos task 😁  
 
 ---
 **Note:** I also created a collection with my favorite shortcuts, scripts and tricks to work efficient as a programmer.  
