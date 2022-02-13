@@ -1,6 +1,6 @@
 ---
 title: Dockerfile for NodeJS & Typescript
-description: How to bundle a TypeScript project for production with Docker
+description: Learn the best practices on how to bundle a TypeScript project for production with Docker. Get insights about Dockers overlay filesystem for small and secure builds. 
 date: '2021-11-15'
 pic: '/img/blog/docker.png'
 tags: ['Docker', 'NodeJS', 'JavaScript', 'TypeScript']

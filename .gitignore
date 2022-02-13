@@ -91,3 +91,4 @@ sw.*
 
 *.mp4
 *.zip
+.output
