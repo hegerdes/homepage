@@ -17,8 +17,7 @@
       <b-row class="paper align-self-stretch justify-content-md-center mb-4">
         <b-col md="4" class="justify-content-center">
           <a :href="val.link.url">
-            <b-img fluid-grow :src="val.pic" class="paperImg">
-            </b-img
+            <b-img fluid-grow :src="val.pic" class="paperImg"> </b-img
           ></a>
         </b-col>
         <b-col lg="8" md="12">
@@ -56,9 +55,17 @@ export default Vue.extend({
 </script>
 
 <style >
-
 .container {
   max-width: 1700px;
+}
+
+.paper-paragraph {
+  padding-left: 60px;
+  padding-right: 60px;
+  font-family: 'Gravity-Regular';
+  font-size: 1.5em;
+  letter-spacing: 1px;
+  text-align: justify;
 }
 
 .paper-header {
@@ -77,23 +84,29 @@ export default Vue.extend({
 }
 
 @media (max-width: 1800px) {
-.container {
-  max-width: 1200px;
-}
-
+  .container {
+    max-width: 1200px;
+  }
 
   .paper {
-    padding-left: 2%;
-    padding-right: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+}
+@media (max-width: 600px) {
+  .container {
+    max-width: 800px;
+  }
+
+  .paper {
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  .paper-paragraph {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
   }
 }
 
-.paper-paragraph {
-  padding-left: 60px;
-  padding-right: 60px;
-  font-family: 'Gravity-Regular';
-  font-size: 1.5em;
-  letter-spacing: 1px;
-  text-align: justify;
-}
 </style>

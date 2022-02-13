@@ -10,7 +10,7 @@
               <b-img :src="val.pic" fluid-grow alt="Responsive image"></b-img>
             </div>
           </b-col>
-          <b-col class="px-5 pb-2 mx-auto">
+          <b-col class="px-5 pb-2">
             <h3>{{ val.title }}</h3>
             <p class="subP italic">{{ val.undertitle }}</p>
             <p
@@ -49,10 +49,9 @@ export default Vue.extend({
 
 <style >
 .proj {
-  margin-right: 15%;
-  margin-left: 15%;
-  padding-left: 80px;
-  padding-right: 80px;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 60rem;
 }
 .proj h3 {
   padding-top: 5%;
@@ -86,10 +85,7 @@ export default Vue.extend({
 
 @media (max-width: 1200px) {
   .proj {
-    padding-left: 2%;
-    padding-right: 2%;
-    padding-left: 10px;
-    padding-right: 10px;
+    max-width: 90%;
   }
   .proj h3 {
     padding-top: 0%;
@@ -97,9 +93,6 @@ export default Vue.extend({
   .projPicCenter {
     margin-top: 0%;
     margin-bottom: 0%;
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
   }
 }
 </style>
