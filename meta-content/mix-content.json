@@ -1,6 +1,15 @@
 {
   "papers": [
     {
+      "title": "Containeriesed DevEnvoirments",
+      "msg": [
+          "The growth of cloud computing and the possibility of rapid, automatic deployments of scalable applications is leading to an ever-growing acceleration in the availability of software solutions.",
+          " While the approach of containerization/virtualization has become the default in the cloud for offering software solutions, the development process continues to rely on local configuration and operation on individual systems. These systems require manual, time-intensive configuration, leading to increased error-proneness. This thesis proposes the use of the containerization concept for the development process of software. These development containers (DevContainers) use process isolation to provide a faster, less error-prone and homogeneous development landscape."
+      ],
+      "pic": "/img/BA_Thisis_DevContainer.png",
+      "link": { "url": "/docs/Henrik_Gerdes_Thesis_DevContainer.pdf", "text": "View the paper" }
+    },
+    {
       "title": "Connecting Software - ESB principles and solutions",
       "msg": [
         "Software solutions, especially for enterprise applications, currently demand extensive requirements. To meet these requirements, developers started to split monolithic applications into smaller parts to gain better scalability, maintainability and make them future-proof.",
