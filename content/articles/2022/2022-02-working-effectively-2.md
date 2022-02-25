@@ -10,8 +10,10 @@ tags: ['Shortcuts', 'Work', 'Tricks', 'fast', 'efficient']
 ---
 My math teacher always told me that mathematicians are lazy and so should we. Only do the minimal number of steps to reach your desired destination. Whether or not these steps are simple in themselves is another matter. But somehow this phrase stuck with me.  
 
-*So here are my favorite shortcuts, scripts and tricks to get things done:*
+*So here are my favorite shortcuts, scripts and tricks to get things done:*  
+**Personal Favorite:** My favorite feature are the search shortcuts in the Browser ❤️
 ![VSCode](/img/blog/shortcut_meme.jpg)
+
 
 ---
 ### Automate
@@ -86,6 +88,10 @@ There are soo many more!
 All the shared functions are also available [here](https://gist.github.com/hegerdes/e481bdd56ba9eef81744a0a89019dc52).
 
 ## Choose your tools
+Take your time to find the appropriate tool for the job. And then learn it until you can use it in your sleep.  
+Choose the editor and mail client you like and get really good at it. The same goes for your browser. All chromium based browsers support search-shortcuts in the addressbar of the browser. So you can directly search YouTube instead of googling YT, clicking the first link and then start searching form there. **This saves more than 3 clicks!!!**
+![VSCode](/img/blog/search_shorts.png)
+
 ## Shortcuts!!!1!
 Not having to leave the keyboard to reach the mouse in order to click a button that is hidden behind two menues gives you a **huge** advantage over others. It lets you archive your goal quicker so you can focus on the next step. There are some universall shortcuts that work in almost every application that everybody shoud know:
 
