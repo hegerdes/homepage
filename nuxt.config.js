@@ -23,8 +23,8 @@ export default {
   },
   env: {
     PAGE_OWNER_MAIL: process.env.PAGE_OWNER_MAIL || 'example@example.com',
-    PAGE_OWNER_GITHUB:
-      process.env.PAGE_OWNER_GITHUB || 'https://www.github.com',
+    PAGE_OWNER_LINKEDIN: process.env.PAGE_OWNER_LINKEDIN || 'https://www.linkedin.com/feed/',
+    PAGE_OWNER_GITHUB: process.env.PAGE_OWNER_GITHUB || 'https://www.github.com',
     BASE_URL: process.env.BASE_URL || 'https://exmaple.com',
     PAGE_OWNER: process.env.PAGE_OWNER || 'Joh Doe',
     PAGE_MODE: process.env.PAGE_MODE || 'Prouction',

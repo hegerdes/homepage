@@ -19,6 +19,11 @@
             ><img src="~/static/img/icon/email.png" />
           </a>
         </li>
+        <li>
+          <a :href="linkedin"
+            ><img src="~/static/img/icon/linkedIn.png" />
+          </a>
+        </li>
       </ul>
       <b-row align-v="center">
         <b-col>
@@ -43,6 +48,7 @@ export default Vue.extend({
     return {
       mail: process.env.PAGE_OWNER_MAIL,
       github: process.env.PAGE_OWNER_GITHUB,
+      linkedin: process.env.PAGE_OWNER_LINKEDIN,
     }
   },
 })
