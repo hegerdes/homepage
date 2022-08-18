@@ -1,16 +1,16 @@
 ---
-title: Broken NodeJS Apps due to dot-secerity release - Debugging NodeJS CVE-2022-32215 fix
+title: Broken NodeJS Apps due to secerity dot-release - Debugging the NodeJS CVE-2022-32213 fix 
 description: When none of your code works anymore due to a to a innocuous secrity fix in a dot release you need some quality time with your rubber duck to find the root cause.
 date: '2022-08-18'
 pic: '/img/blog/nodejs-header-square.png'
-tags: ['NodeJS', 'Work', 'Bug', 'debugging', 'CVE']
+tags: ['NodeJS', 'Work', 'Bug', 'debugging', 'CVE', nginx]
 ---
 
-# Broken NodeJS due to dot-secerity release
+# Broken NodeJS Apps due to secerity dot-release
 ---
-On July 7th the vulnerabilities [CVE-2022-32213](https://cve.report/CVE-2022-32213), [CVE-2022-32214](https://cve.report/CVE-2022-32214) and [CVE-2022-32215](https://cve.report/CVE-2022-32215) where publicly disclosed. They affected all current NodeJS versions (v14.x, 16.x, 18.x)! The same day fixes for the vulnerabilities where released. My colleagues and I assumed a quick and easy deployment to spit these fixes onto our client's production systems. A simple rebuild of the old code state with the new NodeJS version and replacement of the old containers. We thought wrong! 🙃
+On July 7th the vulnerabilities [CVE-2022-32213](https://cve.report/CVE-2022-32213), [CVE-2022-32214](https://cve.report/CVE-2022-32214) and [CVE-2022-32215](https://cve.report/CVE-2022-32215) where publicly disclosed. They affected all current NodeJS versions (v14.x, v16.x, v18.x)! The same day fixes for the vulnerabilities where released. My colleagues and I assumed a quick and easy deployment to spit these fixes onto our client's production systems. A simple rebuild of the old code state with the new NodeJS version and replacement of the old containers. We thought wrong! 🙃
 
-Our staging system showed that some of our apps didn't get any requests anymore and clients got a 4xx error code.
+Our staging system showed that some of our apps didn't get any requests anymore and clients got a HTTP 4xx error code.
 ![VSCode](/img/blog/nodejs-header.png)
 
 
@@ -19,9 +19,9 @@ Our staging system showed that some of our apps didn't get any requests anymore 
 For a better understanding let me give a simplified overview of our system architecture:
 ![ReverseProxy](https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Reverse_proxy_h2g2bob.svg/1200px-Reverse_proxy_h2g2bob.svg.png)
 
-We use a reverse proxy which is the only service directly exposed to the internet. It handles TLS termination and routes the traffic to the appropriate backend service. Some services require TLS client verification meaning, the client has to send its unique certificate to the server where it gets verified and passed to the backend service if the certificate was valid.
+We use a reverse proxy which is the only service directly exposed to the internet. It handles TLS termination and routes the traffic to the appropriate backend service. Some services require TLS client verification, meaning the client has to send its unique certificate to the server where it gets verified and passed to the backend service if the certificate was valid.
 
-We triggered a new build with the updated NodeJS version (in our case form NodeJS v14.19.3 to v14.20.0) and deployed it to our testing system. The deployment went smooth but then we saw that every service using client verification was broken after the update.
+We triggered a new build with the updated NodeJS version (in our case form NodeJS v14.19.3 to v14.20.0) and deployed it to our testing system. The deployment went smooth, but then we saw that every service using client verification was broken after the update.
 
 ### Debugging time
 To verify the bug I deployed the same code with the two different NodeJS versions (v14.19.3 & v14.20.0). On v14.19.3 I got a HTTP 200 response, on v14.20.0 I got a HTTP 400 response indicating a bad-request. But our application never threw a 400 error - nor did it log anything. - *Time to dig deeper...*
