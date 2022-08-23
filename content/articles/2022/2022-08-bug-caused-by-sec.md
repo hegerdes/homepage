@@ -6,7 +6,7 @@ pic: '/img/blog/nodejs-header-square.png'
 tags: ['NodeJS', 'Work', 'Bug', 'debugging', 'CVE', nginx]
 ---
 
-# Broken NodeJS Apps due to secerity dot-release
+# Broken NodeJS Apps due to security dot-release
 ---
 On July 7th the vulnerabilities [CVE-2022-32213](https://cve.report/CVE-2022-32213), [CVE-2022-32214](https://cve.report/CVE-2022-32214) and [CVE-2022-32215](https://cve.report/CVE-2022-32215) where publicly disclosed. They affected all current NodeJS versions (v14.x, v16.x, v18.x)! The same day fixes for the vulnerabilities where released. My colleagues and I assumed a quick and easy deployment to spit these fixes onto our client's production systems. A simple rebuild of the old code state with the new NodeJS version and replacement of the old containers. We thought wrong! 🙃
 
@@ -19,7 +19,7 @@ Our staging system showed that some of our apps didn't get any requests anymore 
 For a better understanding let me give a simplified overview of our system architecture:
 ![ReverseProxy](https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Reverse_proxy_h2g2bob.svg/1200px-Reverse_proxy_h2g2bob.svg.png)
 
-We use a reverse proxy which is the only service directly exposed to the internet. It handles TLS termination and routes the traffic to the appropriate backend service. Some services require TLS client verification, meaning the client has to send its unique certificate to the server where it gets verified and passed to the backend service if the certificate was valid.
+We use a reverse proxy which is the only service directly exposed to the internet. It handles TLS termination and routes the traffic to the appropriate backend service. Some services require TLS client verification ([mTLS](https://www.cloudflare.com/learning/access-management/what-is-mutual-tls/)), meaning the client has to send its unique certificate to the server where it gets verified and passed to the backend service if the certificate was valid.
 
 We triggered a new build with the updated NodeJS version (in our case form NodeJS v14.19.3 to v14.20.0) and deployed it to our testing system. The deployment went smooth, but then we saw that every service using client verification was broken after the update.
 
@@ -43,7 +43,7 @@ http.createServer((req, res) => {
 
 I got the same behavior 😒. Not a solution but now I knew it wasn't a bug in our application. Is it a bug in NodeJS? In a dot-release? For security fixes?
 
-Lets start by looking at the release notes of [NodeJS 14.20.0](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V14.md#2022-07-07-version-14200-fermium-lts-danielleadams-prepared-by-juanarbol)
+Let's start by looking at the release notes of [NodeJS 14.20.0](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V14.md#2022-07-07-version-14200-fermium-lts-danielleadams-prepared-by-juanarbol)
 
 ```markdown
 ### Notable Changes
@@ -62,7 +62,7 @@ Lets start by looking at the release notes of [NodeJS 14.20.0](https://github.co
 Hmmm - The certificates are generated with *openssl*, but the actual verification takes place before it reaches NodeJS. The only other notable thing is the stricter http parser. Let's take a deeper look.
 
 ### Encoding is everything
-I want to see the actual HTTP request that gets proxyed to NodeJS. So I replaced the NodeJS application with [Netcat – The Swiss Army Knife of Networking](https://en.wikipedia.org/wiki/Netcat).
+I want to see the actual HTTP request that gets proxieed to NodeJS. So I replaced the NodeJS application with [Netcat – The Swiss Army Knife of Networking](https://en.wikipedia.org/wiki/Netcat).
 With the help of [@bnoordhuis](https://github.com/bnoordhuis) I found that we were getting the following:
 ```
 # HexDump
@@ -79,11 +79,11 @@ With the help of [@bnoordhuis](https://github.com/bnoordhuis) I found that we we
 
 Do you see these `0a09` sequences? That is the encoding for `\n\t` which is **NOT** a valid sequence for new-lines in HTTP-Headers. But NodeJS accepted these sequences anyway - at least till version v14.20.0.
 
-The correct sequence should be `0a0d09` which is `\r\n\t`.
+The correct sequence, based on the protocol, should be `0a0d09` which is `\r\n\t`.
 
 ### The Solution:
 The solution is easy - just change the way the certificates are encoded! - *Wait! We can't do that!*  
-Due to the nature of our service we don't have direct controll over the clients connecting to our server. It would be a major inconvenience to change this on all clients. Another option is to start NodeJS with the `--insecure-http-parser` flag - which isn't an option either.   
+Due to the nature of our service we don't have direct control over the clients connecting to our server. It would be a major inconvenience to change this on all clients. Another option is to start NodeJS with the `--insecure-http-parser` flag - which isn't an option either.   
 What about our reverse proxy? Turns out [NGINX](https://www.nginx.com/) has a dedicated variable for client certificates in its [ssl-module](https://nginx.org/en/docs/http/ngx_http_ssl_module.html) since version 1.13.5. Instead of `ssl_client_cert` we could use `ssl_client_escaped_cert` which contains the url-encoded (and therefore valid encoded) certificate.  
 A quick test with the new proxy configuration showed that the new NodeJS version was now working. 
 
