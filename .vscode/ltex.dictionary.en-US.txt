@@ -2,3 +2,4 @@ Promtail
 WebApp
 http-parser
 url-encoded
+Hetzner
