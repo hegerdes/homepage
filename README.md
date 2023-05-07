@@ -1,5 +1,7 @@
 # HomePage
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b0d8c38e-c68e-4f8f-81a2-5104ba2ba919/deploy-status)](https://app.netlify.com/sites/henrikgerdes/deploys)
+
 This is my homepage. Build with `nuxtjs`. This project will generate static pages based on the content of the files in the `meta-content` folder.
 In addition to that, it is a fill headless content management system (HCMS) for blog posts. Write your posts in Markdown, and generate a new version of your page.
 

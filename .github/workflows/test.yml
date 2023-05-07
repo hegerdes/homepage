@@ -1,4 +1,4 @@
-name: ci
+name: lint and demo build
 
 on:
   push:
@@ -17,7 +17,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16]
+        node: [18, 20]
 
     steps:
       - name: Checkout 🛎
@@ -41,5 +41,7 @@ jobs:
         run: npm i --prefer-offline --no-audit
 
       - name: Run linter 👀
-        run: npm run lint
+        run: npm run lint --if-present
 
+      - name: Run Build 🛠️
+        run: npm run lint --if-present
