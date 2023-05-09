@@ -2,6 +2,7 @@
   "name": "henrik-gerdes-homepage",
   "version": "1.0.0",
   "private": true,
+  "engines": {"node": ">=18"},
   "scripts": {
     "dev": "nuxt",
     "dev-win": "set NODE_OPTIONS=--openssl-legacy-provider && nuxt",
