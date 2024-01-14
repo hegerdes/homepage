@@ -3,11 +3,14 @@
     {
       "title": "Containeriesed DevEnvoirments",
       "msg": [
-          "The growth of cloud computing and the possibility of rapid, automatic deployments of scalable applications is leading to an ever-growing acceleration in the availability of software solutions.",
-          " While the approach of containerization/virtualization has become the default in the cloud for offering software solutions, the development process continues to rely on local configuration and operation on individual systems. These systems require manual, time-intensive configuration, leading to increased error-proneness. This thesis proposes the use of the containerization concept for the development process of software. These development containers (DevContainers) use process isolation to provide a faster, less error-prone and homogeneous development landscape."
+        "The growth of cloud computing and the possibility of rapid, automatic deployments of scalable applications is leading to an ever-growing acceleration in the availability of software solutions.",
+        " While the approach of containerization/virtualization has become the default in the cloud for offering software solutions, the development process continues to rely on local configuration and operation on individual systems. These systems require manual, time-intensive configuration, leading to increased error-proneness. This thesis proposes the use of the containerization concept for the development process of software. These development containers (DevContainers) use process isolation to provide a faster, less error-prone and homogeneous development landscape."
       ],
       "pic": "/img/BA_Thisis_DevContainer.png",
-      "link": { "url": "/docs/Henrik_Gerdes_Thesis_DevContainer.pdf", "text": "View the paper" }
+      "link": {
+        "url": "/docs/Henrik_Gerdes_Thesis_DevContainer.pdf",
+        "text": "View the paper"
+      }
     },
     {
       "title": "Connecting Software - ESB principles and solutions",
@@ -16,18 +19,22 @@
         "This paper presents general principles and examples to connect these smaller applications allowing them to provide the same functionality as monolithic applications. Furthermore, this paper also presents several services for end-users to interconnect individual IoT devices from different manufacturers to work together. OpenGL and SDL."
       ],
       "pic": "/img/SWE-Connect.png",
-      "link": { "url": "/docs/swe_connecting.pdf", "text": "View the paper" }
+      "link": {
+        "url": "/docs/swe_connecting.pdf",
+        "text": "View the paper"
+      }
     },
-
     {
       "title": "MPTCP Scheduler",
       "msg": [
         "An increasing number of mobile nodes provide the ability to utilize multiple network paths. Multi-path connections are able to combine different network paths to enable increased goodput, resilience and seamless handovers between paths. MPTCP promises to do this while being backwards compatible. The performance achieved for latency and goodput depends on the network paths and how packets are scheduled on these paths. The following paper will summarize different scheduling algorithms, show their areas of application and point out their strengths and weaknesses."
       ],
       "pic": "/img/SYS_MPTCP_Scheduler.png",
-      "link": { "url": "/docs/mptcp_scheduler.pdf", "text": "View the paper" }
+      "link": {
+        "url": "/docs/mptcp_scheduler.pdf",
+        "text": "View the paper"
+      }
     },
-
     {
       "title": "Beblebrox CTF - Training SEC CTF",
       "msg": [
@@ -37,7 +44,10 @@
         "Source is on GitHub, for the VM please contact me."
       ],
       "pic": "/img/ctf_paper.png",
-      "link": { "url": "/docs/ctf_paper.pdf", "text": "View the paper" }
+      "link": {
+        "url": "/docs/ctf_paper.pdf",
+        "text": "View the paper"
+      }
     },
     {
       "title": "Pacman Poster - Implementing Pacman on real streets",
@@ -47,7 +57,10 @@
         "The poster gives a general overview about the project. It lists the used tools and process of development. All basic gameplay concepts are explained and design decisions are discussed."
       ],
       "pic": "/img/pac-poster_general.png",
-      "link": { "url": "/docs/pac-poster-general.pdf", "text": "View the poster" }
+      "link": {
+        "url": "/docs/pac-poster-general.pdf",
+        "text": "View the poster"
+      }
     },
     {
       "title": "Pacman Poster - Metrics about game movement models",
@@ -57,7 +70,10 @@
         "Every parameter variation was run several times and gameplay events were logged. The data was than alkalized and visually processed."
       ],
       "pic": "/img/pac-poster.png",
-      "link": { "url": "/docs/pac-poster-specific.pdf", "text": "View the poster" }
+      "link": {
+        "url": "/docs/pac-poster-specific.pdf",
+        "text": "View the poster"
+      }
     },
     {
       "title": "Connecting Software - LaTeX Presentation",
@@ -66,7 +82,10 @@
         " The document was created with LaTeX. Source can be found at my GitHub."
       ],
       "pic": "/img/SWE-Pres.png",
-      "link": { "url": "/docs/connecting_pres.pdf", "text": "View the presentation" }
+      "link": {
+        "url": "/docs/connecting_pres.pdf",
+        "text": "View the presentation"
+      }
     }
   ],
   "language": []

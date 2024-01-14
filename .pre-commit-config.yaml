@@ -1,16 +1,26 @@
 repos:
--   repo: https://github.com/pre-commit/pre-commit-hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v2.3.0
     hooks:
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: check-added-large-files
-    # -   id: check-executables-have-shebangs
-    -   id: check-json
+      - id: check-yaml
+        args: [--allow-multiple-documents]
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+      # - id: check-executables-have-shebangs
+      - id: check-json
         exclude: .vscode
-    # -   id: trailing-whitespace
-    #     exclude: '\*.md'
-# -   repo: https://github.com/pre-commit/mirrors-eslint
-#     rev: v8.40.0
-#     hooks:
-#     -   id: eslint
+      - id: pretty-format-json
+        exclude: .vscode
+        args: [--autofix, --no-sort-keys, --no-ensure-ascii]
+      - id: trailing-whitespace
+        exclude: '.*.md'
+      - id: detect-private-key
+      - id: mixed-line-ending
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: double-quote-string-fixer
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.18.0
+    hooks:
+      - id: gitleaks

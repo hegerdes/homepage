@@ -10,7 +10,10 @@
       ],
       "pic": "/img/doom.png",
       "links": [
-        { "url": "https://web-doom.herokuapp.com/", "text": "Live Version" },
+        {
+          "url": "https://web-doom.herokuapp.com/",
+          "text": "Live Version"
+        },
         {
           "url": "https://github.com/hegerdes/Webassambly_SDL_Doom",
           "text": "View Repository"
@@ -39,7 +42,10 @@
       ],
       "pic": "/img/ctf.png",
       "links": [
-        { "url": "/ctf", "text": "Live Version" },
+        {
+          "url": "/ctf",
+          "text": "Live Version"
+        },
         {
           "url": "https://github.com/hegerdes/BeeblebroxCTF",
           "text": "View Repository"
