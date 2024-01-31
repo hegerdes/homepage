@@ -18,8 +18,76 @@ GitLab just announced the availability of their [GitLab CI/CD Catalog (2023/12),
 
 ## General CI setup & flow
 GitHub Actions and GitLab both define their CI/CD procedures using `yaml` files which will be parsed, templated/interpolated, and processed by the CI/CD task scheduler. In general, one or more jobs are created which run in one or more stages. By default, jobs within one stage run in parallel, while stages run in sequence. 
-Naturally, both GitHub Actions and GitLab have first-party integration support within their Git hosting platforms. While they can also be used to run tasks for Git repos hosted on a third-party service, it comes with limitations, often making it impractical. In fact, many triggers for the CI/CD jobs are directly related to the Git repositories on which they perform these actions. While GitHub evaluates each file in `.github/workflows` individually by checking if the emitted event matches one of the [many workflow triggers](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows) specified via the `on:` keyword, GitLab only has one CI file called `.gitlab-ci.yml`. Whereas this file can include separate CI configurations, GitLab always merges all definitions into a single monolithic file and evaluates on a job-by-job base if the job should be created and run or not.  
+Naturally, both GitHub Actions and GitLab have first-party integration support within their Git hosting platforms. While they can also be used to run tasks for Git repos hosted on a third-party service, it comes with limitations, often making it impractical. In fact, many triggers for the CI/CD jobs are directly related to the Git repositories on which they perform these actions. While GitHub evaluates each file in `.github/workflows` individually by checking if the emitted event matches one of the [many workflow triggers](https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows) specified via the `on:` keyword, GitLab only has one CI file called `.gitlab-ci.yml`. Whereas this file can include separate CI configurations, GitLab always merges all definitions into a single monolithic file and evaluates on a job-by-job base if the job should be created and run or not.
+
+```yaml
+# GitHub Action example workflow
+name: Example Pipeline
+
+on:
+  pull_request:
+    branches: ['releases/', 'main']
+  push:
+    branches: [main]
+
+jobs:
+  code-style:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v4
+
+    - name: Info for main branch
+      if: github.ref == 'refs/heads/main'
+      run: echo "Running tests in main"
+
+    - uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+
+    - uses: hashicorp/setup-terraform@v3
+    - uses: terraform-linters/setup-tflint@v4.0.0
+    - uses: pre-commit/action@v3.0.0
+```
+
 GitHub has a lot of triggers for every imaginable event that might accrue within a GitHub repository. Workflows can be run when an issue is created, labelled, or a comment is added. GitLab, on the other hand, only has the predefined `CI_PIPELINE_SOURCE` variable which, in combination with other [predefined variables,](https://docs.gitlab.com/ee/ci/variables/predefined_variables.html) can be used to decide if a CI job is created. It does not support events like issues or comments. However, integration with external event sources is more flexible in GitLab CI with the choice of `API`, `Triggers` and chat, enabled by the direct integration support of various applications such as Slack. GitHub only allows to manually create CI jobs via the `workflow_dispatch` event, which can be triggered via the API or the WebUI. These and other differences also affect the way variables and tokens are used for these CI/CD systems. Basic event triggers such as the `push` of a branch/tag or `merge_requests` are supported by both systems.
+
+```yaml
+# GitLab CI Pipeline example
+
+tags: [docker]
+variables:
+  MY_GLOBAL_VAR: Foo
+  GIT_DEPTH: 5
+
+# include:
+#   - template: Terraform.latest.gitlab-ci.yml
+#   - template: Security/SAST.gitlab-ci.yml
+
+Build-Image-Buildah-Template:
+  image: registry.access.redhat.com/ubi8/buildah:latest
+  stage: build
+  variables:
+    REGISTRY: ${CI_REGISTRY}
+    REGISTRY_USER: ${CI_REGISTRY_USER}
+    REGISTRY_PASS: ${CI_REGISTRY_PASSWORD}
+    CONTEXT: $CI_PROJECT_DIR
+    BUILD_IMAGE_TAG: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_NAME
+    DOCKERFILE: $CONTEXT/Dockerfile
+  script:
+      - buildah login -u "${CI_REGISTRY_USER}" -p "${CI_REGISTRY_PASSWORD}" "${CI_REGISTRY}"
+      - |
+        buildah bud --pull \
+          --build-arg COMMIT_HASH=$CI_COMMIT_SHORT_SHA \
+          --build-arg COMMIT_TAG=$CI_COMMIT_REF_NAME \
+          --tag "${BUILD_IMAGE_TAG}" \
+          --file ${DOCKERFILE} ${CONTEXT}
+      - buildah push --creds "${REGISTRY_USER}:${REGISTRY_PASS}" "${BUILD_IMAGE_TAG}"
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+    - if: $CI_PIPELINE_SOURCE == "push"
+    - !reference [.global, default_rules]
+```
 
 ## Building the Jobs
 Based on the event and its values, the specified CI/CD jobs get created. While the general declaration of a job definition is quite similar, the specification and execution of the actual commands are quite different. Each job has a name, a selector to specify the runner, variables and script or step property. Both systems also support a matrix property to run one job definition multiple times for different environments, runtime versions or operating systems. Users can reference variables, secrets and event values within a job definition. GitHub even allows the usage of a limited set of [expressions](https://docs.github.com/en/actions/learn-github-actions/expressions) to compare, encode or alter the content of variables. It also includes an additional property to determine if a job should be run after evaluating the `on` property of a workflow file. GitLab only has one level of conditionals defined via it's `rules` property.  
