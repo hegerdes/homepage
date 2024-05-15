@@ -12,7 +12,7 @@ How do you keep your digital life organized? How do you store and structure your
 
 With this article, I want to give an overview of Joplin, what differentiates it from other notebook apps and the necessary information to decide if it is a tool fitting for your workflow.
 
-![Joplin App GUI](/img/blog/joplin.png)
+![Joplin App GUI Overview](/img/blog/joplin.png)
 
 ## What is Joplin?
 Joplin is a cross-platform notebook app (Windows, Linux, macOS, iOS, Android) that is entirely based on Markdown. If you are not comfortable with Markdown, read no further - Joplin is not for you. But if you like Markdown because of its easy formatting and capabilities, use it regularly in ReadMe.md's or GitHub/GitLab Issues, Joplin might be just the right fit.
