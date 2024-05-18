@@ -14,7 +14,7 @@ GitLab just announced the availability of their [GitLab CI/CD Catalog (2023/12),
 
 *Disclaimer:* While there are a lot of other CI/CD systems like Circle CI, Azure DevOps, AWS CodeBuild, Travis CI and surprisingly, even Jenkins is still around, these tools are dedicated to solving one problem and are not part of a fully integrated developer platform. I also have not used most of them to a sufficient extent to be able to provide a meaningful review. This post only focuses on GitLab CI and GitHub Actions, especially their SaaS offerings, from a technical and software engineering standpoint. The value of these tools may vary depending on your specific requirements.
 
-![Avengers style fight scene with GitHub OctoCat and GitLab mascot](https://i.imgur.com/PDw4b3B.png)
+![Avengers style fight scene with GitHub OctoCat and GitLab mascot](/img/blog/github-vs-gitlab-comic.jpeg)
 
 ## General CI setup & flow
 GitHub Actions and GitLab both define their CI/CD procedures using `yaml` files which will be parsed, templated/interpolated, and processed by the CI/CD task scheduler. In general, one or more jobs are created which run in one or more stages. By default, jobs within one stage run in parallel, while stages run in sequence. 
@@ -117,11 +117,11 @@ While the CI/CD Components are a step towards a more user-friendly and reusable 
 To run the defined CI/CD jobs, both GitHub and GitLab need runners. Both services offer *Hosted Runners* that are owned and maintained by the respective provider (SaaS offering). Each provider offers a free plan for their CI/CD runners, which includes a certain amount of compute minutes. The table below shows a brief, none complete overview of their offerings. 
 
 | Plan        | Included Minutes | Price | Cost per minute/per core for additional minutes |
-|-------------|---------|-------|--------------------------|
-| GitHub Free | 2000    | 0$    | 0.004$*                  |
-| GitHub Pro  | 3000    | 4$    | 0.004$*                  |
-| GitLab Free | 400     | 0$    | 0.05$*                   |
-| GitLab Pro  | 10.000  | 29$   | 0.05$*                   |
+| ----------- | ---------------- | ----- | ----------------------------------------------- |
+| GitHub Free | 2000             | 0$    | 0.004$*                                         |
+| GitHub Pro  | 3000             | 4$    | 0.004$*                                         |
+| GitLab Free | 400              | 0$    | 0.05$*                                          |
+| GitLab Pro  | 10.000           | 29$   | 0.05$*                                          |
 
 *Note:* Cost per minute is for extra minutes that exceed the included minutes. It is calculated based on available price information.
 
