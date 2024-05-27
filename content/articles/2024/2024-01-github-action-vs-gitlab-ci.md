@@ -120,8 +120,8 @@ To run the defined CI/CD jobs, both GitHub and GitLab need runners. Both service
 | ----------- | ---------------- | ----- | ----------------------------------------------- |
 | GitHub Free | 2000             | 0$    | 0.004$*                                         |
 | GitHub Pro  | 3000             | 4$    | 0.004$*                                         |
-| GitLab Free | 400              | 0$    | 0.05$*                                          |
-| GitLab Pro  | 10.000           | 29$   | 0.05$*                                          |
+| GitLab Free | 400              | 0$    | 0.005$*                                         |
+| GitLab Pro  | 10.000           | 29$   | 0.005$*                                         |
 
 *Note:* Cost per minute is for extra minutes that exceed the included minutes. It is calculated based on available price information.
 
