@@ -27,10 +27,10 @@ Okay what other options are there for Kubernetes authentication:
 
 Both webhook authentication and an authentication proxy add considerable overhead and ultimately also need to be plunged into a user registry that I can not use or have control of.
 
-So what about static token files?  
+**So what about static token files?**  
 In practice, I've never seen them outside of test setups. It requires placing a file with the username, secret and groups on every controlplane node. The effort required to manage and sync such a file, containing static **credentials in plain text**, is just nuts. Even more absurd, the api-server has to be restarted every time this file is changed! And since these tokens have no built-in expiration date, you have to delete an entry and restart the api-server if a credential needs to be invalidated. So this is a hard pass!
 
-So X509 client certificates it is?
+**So X509 client certificates it is?**  
 The X509 client certificates approach does not require the api-server to be restarted and provides a built-in expiration mechanism. Client certificates are a common approach to establishing a secure communication between two entities, it is often also referred to as mutual TLS (mTLS), where both the client and the server have to identify themselves via a certificate. One-directional TLS (where just the server is ensuring its authenticity) is part of almost every website we visit.  
 TLS is considered very secure since, it uses asymmetric encryption with private keys, with a complexity between 1024 and 4098 bits, depending on the algorithm. Kubernetes uses mTLS for almost all of its components to establish trusted and secure communication between every part of the cluster. Kubernetes clusters created with kubeadm also create a `admin.conf` which also uses X509 client certificates to authenticate against the Kubernetes api-server.  
 These X509 client certificates are the default way to authenticate against a Kubernetes cluster. For easier usage, Kubernetes base64 encodes the certificate and the private key and puts them inside the well-known YAML kubeconfig. The file is most likely located at `~/.kube/config`.
