@@ -39,6 +39,7 @@ I have gone the X509 client certificates way and if you are interested, below is
 
 <details>
 <summary>Creating X509 client certificates</summary>
+
 Every user should have their own personal kubeconfig to ensure proper access controls and auditing capabilities. Unfortunately there is no built-in support from Kubernetes for creating these kube-client-configs. Nevertheless the process can easily be automated.  
 
 The user has to create a new key-pair with openssl which he will use for accessing the cluster later. This can be done with the following command:
