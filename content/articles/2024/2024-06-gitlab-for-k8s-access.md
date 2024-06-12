@@ -85,20 +85,20 @@ users:
 ![Meme - one support for whole company](/img/blog/one-support-meme.png)
 
 ### The Problems with static credentials
-While mTLS is technical very secure, it still suffers from problems organizational standpoint. From a modern standpoint, certificates are still long-lived credentials. Thanks to the exemplary work done by the [lets encrypt](https://letsencrypt.org/) certificates are issued with shorter lifetimes compared to the previously common validity of 1+ years. Still, three months is a heck longer than the one-hour default lifetime of an OIDC ID-token. 
-It is also possible to revoke certificates, but just like the creation process, it is not that easy to implement this process. Even when these security aspects are not considered, client certificates become hard to manage in larger or dynamic teams. You must have a way to revoke access from a retired team member. When a user needs to be added, the whole creation process has to be done again. Authorization should be done on a group level, but you can't add a group to a certificate after it was issued. This is not flexible and manageable in any larger organization. For this reason, dynamic authentication processes - like OIDC - are often preferred.
+While mTLS is technical very secure, it still suffers from problems organizational standpoint. From a modern standpoint, certificates are still long-lived credentials. Thanks to the exemplary work done by the [lets encrypt](https://letsencrypt.org/) project, most certificates are issued with shorter lifetimes compared to the previously common validity of 1+ years. Still, a default of three months is a heck longer than the one-hour default lifetime of an OIDC ID-Token.  
+It is also possible to revoke certificates, but just like the creation process, it is not that easy to implement this process. Even when these security aspects are not considered, client certificates become hard to manage in larger or dynamic teams. You must have a way to revoke access from a retired team member. When a user needs to be added, the whole certification creation process has to be done again. Authorization should be done on group level basis, but you can't add a group to a certificate after it was issued. This is not flexible and manageable in any larger organization. For this reason, dynamic authentication processes - like OIDC - are often preferred.
 
 *I have a great article about OAuth2 and OIDC coming up soon on my companies website - stay tuned*
 
 ## Alternatives
-So what are my alternatives?
-The cluster in deployed in a very restrictive network environment. Ingress is only allowed from specific clients within a corporate network and only specific ports and traffic. Egress is only possible via a proxy. But we needed to deploy from our GitLab (which is on a different network) instance to our cluster.
+So what are my alternatives?  
+The said cluster in deployed in a very restrictive network environment. Ingress is only allowed from specific clients within a corporate network and only specific ports and traffic. Egress is only possible via a proxy. But we needed to deploy from our GitLab (which is on a different network) instance to our cluster.  
 Other people solved this by creating GitLab runners within the Kubernetes cluster and saving the kube-client-credentials-conf as a CI secret. **DONT DO THIS!**  
 
 You are pulling in random container images from the internet to your cluster and run arbitrary scripts from CI in your critical application environment. You are risking your cluster health, the confidently of secrets and are giving up a considerable amount of compute. And you also have to maintain the runners. This also violates the ISO 27001 norm since now access is not personalized anymore and auditing is really hard.
 
 ### GitLab Agent
-Quite some time ago I stumbled upon the GitLab Agent. It's a small application that creates a reverse tunnel between your control-plane and GitLab instance via websockets. This allows you to use any runner on any network location to communicate securely over the GitLab Instance websocket tunnel, via the agent to your cluster.
+Quite some time ago I stumbled upon the GitLab Agent. It's a small application that creates a reverse tunnel between your control-plane and GitLab instance via websockets. This allows you to use any runner in any network location to securely communicate over the GitLab Instance websocket tunnel, via the GitLab agent to your Kubernetes cluster.
 GitLab automatically creates short-lived tokens (`CI_JOB_TOKEN`) and only allows authorized users to use the tunnel in CI.
 
 You can install the agent easily with:
@@ -113,7 +113,7 @@ helm upgrade --install test gitlab/gitlab-agent \
     --set config.kasAddress=wss://gitlab.example.com//-/Kubernetes-agent/
 ```
 
-Now you can create a file in you git repo with the path `.gitlab/agents/<agent-name>/config.yaml` and even share the cluster access with orther projects:
+Now you can create a file in you git repo with the path `.gitlab/agents/<agent-name>/config.yaml` and even share the cluster access with other Git projects:
 ```yaml
 ci_access:
   projects:
@@ -126,7 +126,7 @@ ci_access:
 
 No secrets needed, secure and controlled access to the cluster.
 
-*WAIT...That wasn't the problem I wanted to solve. I need to share access with people - not with CI*
+*WAIT...That wasn't the problem I wanted to solve. I need to share access with people - not with CI!*
 
 **Good News:** This also works for people.
 
@@ -198,10 +198,11 @@ users:
 
 
 ## Side Notes
-This is not the only solution to access private clusters. Jump Hosts, VPNs and SSH tunnels are also commonly used but they are often a nightmare to manage or to set up.
+This is not the only solution to access private clusters. But this did the job and security is fine with it. Jump Hosts, VPNs and SSH tunnels are also commonly used but they are often a nightmare to manage or to set up.
 A notable alternative is tailscale which also creates a tunnel to you tailnet and allows for user authentication. Unfortunately, tailscale is not used at my current gig.
 
-While these are solutions, I still would recommend to just hook your OIDC Like ActiveDirectory, LDAB or Keycloak provider into the Kubernetes api-server. It is also a much more standardized solution and should be the primary source for all user contexts. 
+While these are solutions, I still would recommend to just hook your OIDC provider such as ActiveDirectory, LDAB or Keycloak into the Kubernetes api-server. It is also a much more standardized solution and should be the primary source for all user contexts.  
+To my surprise not many managed Kubernetes offerings support setting the OIDC args for the api-server. So this might after all be a good solution if your Kubernetes provider is lacking.
 
 <!---
 
@@ -237,6 +238,3 @@ The lack of easy creation and managment of these static authentication processes
 This can be done with Webhook Token Authentication or a Authenticating Proxy but as staited above these can be implemented in any imagable way and will not be further discussed here. Insted this article will focuse on OpenID Connect and will also give an alternative if OIDC is not an option. 
 
 -->
-
-
-
