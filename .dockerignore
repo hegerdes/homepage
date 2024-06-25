@@ -1,4 +1,6 @@
 .git
 .env
+.nuxt
+dist
 node_modules
 Dockerfile

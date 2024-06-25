@@ -40,3 +40,6 @@ jobs:
 
       - name: Run Build 🛠️
         run: npm run lint --if-present
+
+      - name: Run Build 🛠️
+        run: npm run generate
