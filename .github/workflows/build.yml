@@ -21,19 +21,12 @@ jobs:
   docker-build:
     uses: hegerdes/helper-suite/.github/workflows/reusable-docker-build.yml@main
     with:
-      build-name: ${{ github.repository_owner }}/playbooks,ghcr.io/${{ github.repository_owner }}/playbooks
+      build-name: ghcr.io/${{ github.repository_owner }}/homepage
       build-tags: latest
       build-cache: type=gha
       build-args: COMMIT_HASH=${{ github.sha }},COMMIT_TAG=${{ github.ref_name }}
       build-labels: MAINTAINER=${{ github.repository_owner }}
       build-platforms: linux/amd64,linux/arm64
-    secrets:
-      REGISTRY_USER: ${{ secrets.DOCKERHUB_USERNAME }}
-      REGISTRY_PW: ${{ secrets.DOCKERHUB_TOKEN }}
-      COSIGN_KEY_OR_KMS: ${{ secrets.COSIGN_KEY_STORE }}
-      AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
-      AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
-      AZURE_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
 
   build:
     runs-on: ubuntu-latest
