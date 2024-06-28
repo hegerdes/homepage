@@ -44,8 +44,8 @@ export default {
     'content:file:beforeInsert': (document) => {
       if (document.extension === '.md') {
         const { minutes } = require('reading-time')(document.text)
-
         document.readingTime = minutes
+        // document.text = document.text.replaceAll(/\/static\/img/g, '/img');
       }
     }
   },

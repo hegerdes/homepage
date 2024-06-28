@@ -14,7 +14,8 @@ tags: ['kubernetes', 'oci', 'benchmark', 'containerd']
 Kubernetes has become the standard for container orchestration. It is not just a software tool, it is a framework with extensive extensibility features. There are entire businesses that are built on top of Kubernetes and offer their service. Tools like ArgoCD and Crossplane are build for Kubernetes. There is even a new category of operating systems like CoreOS, Bottlerocket and Talos that are build purposely to run containers. All that happened in just 10 years. **Happy late birthday K8s!**   
 
 ![Kubernetes Container Stack Thumbnail](/img/blog/cri-test-thump.jpeg)
-PDF version [here!](/docs/2024-07-kubernetes-cri-bench.pdf)
+PDF version [here!](/docs/kubernetes_cri_bench.pdf)
+PDF version [here!](https://henrikgerdes.me/docs/kubernetes_cri_bench.pdf)
 
 Kubernetes is dominating every Ted-talk and system architecture presentation, the actual engine that drive our workloads sometimes gets forgotten. Kubernetes is just an orchestrator, and its primary (but not only) task is to manage containers. It does not run any containers itself. That gets delegated to the container runtime interface.
 
