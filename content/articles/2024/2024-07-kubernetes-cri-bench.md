@@ -9,12 +9,14 @@ tags: ['kubernetes', 'oci', 'benchmark', 'containerd']
 
 # The Engines that run our Kubernetes Workloads
 
+*Target audiance:* This article is a deep dive for people living in the Kubernetes lifestyle who want to know how different OCI runtimes perform. It does not explain every component of containers nor Kubernetes as it is expected to ne known. 
+
 Kubernetes has become the standard for container orchestration. It is not just a software tool, it is a framework with extensive extensibility features. There are entire businesses that are built on top of Kubernetes and offer their service. Tools like ArgoCD and Crossplane are build for Kubernetes. There is even a new category of operating systems like CoreOS, Bottlerocket and Talos that are build purposely to run containers. All that happened in just 10 years. **Happy late birthday K8s!**   
 
 ![Kubernetes Container Stack Thumbnail](/img/blog/cri-test-thump.jpeg)
-PDF version [here!](https://henrikgerdes.me/docs/2024-07-kubernetes-cri-bench.pdf)
+PDF version [here!](/docs/2024-07-kubernetes-cri-bench.pdf)
 
-But with Kubernetes dominating every Ted-talk and system architecture presentation, the actual engine that drive our workloads sometimes get forgotten. Kubernetes is just an orchestrator, and its primary (but not only) task is to manage containers. It does not run any containers itself. That gets delegated to the container runtime interface.
+Kubernetes is dominating every Ted-talk and system architecture presentation, the actual engine that drive our workloads sometimes gets forgotten. Kubernetes is just an orchestrator, and its primary (but not only) task is to manage containers. It does not run any containers itself. That gets delegated to the container runtime interface.
 
 ## A Little History
 Initially, Kubernetes was build to manage Docker Containers. Docker is the technology that made containers accessible to the mainstream. Containers were not an entirely new technology. LXC containers existed before and Linux namespaces are a thing since 2002, but Docker made it so easy to use containers. By handling software packaging, distribution and all low level network and device configuration, Docker allowed every developer to start any application in an isolated environment. Promising to finally overcoming the famous: *It works on my machine* meme.  
@@ -43,7 +45,7 @@ Containers are created all the time. We don't even think about them anymore when
 
 <!---
 ### Assumtion
-The crun project makes some bold claims but for my self managed test cluster I've been using crun for over an year and must say that I had the impression the everything felt a little more snappy with it. I also like its extendability. You can compile crun with WASM support and run wasm containers the same way as normal one without any additional OCI engine needed. I think it will slightly outperform runc but not as much as claimed. Googles gvisor will defintly be slower since its main purose is enhancing security and that extra layer to run syscalls in userspace will cost performance. For youki I don't have any expectation since I've never used it before.  Might be at the same level as runc, maybe a little slower since it didn't had time yet to mature and optimize. 
+The crun project makes some bold claims but for my self managed test cluster I've been using crun for over an year and must say that I had the impression the everything felt a little more snappy with it. I also like its extendability. You can compile crun with webassembly support and run wasm containers the same way as normal one without any additional OCI engine needed. I think it will slightly outperform runc but not as much as claimed. Googles gvisor will defintly be slower since its main purose is enhancing security and that extra layer to run syscalls in userspace will cost performance. For youki I don't have any expectation since I've never used it before.  Might be at the same level as runc, maybe a little slower since it didn't had time yet to mature and optimize. 
 -->
 
 ### Testsetup
@@ -52,7 +54,7 @@ The crun project makes some bold claims but for my self managed test cluster I'v
 I created a VM on the Hetzner-Cloud using their dedicated offerings to avoid the effect of noisy neighbors. I redid the test on another instance to ensure I didn't get a low-performing one. System Data: 
 ```yaml
 region: "nbg1-dc3"
-os: "Linux 168.119.165.86 6.1.0-21-amd64 #1 SMP PREEMPT_DYNAMIC Debian 6.1.90-1 (2024-05-03) x86_64 GNU/Linux"
+os: "Linux 6.1.0-21-amd64 Debian 12 (2024-05-03) x86_64 GNU/Linux"
 sku: 
 	type: CCX33
 	cpu: 8
@@ -70,13 +72,14 @@ youki version 0.3.3
 ```
 
 ### Results
-The node's CPU and RAM were not even remotely utilized. In contrast to the production environment where the kubelet can create several containers simultaneously, my benchmark runs in serial. Nevertheless, some conclusions can be drawn. 
+The node's CPU and RAM were not even remotely utilized as seen in the Grafana dashboard below. In contrast to the production environment where the kubelet can create several containers simultaneously, my benchmark runs in serial. Nevertheless, some conclusions can be drawn. 
 The test showed indeed that crun outperforms containerd's default OCI engine, yet the difference is not as big as claimed on the crun website. However, you have to bear in mind that it was not the same test as on the crun page. The performed benchmark includes the overhead of containerd,  to represent a more realistic deployment compared to calling the OCI engine directly.  
 
 ![Grafana Dashboard showing OCI CPU usage](/img/blog/oci-data-2.jpg)
 
 Given the claims from crun I was expecting a bigger difference between crun and runc. A 21% difference is still impressive. Surprisingly, the quiet new youki implementation is right up there head to head with runc when it comes to pure performance. Unfortunately, youki didn't perform as consistent and errored out quite some times. I reported the error to the authors and hope it will be fixed soon, despite its good performance an error rate of 3.6% is not acceptable in a production environment.  
-As expected, runsc performs worst by far. However, performance is not its primary goal, it aims to improve security by implementing syscalls in userspace. The chosen test may also not favorable for runsc since running a short-lived container with `true` does not have many syscalls.
+As expected, runsc performs worst by far. However, performance is not its primary goal, it aims to improve security by implementing syscalls in userspace. The chosen test may also not favorable for runsc since running a short-lived container with `true` does not have many syscalls, the lower context switche are still noticeable as shown in the last dashboard below.  
+The main findings are summarized in the table below.
 
 | OCI   | Mean  | Min   | Max   | Errors | Total Time | Min Mem |
 | ----- | ----- | ----- | ----- | ------ | ---------- | ------- |
