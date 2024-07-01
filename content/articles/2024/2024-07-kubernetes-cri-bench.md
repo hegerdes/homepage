@@ -9,7 +9,7 @@ tags: ['kubernetes', 'oci', 'benchmark', 'containerd']
 
 # The Engines that run our Kubernetes Workloads
 
-*Target audiance:* This article is a deep dive for people living in the Kubernetes lifestyle who want to know how different OCI runtimes perform. It does not explain every component of containers nor Kubernetes as it is expected to ne known. 
+*Target audience:* This article is a deep dive for people living in the Kubernetes lifestyle, for people who want to know how the low level stuff works and performs. It does not explain every component of containers nor Kubernetes as it is expected to ne known.
 
 Kubernetes has become the standard for container orchestration. It is not just a software tool, it is a framework with extensive extensibility features. There are entire businesses that are built on top of Kubernetes and offer their service. Tools like ArgoCD and Crossplane are build for Kubernetes. There is even a new category of operating systems like CoreOS, Bottlerocket and Talos that are build purposely to run containers. All that happened in just 10 years. **Happy late birthday K8s!**   
 
