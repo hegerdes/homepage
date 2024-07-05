@@ -78,6 +78,7 @@ The test showed indeed that crun outperforms containerd's default OCI engine, ye
 ![Grafana Dashboard showing OCI CPU usage](/img/blog/oci-data-2.jpg)
 
 Given the claims from crun I was expecting a bigger difference between crun and runc. A 21% difference is still impressive. Surprisingly, the quiet new youki implementation is right up there head to head with runc when it comes to pure performance. Unfortunately, youki didn't perform as consistent and errored out quite some times. I reported the error to the authors and hope it will be fixed soon, despite its good performance an error rate of 3.6% is not acceptable in a production environment.  
+**EDIT:** *Thanks to the passion of [@YJDoc2](https://github.com/YJDoc2) is cause of the issue was found an a PR is ready to solve is. See this [issue](https://github.com/containers/youki/issues/2826).*  
 As expected, runsc performs worst by far. However, performance is not its primary goal, it aims to improve security by implementing syscalls in userspace. The chosen test may also not favorable for runsc since running a short-lived container with `true` does not have many syscalls, the lower context switche are still noticeable as shown in the last dashboard below.  
 The main findings are summarized in the table below.
 
