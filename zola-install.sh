@@ -1,7 +1,6 @@
 #!/bin/bash
 set -e -o pipefail
 
-mkdir -p dist
 if command -v zola >/dev/null; then
     echo "Zola is already installed!"
     exit 0
