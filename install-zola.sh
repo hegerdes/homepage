@@ -1,7 +1,8 @@
 #!/bin/bash
 set -e -o pipefail
 
-if command -v zola > /dev/null; then
+mkdir -p dist
+if command -v zola >/dev/null; then
     echo "Zola is already installed!"
     exit 0
 fi
@@ -9,12 +10,12 @@ fi
 echo "Installing Zola..."
 
 # Check if curl is installed
-if ! command -v curl > /dev/null; then
+if ! command -v curl >/dev/null; then
     echo "Error: curl is not installed. Please install curl and try again."
     exit 1
 fi
 # Check if unzip is installed
-if ! command -v tar > /dev/null; then
+if ! command -v tar >/dev/null; then
     echo "Error: tar is not installed. Please install tar and try again."
     exit 1
 fi
@@ -35,8 +36,15 @@ ZOLA_DOWNLOAD_URL="https://github.com/getzola/zola/releases/download/${ZOLA_VERS
 # Download and install Zola
 curl -sL -o zola.tar.gz "$ZOLA_DOWNLOAD_URL"
 tar -xzf zola.tar.gz
-mkdir -p ~/.local/bin
-mv zola /usr/local/bin || mv zola ~/.local/bin
-rm zola.tar.gz
 
+# Check if the destination directory is writable
+if [ -w "/usr/local/bin" ]; then
+    mv zola /usr/local/bin
+else
+    mkdir -p ~/.local/bin
+    mv zola ~/.local/bin
+
+fi
+
+rm zola.tar.gz
 zola --version

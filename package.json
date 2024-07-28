@@ -13,7 +13,7 @@
   },
   "scripts": {
     "dev": "bash install-zola.sh && zola serve",
-    "build": "bash install-zola.sh && zola build",
+    "build": "bash install-zola.sh && zola build && mkdir -p dist && cp -r public/* dist/",
     "start": "npm run dev",
     "generate": "npm run build",
     "lint": "bash install-zola.sh && zola check"
