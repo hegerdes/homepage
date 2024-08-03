@@ -9,7 +9,6 @@ PREVIEW_URL=${CF_PAGES_URL-$DEPLOY_URL}
 HOMEPAGE_URL=${PREVIEW_URL-https://henrikgerdes.me}
 
 echo "ENVs"
-printenv
 
 # Check if the variable is unset or empty
 if [ -z "$HOMEPAGE_URL" ]; then
