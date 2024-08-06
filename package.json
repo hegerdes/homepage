@@ -2,21 +2,21 @@
   "name": "henrik-gerdes-homepage",
   "version": "3.0.0",
   "private": true,
+  "license": "MIT",
   "engines": {
     "node": ">=18"
   },
-  "license": "MIT",
 
   "author": {
     "name": "hegerdes",
     "url": "https://henrikgerdes.me"
   },
   "scripts": {
-    "dev": "bash install-zola.sh && zola serve",
+    "dev": "bash zola-install.sh && zola serve",
     "build": "bash zola-build.sh",
     "start": "npm run dev",
     "generate": "npm run build",
-    "lint": "bash install-zola.sh && zola check"
+    "lint": "bash zola-install.sh && zola check"
   },
   "devDependencies": {}
 }
