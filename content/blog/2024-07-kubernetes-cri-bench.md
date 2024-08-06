@@ -1,11 +1,7 @@
----
-title: Benchmarking what actually drive our containers
-description: Kubernetes success and versatility often overshadows the lower-level details of what actually drives our containers. I took a deeper took on how the default container engine performs compared to some alternatives.
-date: '2024-07-01'
-pic: '/img/blog/cri-test-thump.jpeg'
-tags: ['kubernetes', 'oci', 'benchmark', 'containerd']
-# To pdf: pandoc 2024-07-kubernetes-cri-bench.md -o 2024-07-kubernetes-cri-bench.pdf -V geometry:"margin=1in"
----
++++
+title = "2024-07-kubernetes-cri-bench"
+date = 2019-11-27
++++
 
 # The Engines that run our Kubernetes Workloads
 

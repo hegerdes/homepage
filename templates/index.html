@@ -20,11 +20,9 @@
   </section>
 
   {% block content %}
-  <p></p>
   {% endblock content %}
 
-
-  {{ macros::footer() }}
+  {{ macros::footer(include_particle_js=true) }}
 
 </body>
 {% endblock body %}

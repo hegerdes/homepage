@@ -22,6 +22,7 @@ minify_html = true
 
 # When set to "true", a feed is automatically generated.
 generate_feeds = true
+feed_filenames = ["rss.xml", "atom.xml"]
 
 # The default author for pages
 author = "hegerdes"
@@ -40,12 +41,18 @@ smart_punctuation = true
 
 
 [extra]
-# Put all your custom variables here
+# Custom/Personal variables
+
 username = "Henrik Gerdes"
 user_description = "Hello there!"
-user_title = "Software Developer"
+user_title = "Software Engineer"
+
+# Socials
 email = "hegerdes@outlook.de"
 github_username = "hegerdes"
 gitlab_username = "hegerdes"
 linkedin_profile = "https://www.linkedin.com/in/henrik-gerdes-97603b22a/"
 mastodon_profile = "https://social.henrikgerdes.me/@hegerdes"
+
+# Extra settings
+use_cdn_resources = false # whether to use cdn for js/css libs or local paths
