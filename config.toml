@@ -33,7 +33,7 @@ author = "hegerdes"
 highlight_code = true
 
 # Code theme
-highlight_theme = "agola-dark"
+highlight_theme = "one-dark"
 
 # Whether smart punctuation is enabled (changing quotes, dashes, dots in their typographic form)
 # For example, `...` into `…`, `"quote"` into `“curly”` etc

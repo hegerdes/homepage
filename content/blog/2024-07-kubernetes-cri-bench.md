@@ -1,7 +1,7 @@
-+++
-title = "2024-07-kubernetes-cri-bench"
-date = 2019-11-27
-+++
+---
+title: "2024-07-kubernetes-cri-bench"
+date: "2019-11-27"
+---
 
 # The Engines that run our Kubernetes Workloads
 
@@ -48,18 +48,18 @@ The crun project makes some bold claims but for my self managed test cluster I'v
 *Disclaimer:* This is NOT a scientific benchmark. I'm quite a noop in profiling such applications, and I cannot claim full correctness for my findings. If you know how to do it better, please show me.
 
 I created a VM on the Hetzner-Cloud using their dedicated offerings to avoid the effect of noisy neighbors. I redid the test on another instance to ensure I didn't get a low-performing one. System Data: 
-```yaml
-region: "nbg1-dc3"
-os: "Linux 6.1.0-21-amd64 Debian 12 (2024-05-03) x86_64 GNU/Linux"
-sku: 
-	type: CCX33
-	cpu: 8
-	ram: 32
+```yaml,linenos
+region: nbg1-dc3
+os: Linux 6.1.0-21-amd64 Debian 12 (2024-05-03) x86_64 GNU/Linux
+sku:
+  type: CCX33
+  cpu: 8
+  ram: 32
 ```
 
 The test environment was configured with an [ansible playbook and my personal Kubernetes role](https://github.com/hegerdes/ansible-playbooks/blob/cri-bench-v1/pb_k8s_cri_test.yml) I use to play around. My benchmark script uses the `time` tool to measure execution time and calculates min, max and mean for 1000 container creations for the busybox image running `/usr/bin/true`. I use `nerdctl` to create containers rather than calling the OCI implementation directly, since it mimics a more realistic use of an CRI. Before every test, I run a small warm-up to allow the CPU to boost clock speed. I found it hard to measure CPU and memory consumption for a short-lived process, so I installed node-exporter and have it scraped by Prometheus (running on another system) every 5 seconds.
 
-```txt
+```txt,linenos
 containerd version 1.7.18
 crun version 1.15
 runc version 1.1.13
@@ -83,7 +83,6 @@ The main findings are summarized in the table below.
 | runc  | 0.34s | 0.16s | 0.44s | 1      | 362s       | 8mb     |
 | runsc | 0.62s | 0.44s | 1.64s | 0      | 642s       | 32mb    |
 | youki | 0.32s | 0.16s | 0.46s | 36     | 354s       | 2mb     |
-
 
 Memory was hard to test, and I found no significant differences here. From the data node-exporter provided it seems like crun and runc use a little less memory compared to the others, but I can not prove that no other process caused the increase, even when I did my best to keep variations low.  
 

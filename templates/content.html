@@ -1,32 +1,38 @@
 {% macro about() %}
-<div class="user-details">
-  <h1> My Expertise </h1>
-  <p> {{ config.extra.user_description }} </p>
+<div class="container ">
+  <div class="row">
+    <div class="col user-details">
+      <h1> My Expertise </h1>
+      <p> {{ config.extra.user_description }} </p>
+    </div>
+  </div>
 </div>
-<div class="user">
-  <div class="tech">
-    <h2>Code</h2>
-    <i class="devicon-git-plain colored"></i>
-    <i class="devicon-python-plain"></i>
-    <i class="devicon-go-original-wordmark colored"></i>
-    <p>Mumblecore hexagon kombucha, pitchfork four loko raclette intelligentsia master cleanse.
-      Vinyl XOXO lumbersexual</p>
-  </div>
-  <div class="tech">
-    <h2>Deploy</h2>
-    <i class="devicon-githubactions-plain"></i>
-    <i class="devicon-kubernetes-plain colored"></i>
-    <i class="devicon-googlecloud-plain"></i>
-    <p>Mumblecore hexagon kombucha, pitchfork four loko raclette intelligentsia master cleanse.
-      Vinyl XOXO lumbersexual</p>
-  </div>
-  <div class="tech">
-    <h2>Monitor</h2>
-    <i class="devicon-grafana-plain colored"></i>
-    <i class="devicon-oauth-plain colored"></i>
-    <i class="devicon-opentelemetry-plain colored"></i>
-    <p>Mumblecore hexagon kombucha, pitchfork four loko raclette intelligentsia master cleanse.
-      Vinyl XOXO lumbersexual</p>
+<div class="container">
+  <div class="row user">
+    <div class="col">
+      <h2>Code</h2>
+      <i class="devicon-git-plain colored"></i>
+      <i class="devicon-python-plain"></i>
+      <i class="devicon-go-original-wordmark colored"></i>
+      <p>Mumblecore hexagon kombucha, pitchfork four loko raclette intelligentsia master cleanse.
+        Vinyl XOXO lumbersexual</p>
+    </div>
+    <div class="col">
+      <h2>Deploy</h2>
+      <i class="devicon-githubactions-plain"></i>
+      <i class="devicon-kubernetes-plain colored"></i>
+      <i class="devicon-googlecloud-plain"></i>
+      <p>Mumblecore hexagon kombucha, pitchfork four loko raclette intelligentsia master cleanse.
+        Vinyl XOXO lumbersexual</p>
+    </div>
+    <div class="col">
+      <h2>Monitor</h2>
+      <i class="devicon-grafana-plain colored"></i>
+      <i class="devicon-oauth-plain colored"></i>
+      <i class="devicon-opentelemetry-plain colored"></i>
+      <p>Mumblecore hexagon kombucha, pitchfork four loko raclette intelligentsia master cleanse.
+        Vinyl XOXO lumbersexual</p>
+    </div>
   </div>
 </div>
 {% endmacro about %}

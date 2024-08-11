@@ -70,7 +70,36 @@ a img {
     border: none;
 }
 
+
+img {
+    width: 100%;
+}
+
+
 sup,
 sub {
     line-height: 0;
+}
+
+table {
+    width: 100%;
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    td {
+        background-color: #ffffff;
+    }
+
+    tr:nth-child(even) td {
+        background-color: #f9f9f9;
+    }
+
+    caption {
+        caption-side: top;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+
 }
