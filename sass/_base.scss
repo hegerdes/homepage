@@ -57,24 +57,25 @@ h4 {
 
 ul,
 ol {
-    margin: 1em 0;
+    margin: 1em;
     padding-left: 40px;
 }
 
 p,
 figure {
-    margin: 1em 0;
+    margin: 1em;
 }
 
 a img {
     border: none;
 }
 
-
 img {
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+    display: block;
 }
-
 
 sup,
 sub {
@@ -82,7 +83,9 @@ sub {
 }
 
 table {
-    width: 100%;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
 
     th {
         background-color: #f2f2f2;

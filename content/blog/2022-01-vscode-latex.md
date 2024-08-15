@@ -60,7 +60,8 @@ If you pan to modify and access your project files with other tools as well I wo
 
 ### Local setup 
 The TeX source is on your host OS and gets mounted as volume
-```bash
+
+```bash,linenos
 # Open a terminal an type:
 git clone https://github.com/hegerdes/VSCode-LaTeX-Container
 code VSCode-LaTeX-Container
@@ -73,7 +74,8 @@ code VSCode-LaTeX-Container
 
 ### In a container
 The entire project is within the container
-```bash
+
+```bash,linenos
 # Open VSCode
 # In VSCode hit F1
 > Remote-Containers: Clone Repository in Container Volume
@@ -92,7 +94,8 @@ The entire project is within the container
 ### The LaTeX template
 <!-- ![Pic](/img/blog/latex-template.png) -->
 The included template was build up over the time and is designed for scientific projects. But I didn't start from scratch either. Credit goes to:
-```LaTeX
+
+```LaTeX,linenos
 % Original author:
 % WikiBooks (LaTeX - Title Creation) with modifications by:
 % Vel (vel@latextemplates.com)

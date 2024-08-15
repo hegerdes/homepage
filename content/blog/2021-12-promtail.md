@@ -20,7 +20,7 @@ Promtail is part of the Grafana platform. The Grafana platform is increasing in 
 ## Installing Promtail
 Promtail is available as a static binary on the official [Grafana Loki GitHub](https://github.com/grafana/loki/releases) page. We could download it by hand, *or* we could use the terminal like a real programmer:
 
-```bash
+```bash,linenos
 # Download latest:
 curl -s https://api.github.com/repos/grafana/loki/releases/latest | \
     grep browser_download_url | \
@@ -37,7 +37,7 @@ We are using the GitHub API to get the latest release of Promtail and are filter
 
 Now we need a Promtail config:
 
-```ymal
+```yaml,linenos
 # Promtail config
 server:
   disable: true
@@ -72,7 +72,7 @@ Our Promtail do not need to receive any logs we are just querying local files, s
 
 We could start Promtail with `promtail -config.file promtail-config.yml`, but we would have little control over the process, and it would not start again if the process fails or the host is restarted. So let's create separate user for Promtail (optional) and a service:
 
-```bash
+```bash,linenos
 # Create promtail user
 useradd -r promtail
 usermod -a -G adm promtail
@@ -94,7 +94,7 @@ EOF
 ```
 
 Now we can simply run the following and have a reliable and good Promtail setup that can easily be automated with tools like Ansible or Puppet.
-```bash
+```bash,linenos
 # Start the service
 sudo systemctl daemon-reload
 sudo systemctl enable promtail.service

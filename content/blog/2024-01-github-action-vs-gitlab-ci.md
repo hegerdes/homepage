@@ -30,7 +30,7 @@ Every job can also specify dependencies on other jobs. The actual steps that the
 GitHub Actions allows users to run an arbitrarily amount of action modules. An action is a (specific) reference to a other Git repository that performs a specific task within the CI. When a job is run, the action is checked out and runs its logic. From the users perspective, most actions are declarative, which allows users to utilize them without having to know their implementation details. Examples of actions include [installing Docker](https://github.com/marketplace/actions/setup-docker) or [setting up Minikube](https://github.com/marketplace/actions/setup-minikube). GitHub has a huge [marketplace](https://github.com/marketplace?type=actions) of official and community actions. Users can customize the behavior of actions by passing input arguments to them. This approach allows for great reuse of tasks, a low entry barrier, and lean CI configurations.  
 Besides the marketplace actions users can also use a generic `run` action, which accepts any shell code, allowing any generic imperative commands. In addition to Bash and PowerShell, it is also possible to directly use Python, JavaScript and other interpreted languages. In addition to workflow control and job control, each step has an optional parameter to determine if the step should be executed. 
 
-```yaml
+```yaml,linenos
 # GitHub Action example workflow
 name: Example Pipeline
 
@@ -63,7 +63,7 @@ jobs:
 ### GitLab CI
 GitLab has three different run stages: `before_script`, `script` and `after_script`. Each stage allows a list of shell commands and can execute everything a script could. The `after_script` is always executed, even if previous steps errored. Allowing users to send webhooks, perform error handling and print debug messages. Reusing these scripts is possible via inheriting from an existing job, extending from an existing job, or using the `!reference` tag which allows using commands specified somewhere else. All commands have to be imperative shell instructions, which requires users to carefully construct every task they want to perform themselves.
 
-```yaml
+```yaml,linenos
 # GitLab CI Pipeline example
 
 tags: [docker]

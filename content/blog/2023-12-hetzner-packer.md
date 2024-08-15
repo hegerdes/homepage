@@ -31,7 +31,7 @@ To follow this tutorial, you need:
 Visit [Hashicorp Packer](https://developer.hashicorp.com/packer/install) and install Packer according to your OS.  
 On Debian based Linux, run:
 
-```bash
+```bash,linenos
 > wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
 > echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
 > sudo apt update && sudo apt install packer
@@ -45,7 +45,7 @@ Create a project folder with `mkdir my-hetzner-img` and enter the directory.
 Similar to Terraform, Packer uses providers to communicate with the needed build system. The usage of different providers allows Packer to offer a vast verity of different target systems. It allows users to create software or OS packages for all major cloud providers, on-prem systems and even Docker images.  
 To use a provider, create a file called `provider.pkr.hcl` and add the provider config:
 
-```hcl
+```hcl,linenos
 # packer.pkr.hcl
 packer {
   required_plugins {
@@ -61,7 +61,7 @@ Packer uses the HashiCorp configuration language (HCL) for declaring the desired
 
 To create a personalized custom image, Packer needs a base form where it starts from. This is called the "source":
 
-```hcl
+```hcl,linenos
 # custom-img-v1.pkr.hcl
 source "hcloud" "base-amd64" {
   image         = "debian-12"
@@ -83,7 +83,7 @@ This tells Packer where to start. In the case of Hetzner, Packer needs to know t
 
 The next step is to provide your customization. Meaning the actual build step.
 
-```hcl
+```hcl,linenos
 # custom-img-v1.pkr.hcl
 build {
   sources = ["source.hcloud.base-amd64"]
@@ -106,7 +106,7 @@ It uses the source specified before and specifies a `shell` provisioner. Every l
 
 To create that image run the following commands:
 
-```bash
+```bash,linenos
 # Set your Hetzner API Token
 > export HCLOUD_TOKEN="XXX"
 # Initialize the project - only needed once
@@ -123,7 +123,7 @@ Now Packer builds that server and streams all the logs to your current terminal.
 
 Putting all commands in HCL can quickly get crowded. It is also not reasonable to copy-paste the code for every variant of an image you might want to build. To make things more generic, Packer can use variables:
 
-```hcl
+```hcl,linenos
 # custom-img-v2.pkr.hcl
 variable "base_image" {
   type    = string
@@ -176,7 +176,7 @@ Hetzner also supports [Arm64-based servers](https://www.hetzner.com/press-releas
 
 Just add another source to your code and update the build step to include that source:
 
-```hcl
+```hcl,linenos
 # custom-img-v2.pkr.hcl
 source "hcloud" "base-arm64" {
   image         = var.base_image
@@ -214,7 +214,7 @@ Tags are metadata that you can add to a Snapshot. These are useful to provide in
 You can use `cloud-init` to do some early setup while building images with Packer, but you might also want to use `cloud-init` when deploying your custom image. By default, `cloud-init` only runs once, so it needs to be reset.  
 Consider adding the following lines to your bash script to wait and reset `cloud-init`.
 
-```bash
+```bash,linenos
 # os-setup.sh
 #!/bin/bash
 set -e -o pipefail
@@ -238,7 +238,7 @@ This allows users to run `cloud-init` a second time.
 **Different operating systems:**<br>
 You can create and boot completely different operating systems and create your own images for them using Packer. By booting into Hetzner's *rescue* mode, you can override the entire disk image of a VM:
 
-```hcl
+```hcl,linenos
 build {
   sources = ["source.hcloud.myvm"]
   provisioner "shell" {

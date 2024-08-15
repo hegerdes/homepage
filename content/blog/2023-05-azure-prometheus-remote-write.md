@@ -57,7 +57,7 @@ Now we can set up our local tools to send metrics.
 The flow we created uses the OpenIdConnect (OIDC) standard which is part of the Oauth2 spec. When you want lo learn more abut the described authentication, you can check out this in depth article **TBA**.
 
 To send metrics form on Prometheus instance we need to set up the Prometheus config like this:
-```yml
+```yml,linenos
 global:
   scrape_interval: 1m
 

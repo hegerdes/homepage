@@ -21,7 +21,7 @@ Are there tasks that you have to do over and over again? Like setting up your wo
 Some example:
 
 I use SSH *a lot*. To I created a script in my `.bashrc` file to automaticly start the ssh-agent and add my private key. So I can run SSH commands from every environment:
-```bash
+```bash,linenos
 # SSH-Agent setup
 env=~/.ssh/agent.env
 agent_load_env () { test -f "$env" && . "$env" >| /dev/null ; }
@@ -45,7 +45,7 @@ unset env
 ```
 
 Working with many GIT repos and dont want to pull manually:
-```bash
+```bash,linenos
 pull_all() {
   FAILS=()
   workdir=$(pwd)
@@ -70,7 +70,7 @@ pull_all() {
 ```
 
 Backup your Dotfiles:
-```bash
+```bash,linenos
 # Create Dotfiles
 DOT_ARCHIVE=$HOME/Tools/dotfiles.tar.gz
 if [ ! -f "$DOT_ARCHIVE" ] || [ $(($(date +%s) - $(date +%s -r $DOT_ARCHIVE))) -gt 604800 ]; then
@@ -96,7 +96,7 @@ Choose the editor and mail client you like and get really good at it. The same g
 Not having to leave the keyboard to reach the mouse in order to click a button that is hidden behind two menues gives you a **huge** advantage over others. It lets you archive your goal quicker so you can focus on the next step. There are some universall shortcuts that work in almost every application that everybody shoud know:
 
 _Common:_
-```bash
+```bash,linenos
 # Copy              # Print                         # Search            # Swicht between windows        
 Ctrl + c            Ctrl + p                        Win + SeachWord     Alt + tab                       
 # Past              # Open                          # Desktop           # Open app x in taskbar         
@@ -114,7 +114,7 @@ Ctrl + s            Ctrl + Shift + arrow            Ctrl + o            Win + Sh
 ```
 
 _Browser:_
-```bash
+```bash,linenos
 # Reload            # Open history                  # Switch tabs       # Go to tab [1-9]               
 Ctrl + r            Ctrl + h                        Ctrl + tab          Ctrl + [0-9]                    
 # Add favo          # Focuse searchbar              # Reopen tab        # Zoom                          

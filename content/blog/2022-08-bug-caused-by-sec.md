@@ -27,7 +27,7 @@ We triggered a new build with the updated NodeJS version (in our case form NodeJ
 To verify the bug I deployed the same code with the two different NodeJS versions (v14.19.3 & v14.20.0). On v14.19.3 I got a HTTP 200 response, on v14.20.0 I got a HTTP 400 response indicating a bad-request. But our application never threw a 400 error - nor did it log anything. - *Time to dig deeper...*
 
 I created a minimal NodeJS http-server and deployed it with the two different NodeJS versions (*and even new ones*):
-```JavaScript
+```JavaScript,linenos
 const port = 3000;
 var http = require('http');
 
@@ -45,7 +45,7 @@ I got the same behavior 😒. Not a solution but now I knew it wasn't a bug in o
 
 Let's start by looking at the release notes of [NodeJS 14.20.0](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V14.md#2022-07-07-version-14200-fermium-lts-danielleadams-prepared-by-juanarbol)
 
-```markdown
+```markdown,linenos
 ### Notable Changes
 [8e8aef836c] - (SEMVER-MAJOR) src,deps,build,test: add OpenSSL config appname (Daniel Bevenius) #43124
 [98965b137d] - deps: upgrade openssl sources to 1.1.1q (RafaelGSS) #43686
@@ -64,7 +64,7 @@ Hmmm - The certificates are generated with *openssl*, but the actual verificatio
 ### Encoding is everything
 I want to see the actual HTTP request that gets proxieed to NodeJS. So I replaced the NodeJS application with [Netcat – The Swiss Army Knife of Networking](https://en.wikipedia.org/wiki/Netcat).
 With the help of [@bnoordhuis](https://github.com/bnoordhuis) I found that we were getting the following:
-```
+```,linenos
 # HexDump
 00000000: 4745 5420 2f20 4854 5450 2f31 2e31 0d0a 436f 6e6e 6563 7469 6f6e 3a20 7570  GET / HTTP/1.1..Connection: up
 0000001e: 6772 6164 650d 0a48 6f73 743a 2064 6d2d 7465 7374 696e 672d 7374 6167 696e  grade..Host: dm-testing-stagin

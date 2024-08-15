@@ -19,7 +19,8 @@ The URLs of videos on Reddit are not directly visible. You have dig through some
 The backend requires a URL as an argument, and makes a request to that URL. The result is analyzed with [`BeautifulSoup`](https://www.crummy.com/software/BeautifulSoup/bs4/doc/). After the video and audio URL got extracted, both files are downloaded separably and are then combined with [`ffmpeg`](https://ffmpeg.org/). 
 I used Flask to handle the HTTP requests and provide routing. It is a simple-to-use minimal framework that was fast to implement.  
 I wanted people to be able to use the backend directly, so it is possible to download videos with a terminal. The following bash function should download any Reddit video for you without the need to use any browser:
-```bash
+
+```bash,linenos
 # Add this function to yor terminal session - or put it into your .bash_rc
 # This need wget, curl and jq
 reddvid () {

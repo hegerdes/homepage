@@ -43,7 +43,7 @@ I have gone the X509 client certificates way and if you are interested, below is
 Every user should have their own personal kubeconfig to ensure proper access controls and auditing capabilities. Unfortunately there is no built-in support from Kubernetes for creating these kube-client-configs. Nevertheless the process can easily be automated.  
 
 The user has to create a new key-pair with openssl which he will use for accessing the cluster later. This can be done with the following command:
-```bash
+```bash,linenos
 # Bits for the key
 KEY_SIZE=4096
 # Username
@@ -59,7 +59,7 @@ openssl req -new -newkey rsa:$KEY_SIZE -nodes -keyout k8s-client-1.key -batch -o
 The resulting certificate signing request (CSR) now has to be signed by the clusters Common Authority (CA).
 The signing request can either be done wither the Kubernetes certificate api by creating a `CertificateSigningRequest` or manually by copying the clients CSR to the api-server and signing it with the clusters CA via openssl. The first option is clearly preferable as it does not require access to the node on which the api-server runs on and there is a traceable audit log.  
 The resulting certificate and the key are then base64 encoded and inserted into the format of the kubeconfig. The resulting file will have this layout (without the certificate data redacted):
-```yaml
+```yaml,linenos
 apiVersion: v1
 kind: Config
 current-context: docker-desktop
@@ -103,7 +103,7 @@ Quite some time ago I stumbled upon the GitLab Agent. It's a small application t
 GitLab automatically creates short-lived tokens (`CI_JOB_TOKEN`) and only allows authorized users to use the tunnel in CI.
 
 You can install the agent easily with:
-```bash
+```bash,linenos
 helm repo add gitlab https://charts.gitlab.io
 helm repo update
 helm upgrade --install test gitlab/gitlab-agent \
@@ -115,7 +115,7 @@ helm upgrade --install test gitlab/gitlab-agent \
 ```
 
 Now you can create a file in you git repo with the path `.gitlab/agents/<agent-name>/config.yaml` and even share the cluster access with other Git projects:
-```yaml
+```yaml,linenos
 ci_access:
   projects:
     - id: my-team/serviceX
@@ -132,7 +132,7 @@ No secrets needed, secure and controlled access to the cluster.
 **Good News:** This also works for people.
 
 You can just add the following to your `.gitlab/agents/<agent-name>/config.yaml`:
-```yaml
+```yaml,linenos
 user_access:
   access_as:
     user: {}
@@ -155,7 +155,7 @@ If a team member retires, just remove them from the GitLab group and the access 
 <details>
 <summary>Complete Kubeconfig</summary>
 
-```yaml
+```yaml,linenos
 apiVersion: v1
 kind: Config
 current-context: gitlab-cluster-via-agent-42
