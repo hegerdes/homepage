@@ -9,8 +9,6 @@
 }
 
 body {
-    margin: 0;
-    padding: 0;
     font-size: 100%;
     line-height: 1.5;
     color: #555;
@@ -83,7 +81,6 @@ sub {
 }
 
 table {
-    width: 90%;
     margin-left: auto;
     margin-right: auto;
 
@@ -104,5 +101,4 @@ table {
         font-weight: bold;
         margin-bottom: 10px;
     }
-
 }
