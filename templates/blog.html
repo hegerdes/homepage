@@ -10,11 +10,15 @@
     {{ macros::navbar() }}
 
     {% block content %}
-    <ul>
-        {% for page in section.pages %}
-        <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="row">
+        <div class="col">
+            <ul>
+                {% for page in section.pages %}
+                <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
     {% endblock content %}
 
     {{ macros::footer() }}

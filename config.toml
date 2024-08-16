@@ -27,10 +27,20 @@ feed_filenames = ["rss.xml", "atom.xml"]
 # The default author for pages
 author = "hegerdes"
 
+[search]
+include_title = true
+include_description = true
+include_path = true
+include_content = true
+index_format = "elasticlunr_json"
+
 
 [markdown]
 # Whether to do syntax highlighting
 highlight_code = true
+
+# Links
+external_links_target_blank = true
 
 # Code theme
 highlight_theme = "one-dark"

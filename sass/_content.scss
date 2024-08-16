@@ -1,7 +1,17 @@
-body div div div {
+body div div {
     p {
         font-size: large;
-        margin-right: 1em;
+        // margin-right: 1em;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    summary {
+        margin-right: 1rem;
+        margin-left: 1rem;
     }
 
     ul,
@@ -9,7 +19,7 @@ body div div div {
     li {
         // padding-left: 40px;
         word-wrap: break-word;
-        padding-right: 1em;
+        // padding-right: 1em;
 
 
     }
