@@ -7,8 +7,8 @@ tags: ['Kubernetes', 'GitLab', 'Security']
 ---
 # Using GitLab to manage Kubernetes access
 
-Recently I have been tasked to share access to a Kubernetes test cluster with other teams. Easy: Add them to a group in your OIDC provider and set appropriate RBAC rules. Task done - no need to write this.
-## BUT: 
+Recently I have been tasked to share access to a Kubernetes test cluster with other teams. Easy: Add them to a group in your [OIDC](https://openid.net/specs/openid-connect-core-1_0.html) provider and set appropriate RBAC rules. Task done - no need to write this.
+## BUT:
 Unfortunately I can't have an OIDC provider for non-production clusters... because. *Sighs...*  
 
 <details>

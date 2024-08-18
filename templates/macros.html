@@ -2,7 +2,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title>{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}</title>
   <meta name="description"
@@ -20,7 +20,10 @@
 {% macro navbar() %}
 <nav class="navbar sticky-top navbar-expand-md bg-body-tertiary bg-faded shadow">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">{{ config.extra.username }}</a>
+    <strong>
+
+      <a class="navbar-brand" href="/">{{ config.extra.username }}</a>
+    </strong>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -28,7 +31,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-3 ">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/projects">Projects</a>
+          <a class="nav-link" aria-current="page" href="/projects">Projects</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/blog">Blog</a>
@@ -103,6 +106,9 @@
   <p>Generated with <a href="https://www.getzola.org/">Zola</a> using a custom theme inspired by <a
       href="https://github.com/svavs">Silvano Sallese</a> & <a href="https://github.com/nrandecker">Nathan
       Randecker</a></p>
+  <p>Page Version: <a
+      href="{{ config.extra.page_source }}/tree/{{ config.extra.page_version| replace(from='unknown', to='main') }}">@{{
+      config.extra.page_version }}</a></p>
 </footer>
 
 {% if config.extra.use_cdn_resources %}

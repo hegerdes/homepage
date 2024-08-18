@@ -1,21 +1,16 @@
 pre {
-    padding: 1em;
     margin-left: auto;
     margin-right: auto;
     overflow: auto;
     width: 95%;
 
     @media (max-width: $cut) {
-        margin-left: 1.5em;
-        margin-right: 1.5em;
+        margin-left: 1rem;
+        margin-right: 1rem;
         width: 80%;
     }
 
-
     table {
-        margin-left: 0;
-        margin-right: 0;
-
         td {
             padding: 0;
             padding-right: 4px;
@@ -33,7 +28,6 @@ pre {
             text-align: center;
             user-select: none;
         }
-
     }
 
     mark {
@@ -42,7 +36,6 @@ pre {
         /* The default background colour of a mark is bright yellow */
         background-color: rgba(254, 252, 232, 0.9);
     }
-
 }
 
 code {

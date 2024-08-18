@@ -27,7 +27,7 @@ This lack over the certificate details also results in the lack of the possibili
 Kubernetes admins and vendors should have an easy possibility to crate trusted kubelet server certificates.  
 This can be achieved either via the certificate generation phase of kubeadm or via passing extra args to the kubelet tls setup to include additional SANs.
 
-```yaml
+```yaml,linenos
 # Existing behavior with etcd and kube-api-server
 apiVersion: kubeadm.k8s.io/v1beta3
 kind: ClusterConfiguration
