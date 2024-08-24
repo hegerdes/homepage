@@ -1,10 +1,12 @@
----
-title: How to send OnPrem Prometheus metrics to MS Azure
-description: Companies have to bridge the gap when moving to the cloud. One of the major pain points is observability. This quick post shows how to send your OnPrem metrics to Azure in order to provide a central location for your "single pane of glass" observability.
-date: '2023-05-25'
-pic: '/img/blog/azure-prometheus-monitor.png'
-tags: ['NodeJS', 'NoteBook', 'Joplin', 'OneNote', 'Markdown', 'Dev', 'TS/JS']
----
++++
+title = "How to send OnPrem Prometheus metrics to MS Azure"
+description = "Companies have to bridge the gap when moving to the cloud. One of the major pain points is observability. This quick post shows how to send your OnPrem metrics to Azure in order to provide a central location for your 'single pane of glass' observability."
+date = '2023-05-25'
+
+[extra]
+pic = "/img/blog/azure-prometheus-monitor.png"
+tags = ['NodeJS', 'NoteBook', 'Joplin', 'OneNote', 'Markdown', 'Dev', 'TS/JS']
++++
 
 # Sending metrics to Azure - with Prometheus
 ---

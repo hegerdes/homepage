@@ -16,9 +16,9 @@
   <p>Generated with <a href="https://www.getzola.org/">Zola</a> using a custom theme inspired by <a
       href="https://github.com/svavs">Silvano Sallese</a> & <a href="https://github.com/nrandecker">Nathan
       Randecker</a></p>
-  <p>Page Version: <a
-      href="{{ config.extra.page_source }}/tree/{{ config.extra.page_version| replace(from='unknown', to='main') }}">@{{
-      config.extra.page_version | truncate(length=7)}}</a></p>
+  <p>Page Version: @<a
+      href="{{ config.extra.page_source }}/tree/{{ config.extra.page_version| replace(from='unknown', to='main') }}">{{
+      config.extra.page_version | truncate(length=7, end="")}}</a></p>
 </footer>
 
 {% if config.extra.use_cdn_resources %}

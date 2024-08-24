@@ -12,8 +12,9 @@
 
     <section id="post">
         <div class="row container-fluid">
-            <div class="col-lg-2 sidebar shadow">
-                <div class="sidebar-content sticky-top offcanvas-lg offcanvas-start ">
+            <!-- Offcanvis exampe: https://hot.page/demos/bootstrap -->
+            <div class="col-lg-2 sidebar shadow offcanvas-lg offcanvas-start">
+                <div class="sidebar-content sticky-top">
                     <img src="/img/avatar.jpeg" alt="runded avatar anime profile pricture" class="rounded-circle">
                     <p>Author:</p>
                     <h4>{{ config.extra.username }}</h4>
@@ -37,12 +38,12 @@
             </div>
             <div class="col">
                 <div class="post-info">
-                    <!-- <p>
+                    <p>
                         <i class="fas fa-pen"></i> {% if page.date %}Published: {{ page.date |
                         date(format="%d/%m/%Y")
                         }} {%endif %}<br>
                         <i class="fab fa-readme"></i> {{ page.reading_time }} minute read
-                    </p> -->
+                    </p>
                 </div>
                 <!-- Main Contenr -->
                 <article class="content-area">

@@ -10,6 +10,34 @@
     }
 }
 
+#blog-list-thump {
+    img {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 70%;
+    }
+}
+
+.blog-cards {
+    h5 {
+        font-size: large;
+    }
+
+    a {
+        text-decoration: none;
+        margin: 0;
+        color: $main;
+
+        &:hover {
+            color: $sec;
+        }
+
+        &:active {
+            color: $sec;
+        }
+    }
+}
+
 .sidebar {
     background-color: #f8f9fa;
     padding: 15px;

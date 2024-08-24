@@ -1,10 +1,12 @@
----
-title: Broken NodeJS Apps due to secerity dot-release - Debugging the NodeJS CVE-2022-32213 fix 
-description: When none of your code works anymore due to a to a innocuous secrity fix in a dot release you need some quality time with your rubber duck to find the root cause.
-date: '2022-08-18'
-pic: '/img/blog/nodejs-header-square.png'
-tags: ['NodeJS', 'Work', 'Bug', 'debugging', 'CVE', nginx]
----
++++
+title = "Broken NodeJS Apps due to secerity dot-release - Debugging the NodeJS CVE-2022-32213 fix"
+description = "When none of your code works anymore due to a to a innocuous secrity fix in a dot release you need some quality time with your rubber duck to find the root cause."
+date = '2022-08-18'
+
+[extra]
+pic = "/img/blog/nodejs-header-square.png"
+tags = ['NodeJS', 'Work', 'Bug', 'debugging', 'CVE', 'nginx']
++++
 
 # Broken NodeJS Apps due to security dot-release
 ---

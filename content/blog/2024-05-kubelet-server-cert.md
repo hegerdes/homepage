@@ -1,10 +1,13 @@
----
-title: The recurring problem of the Kubernetes metrics server and insecure Kubelet certificate
-description: The Metrics Server frequently encounters verification issues with Kubelet's self-signed certificates. I wrote a small summary and make a proposal for fixing it.
-date: '2024-05-18'
-pic: '/img/blog/kubelet-insecure.png'
-tags: ['Kubernetes', 'TLS', 'Security']
----
++++
+title = "The recurring problem of the Kubernetes metrics server and insecure Kubelet certificate"
+description = "The Metrics Server frequently encounters verification issues with Kubelet's self-signed certificates. I wrote a small summary and make a proposal for fixing it."
+date = '2024-05-18'
+
+[extra]
+pic = "/img/blog/kubelet-insecure.png"
+tags = ['Kubernetes', 'TLS', 'Security']
++++
+
 ## The recurring problem of the Metrics Server and Insecure Kubelet certificate
 
 ### What is this about:  
