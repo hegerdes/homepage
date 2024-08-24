@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
-{% import "macros.html" as macros %}
-
+{% import "macros/macros.html" as macros %}
+{% import "macros/navbar.html" as nav %}
+{% import "macros/footer.html" as foot %}
 
 {% block body %}
 
 
 <body>
-    {{ macros::navbar() }}
+    {{ nav::navbar() }}
 
     {% block content %}
     <h1 class="title">
@@ -19,7 +20,7 @@
                 <div class="col">
                     <ul>
                         {% for page in section.pages %}
-                        <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
+                        <li><a href="{{ get_url(path=page.path) }}">{{ page.title }}</a></li>
                         {% endfor %}
                     </ul>
                 </div>
@@ -28,7 +29,7 @@
     </section>
     {% endblock content %}
 
-    {{ macros::footer() }}
+    {{ foot::footer() }}
 
 </body>
 

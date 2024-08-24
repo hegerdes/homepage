@@ -1,12 +1,15 @@
 {% extends "base.html" %}
 
-{% import "macros.html" as macros %}
+{% import "macros/macros.html" as macros %}
+{% import "macros/navbar.html" as nav %}
+{% import "macros/footer.html" as foot %}
+{% import "macros/me.html" as me %}
 
 {% block body %}
 
 <body>
-  {{ macros::navbar() }}
-  {{ macros::header() }}
+  {{ nav::navbar() }}
+  {{ me::header() }}
 
   <section id="about">
     <div class="container">
@@ -88,7 +91,7 @@
   {% block content %}
   {% endblock content %}
 
-  {{ macros::footer(include_particle_js=true) }}
+  {{ foot::footer(include_particle_js=true) }}
 
 </body>
 {% endblock body %}

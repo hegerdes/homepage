@@ -1,0 +1,57 @@
+{% macro footer(include_sweet_scroll_js=true, include_bootstrab_js=true, include_particle_js=false) %}
+<footer id="footer" class="footer">
+  <p>CONTACT INFORMATION</p>
+  <div class="header-icons">
+    <a aria-label="Send email" href="mailto:{{ config.extra.email }}"><i class="icon fas fa-envelope"></i></a>
+    <a aria-label="My Github" target="_blank" href="https://github.com/{{ config.extra.github_username }}"><i
+        class="icon fab fa-github" aria-hidden="true"></i></a>
+    <a aria-label="My GitLab" target="_blank" href="https://gitlab.com/{{ config.extra.github_username }}"><i
+        class="icon fab fa-gitlab" aria-hidden="true"></i></a>
+    <a aria-label="My Mastodon" target="_blank" href="{{ config.extra.mastodon_profile }}"><i
+        class="icon fab fa-mastodon" aria-hidden="true"></i></a>
+    <a aria-label="My LinkedIn" target="_blank" href="{{ config.extra.linkedin_profile }}"><i
+        class="icon fab fa-linkedin" aria-hidden="true"></i></a>
+  </div>
+  <p>&copy; {{ config.extra.username }}</p>
+  <p>Generated with <a href="https://www.getzola.org/">Zola</a> using a custom theme inspired by <a
+      href="https://github.com/svavs">Silvano Sallese</a> & <a href="https://github.com/nrandecker">Nathan
+      Randecker</a></p>
+  <p>Page Version: <a
+      href="{{ config.extra.page_source }}/tree/{{ config.extra.page_version| replace(from='unknown', to='main') }}">@{{
+      config.extra.page_version | truncate(length=7)}}</a></p>
+</footer>
+
+{% if config.extra.use_cdn_resources %}
+<!-- CDN Sources -->
+{% if include_particle_js %}
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"
+  integrity="sha384-d+UOwmNNIC7V4izkTAKSXzWhjC2GxiS9PTykO1XdOPC3nc2z65UOS7SP6QdKPA70" crossorigin="anonymous"></script>
+{% endif %}
+{% if include_bootstrab_js %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+{% endif %}
+{% if include_sweet_scroll_js %}
+<script src="https://cdn.jsdelivr.net/npm/sweet-scroll@2.2.0/sweet-scroll.min.js"
+  integrity="sha384-6LDCXqqqSSEWl4Ho/+Q7XZ8TMaT5IRje0LGGrks7SLk6xWLST23fmQWi5MJ/mQ4c" crossorigin="anonymous"></script>
+{% endif %}
+
+{% else %}
+<!-- Local Sources -->
+{% if include_particle_js %}
+<script src="/js/particles-2.0.0.min.js"
+  integrity="sha384-d+UOwmNNIC7V4izkTAKSXzWhjC2GxiS9PTykO1XdOPC3nc2z65UOS7SP6QdKPA70" crossorigin="anonymous"></script>
+{% endif %}
+{% if include_bootstrab_js %}
+<script src="/js/bootstrap-5.bundle.min.js"
+  integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+{% endif %}
+{% if include_sweet_scroll_js %}
+<script src="/js/sweet-scroll.min.js"
+  integrity="sha384-6LDCXqqqSSEWl4Ho/+Q7XZ8TMaT5IRje0LGGrks7SLk6xWLST23fmQWi5MJ/mQ4c" crossorigin="anonymous"></script>
+{% endif %}
+{% endif %}
+
+<!-- Custom JS -->
+<script src="/js/app.js"></script>
+{% endmacro footer %}

@@ -1,13 +1,14 @@
 {% extends "base.html" %}
 
-{% import "macros.html" as macros %}
-
+{% import "macros/macros.html" as macros %}
+{% import "macros/navbar.html" as nav %}
+{% import "macros/footer.html" as foot %}
 
 {% block body %}
 
 
 <body>
-    {{ macros::navbar() }}
+    {{ nav::navbar() }}
 
     {% block content %}
     <h1 class="title">
@@ -22,7 +23,7 @@
     </ul>
     {% endblock content %}
 
-    {{ macros::footer() }}
+    {{ foot::footer() }}
 
 </body>
 

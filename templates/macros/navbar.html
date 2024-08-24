@@ -1,0 +1,40 @@
+{% macro navbar() %}
+<nav class="navbar sticky-top navbar-expand-md bg-body-tertiary bg-faded shadow">
+    <div class="container-fluid">
+        <strong>
+
+            <a class="navbar-brand" href="/">{{ config.extra.username }}</a>
+        </strong>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-3 ">
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/projects">Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/blog">Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href="/archive">Archive</a>
+                </li>
+            </ul>
+            <form>
+                <div class="d-flex navbar-search-container">
+                    <button class="me-2" type="submit" title="Start-Search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                    <input class="form-control" type="search" placeholder="Search..." aria-label="Search">
+                </div>
+            </form>
+            <ul class="navbar-nav d-flex mb-3 ">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#footer">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endmacro navbar %}

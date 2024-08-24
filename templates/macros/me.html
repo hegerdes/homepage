@@ -1,0 +1,28 @@
+{% macro header() %}
+<div id="particles-js">
+    <div class="header">
+        <h1>
+            <span class="site-title">{{ config.extra.username }}</span>
+            <span class="site-description">{{ config.extra.user_title | linebreaksbr | safe }}</span>
+        </h1>
+        <div class="header-icons">
+            <a aria-label="Send email" href="mailto:{{ config.extra.email }}"><i class="icon fas fa-envelope"></i></a>
+            <a aria-label="My Github" target="_blank" href="https://github.com/{{ config.extra.github_username }}"><i
+                    class="icon fab fa-github" aria-hidden="true"></i></a>
+            <a aria-label="My GitLab" target="_blank" href="https://gitlab.com/{{ config.extra.github_username }}"><i
+                    class="icon fab fa-gitlab" aria-hidden="true"></i></a>
+            <a aria-label="My Mastodon" target="_blank" href="{{ config.extra.mastodon_profile }}"><i
+                    class="icon fab fa-mastodon" aria-hidden="true"></i></a>
+            <a aria-label="My LinkedIn" target="_blank" href="{{ config.extra.linkedin_profile }}"><i
+                    class="icon fab fa-linkedin" aria-hidden="true"></i></a>
+        </div>
+        <div class="header-links">
+            <a class="link" href="#about" data-scroll>About Me</a>
+            <a class="link" href="#projects" data-scroll>Projects</a>
+            <a class="link" href="/blog">Blog</a>
+        </div>
+    </div>
+    <a class="down" title="AboutMeLink" href="#about" data-scroll><i class="icon fas fa-sort-down"
+            aria-hidden="true"></i></a>
+</div>
+{% endmacro header %}
