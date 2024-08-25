@@ -33,7 +33,7 @@
     "eslint-config-prettier": "^8.10.0",
     "eslint-plugin-nuxt": "^2.0.0",
     "eslint-plugin-vue": "^7.20.0",
-    "nuxt": "^2.17.4",
+    "nuxt": "^3.13.0",
     "postcss": "^8.4.38",
     "postcss-import": "^13.0.0",
     "postcss-loader": "^4.3.0",
