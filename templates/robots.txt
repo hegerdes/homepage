@@ -5,4 +5,4 @@ Disallow: /img/*
 Disallow: /ctf/*
 Disallow: /fonts/*
 Disallow: /ori/*
-Sitemap: https://henrikgerdes.me/sitemap.xml
+Sitemap: {{ get_url(path="sitemap.xml") }}

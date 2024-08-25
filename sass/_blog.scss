@@ -1,5 +1,7 @@
 #post {
     width: 98%;
+    padding-left: 0;
+    padding-right: 0;
 
     @media (max-width: $xl) {
         width: 95%;
@@ -10,7 +12,7 @@
     }
 }
 
-#blog-list-thump {
+.blog-list-thump {
     img {
         margin-left: auto;
         margin-right: auto;

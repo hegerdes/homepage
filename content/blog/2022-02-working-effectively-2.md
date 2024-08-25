@@ -87,7 +87,6 @@ fi
 ```
 
 There are soo many more!  
-All the shared functions are also available [here](https://gist.github.com/hegerdes/e481bdd56ba9eef81744a0a89019dc52).
 
 ## Choose your tools
 Take your time to find the appropriate tool for the job. And then learn it until you can use it in your sleep.  

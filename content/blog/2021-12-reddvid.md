@@ -4,7 +4,7 @@ description = "A small WabApp to to find the video and audio files of a Reddit p
 date = '2021-12-24'
 
 [extra]
-pic = "/img/blog/reddvid_small.png"
+pic = "/img/blog/reddvid_small.jpg"
 tags = ['Python', 'Reddit', 'Flask', 'ffmpeg', 'API', 'VUE']
 +++
 

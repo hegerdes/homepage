@@ -10,7 +10,7 @@ tags = ['NodeJS', 'Work', 'Bug', 'debugging', 'CVE', 'nginx']
 
 # Broken NodeJS Apps due to security dot-release
 ---
-On July 7th the vulnerabilities [CVE-2022-32213](https://cve.report/CVE-2022-32213), [CVE-2022-32214](https://cve.report/CVE-2022-32214) and [CVE-2022-32215](https://cve.report/CVE-2022-32215) where publicly disclosed. They affected all current NodeJS versions (v14.x, v16.x, v18.x)! The same day fixes for the vulnerabilities where released. My colleagues and I assumed a quick and easy deployment to spit these fixes onto our client's production systems. A simple rebuild of the old code state with the new NodeJS version and replacement of the old containers. We thought wrong! 🙃
+On July 7th the vulnerabilities [CVE-2022-32213](https://www.cve.org/CVERecord?id=CVE-2022-32213), [CVE-2022-32214](https://www.cve.org/CVERecord?id=CVE-2022-32214) and [CVE-2022-32215](https://www.cve.org/CVERecord?id=CVE-2022-32215) where publicly disclosed. They affected all current NodeJS versions (v14.x, v16.x, v18.x)! The same day fixes for the vulnerabilities where released. My colleagues and I assumed a quick and easy deployment to spit these fixes onto our client's production systems. A simple rebuild of the old code state with the new NodeJS version and replacement of the old containers. We thought wrong! 🙃
 
 Our staging system showed that some of our apps didn't get any requests anymore and clients got a HTTP 4xx error code.
 ![VSCode](/img/blog/nodejs-header.png)
@@ -45,7 +45,7 @@ http.createServer((req, res) => {
 
 I got the same behavior 😒. Not a solution but now I knew it wasn't a bug in our application. Is it a bug in NodeJS? In a dot-release? For security fixes?
 
-Let's start by looking at the release notes of [NodeJS 14.20.0](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V14.md#2022-07-07-version-14200-fermium-lts-danielleadams-prepared-by-juanarbol)
+Let's start by looking at the release notes of [NodeJS 14.20.0](https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V14.md)
 
 ```markdown,linenos
 ### Notable Changes

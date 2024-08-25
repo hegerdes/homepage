@@ -4,7 +4,7 @@ description = "There are all these digital Notebook Apps but none fit quit in? Y
 date = '2023-03-06'
 
 [extra]
-pic = "/img/blog/joplin.png"
+pic = "/img/blog/joplin.jpg"
 tags = ['NodeJS', 'NoteBook', 'Joplin', 'OneNote', 'Markdown', 'Dev', 'TS/JS']
 +++
 
@@ -42,7 +42,7 @@ I also tried OneNote, DesktopNotes, and Google Notes. At a certain amount of not
 As stated before, Joplin is a cross-platform notebook app that is entirely focused on notes. There are no fancy agendas, drawing or advanced formatting support. It supports all the major Markdown features, including headings, bold and italic formatting, enumerations, and tables. Images can be included via drag and drop or Markdown image includes. Math mode is also supported. It is perfect for my workflows because I already write all my docs and notes in Markdown, so I'm quite fast. It is also easy to import text because most of the tools I use have Markdown support. It is easy to copy and paste between Github and Joplin. Even entire websites (or portions of them) can be imported (and converted to Markdown) via a web-clipper. In case users want to stop using Joplin, they can easily export their notes in various formats. But, as I mentioned above, formatting options are limited, and everything that goes beyond the mentioned methods has to be done via HTML or via Plugins. That's right, Joplin has a significant number of plugins which can do all kinds of stuff. Users can add support for draw.io diagrams, daily agendas, calendar tabs, and much more. It is also considerably easy to build a plugin, so I did it myself to add a feature I really wanted to make Joplin my central knowledge solution.
 
 ## My Plugin
-**Why:** I think almost everyone stumbled at least once upon one of these *Awesome lists of _*. Notable mentions are [awesome open-source alternatives to SaaS](https://github.com/RunaCapital/awesome-oss-alternatives/#awesome-open-source-alternatives-to-saas), [fucking-awesome-python](https://github.com/trananhkma/fucking-awesome-python/#fucking-awesome-python) or [awesome-infosec](https://github.com/onlurking/awesome-infosec#awesome-infosec). Sure, you can copy/clip them, but then you have a static version, and you don't get the newest additions and updates. Realistically, no one regularly visits all of these cheat sheets and updates them.  
+**Why:** I think almost everyone stumbled at least once upon one of these *Awesome lists of _*. Notable mentions are [awesome open-source alternatives to SaaS](https://github.com/RunaCapital/awesome-oss-alternatives), [fucking-awesome-python](https://github.com/trananhkma/fucking-awesome-python) or [awesome-infosec](https://github.com/onlurking/awesome-infosec). Sure, you can copy/clip them, but then you have a static version, and you don't get the newest additions and updates. Realistically, no one regularly visits all of these cheat sheets and updates them.  
 So I wrote a plugin for that: [joplin-plugin-remote-note-pull](https://github.com/hegerdes/joplin-plugin-remote-note-pull).  
 It lets users create new notes from any publicly available website and regularly updates the note with the original upstream version.
 

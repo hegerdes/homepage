@@ -23,6 +23,14 @@ body {
     line-height: 1.5;
     color: $thd;
     font-family: 'Montserrat', sans-serif;
+    padding-right: 0;
+    padding-left: 0;
+
+}
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 article,

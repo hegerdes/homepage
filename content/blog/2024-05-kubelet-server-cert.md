@@ -4,7 +4,7 @@ description = "The Metrics Server frequently encounters verification issues with
 date = '2024-05-18'
 
 [extra]
-pic = "/img/blog/kubelet-insecure.png"
+pic = "/img/blog/kubelet-insecure.jpg"
 tags = ['Kubernetes', 'TLS', 'Security']
 +++
 
@@ -70,4 +70,4 @@ Though I don't recommend this for production, this is why we need a more managed
  * [GitHub metrics-server error - missing SANs](https://github.com/kubernetes-sigs/metrics-server/issues/196)
  * [GitHub kubernetes node - missing SANs](https://github.com/kubernetes/kubernetes/issues/59372)
  * [GitHub kubernetes singed serving certificates ](https://github.com/kubernetes/kubeadm/issues/1223)
- * [Reddit - kubeadm not including SANs](https://www.reddit.com/r/kubernetes/comments/1028mw3/kubeadm_join_add_ip_sans_to_kubelet/)
+ * [Reddit - kubeadm not including SANs](https://www.reddit.com/r/kubernetes/comments/1028mw3/kubeadm_join_add_ip_sans_to_kubelet)
