@@ -1,0 +1,155 @@
+.user {
+  text-align: center;
+  font-size: 60px;
+  justify-content: space-between;
+
+  p {
+    font-size: medium;
+    margin-right: 4rem;
+    margin-left: 4rem;
+
+    @media only screen and (max-width: $cut) {
+      margin-right: 2rem;
+      margin-left: 2rem;
+    }
+  }
+}
+
+.user-details {
+  text-align: center;
+  padding-left: 0;
+  padding-right: 0;
+
+  p {
+    text-align: justify;
+    font-size: large;
+    font-weight: 500;
+    // font-stretch: condensed;
+
+    @media only screen and (max-width: $cut) {
+      margin-right: 2rem;
+      margin-left: 2rem;
+    }
+
+  }
+}
+
+.projects {
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.user-projects {
+  @media only screen and (max-width: $cut) {
+    h3 {
+      margin-top: 2rem;
+      margin-top: 2rem;
+    }
+  }
+
+  text-align: justify;
+
+  h3,
+  h4,
+  h5 {
+    margin-top: 1rem;
+  }
+
+
+  img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  li {
+    color: $main;
+    font-size: 1.1rem;
+  }
+
+}
+
+.images-right {
+  @media only screen and (min-width: $cut) {
+    float: right;
+    width: 48%;
+  }
+
+
+  img {
+    padding-left: 3rem;
+
+    @media only screen and (max-width: $cut) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    @media only screen and (min-width: $cut) {
+      float: right;
+    }
+
+  }
+}
+
+.images-left {
+  @media only screen and (min-width: $cut) {
+    float: left;
+    width: 48%;
+  }
+
+  img {
+    padding-right: 3rem;
+
+    @media only screen and (max-width: $cut) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    @media only screen and (min-width: $cut) {
+      float: left;
+    }
+  }
+}
+
+.project-link {
+  @media only screen and (max-width: $cut) {
+    margin-bottom: 1rem;
+  }
+
+  display: inline-block;
+  margin: 10px 0px;
+  padding: 5px;
+  margin-bottom: 5rem;
+  color: $main;
+  background-color: transparent;
+  border: 1px solid $main;
+  border-radius: 10px;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.3s ease-out,
+  background-color 0.3s ease-out,
+  border-color 0.3s ease-out;
+
+  &:hover {
+    background-color: $purple;
+    border-color: $purple;
+    color: #fff;
+    transition: color 0.3s ease-in,
+      background-color 0.3s ease-in,
+      border-color 0.3s ease-in;
+  }
+
+  &:active {
+    background-color: $purple;
+    border-color: $purple;
+    color: #fff;
+    transition: color 0.3s ease-in,
+      background-color 0.3s ease-in,
+      border-color 0.3s ease-in;
+  }
+}

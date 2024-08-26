@@ -18,5 +18,6 @@
     "generate": "npm run build",
     "lint": "bash zola-install.sh && zola check"
   },
+  "dependencies": {},
   "devDependencies": {}
 }

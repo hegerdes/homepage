@@ -12,14 +12,6 @@
     }
 }
 
-.blog-list-thump {
-    img {
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 70%;
-    }
-}
-
 .blog-cards {
     h5 {
         font-size: large;
@@ -51,6 +43,16 @@
 .sidebar-content {
     top: 6rem;
     overflow: hidden;
+
+    p {
+        margin-bottom: 0;
+    }
+
+    h4,
+    h5 {
+        padding-top: 0;
+        margin-top: 0;
+    }
 }
 
 .post-info {
@@ -81,8 +83,8 @@
 
 
         @media (max-width: $cut) {
-            margin-right: 2rem;
-            margin-left: .5rem;
+            // margin-right: 2rem;
+            // margin-left: .5rem;
         }
 
         img {
@@ -113,8 +115,6 @@
     }
 }
 
-
-/* Hide sidebar on small screens */
 @media (max-width: $lg) {
 
     .content-area {

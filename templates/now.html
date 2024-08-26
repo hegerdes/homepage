@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% import "macros/shared.html" as shared %}
+{% import "macros/navbar.html" as nav %}
+{% import "macros/footer.html" as foot %}
+
+{% block body %}
+
+
+<body>
+    {{ nav::navbar() }}
+
+    {% block content %}
+    <div class="container">
+        <h1 class="text-center">{{ section.title }}</h1>
+    </div>
+    {% endblock content %}
+    {{ foot::footer() }}
+
+</body>
+
+{% endblock body %}

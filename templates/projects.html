@@ -11,18 +11,10 @@
     {{ nav::navbar() }}
 
     {% block content %}
-    <h1 class="title">
-        {{ section.title }}
-    </h1>
-    <ul>
-        <!-- If you are using pagination, section.pages will be empty.
-           You need to use the paginator object -->
-        {% for page in section.pages %}
-        <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        {{ shared::pagethump(title=section.title, pic="/img/code.jpg", subtitle="My Projects") }}
+    </div>
     {% endblock content %}
-
     {{ foot::footer() }}
 
 </body>

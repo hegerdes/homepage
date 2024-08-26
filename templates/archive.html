@@ -10,18 +10,13 @@
     {{ nav::navbar() }}
 
     {% block content %}
-    <h1 class="title">
-        {{ section.title }}
-    </h1>
-    <ul>
-        <!-- If you are using pagination, section.pages will be empty.
-           You need to use the paginator object -->
-        {% for page in section.pages %}
-        <li><a href="{{ page.permalink | safe }}">{{ page.title }}</a></li>
-        {% endfor %}
-    </ul>
+    <div class="container">
+        {{ shared::pagethump(title=section.title, pic="/img/archive.jpeg", subtitle="<q
+            cite='https://www.azquotes.com/quote/543321?ref=remembering-the-past'>Remembering the past gives power
+            to
+            the present.</q><sub>Fae Ng</sub>") }}
+    </div>
     {% endblock content %}
-
     {{ foot::footer() }}
 
 </body>

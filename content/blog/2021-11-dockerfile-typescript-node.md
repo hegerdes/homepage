@@ -12,7 +12,7 @@ tags = ['Docker', 'NodeJS', 'JavaScript', 'TypeScript']
 You just finished your TypeScript project and now you want to release it to the internet by using ECS, GKE, Azure or any other cloud service? Or maybe you just want to share it with your co-workers without having them to install and configure additional software. Docker is a great use case for this!
 
 This post shows demonstrates how to create an optimized production ready Docker image for your project.
-![pic](/img/blog/docker.jpg)
+![pic](/img/blog/docker.png)
 
 
 ## Pre-Requirements

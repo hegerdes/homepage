@@ -7,7 +7,8 @@
   <title>{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}</title>
   <meta name="description"
     content="{% if page.description %}{{ page.description | striptags | trim | truncate(length=160) }}{% else %}{{ config.description }}{% endif %}">
-  <meta name="keywords" content="personal webpage, blog, it, devops" <!-- Local Main CSS -->
+  <meta name="keywords" content="personal webpage, blog, it, devops">
+  <!-- Local Main CSS -->
   <link rel="stylesheet" href="/main.css">
 
   <!-- Alternative CDN Sources -->
@@ -15,3 +16,19 @@
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
 </head>
 {% endmacro head %}
+
+{% macro pagethump(title, pic, subtitle="", text="") %}
+<div id="page-thump-row">
+  <h1 class="title text-center">
+    {{ title }}
+  </h1>
+</div>
+<div id="page-thump-pic" class="text-center page-thump-pic">
+  <img src="{{ get_url(path=pic) }}" class="img-fluid " alt="Thubnail for blog showing a desk with a notepad">
+</div>
+<div class="page-thump-text">
+  <h3 class="title text-center">
+    {{ subtitle | safe }}
+  </h3>
+</div>
+{% endmacro pagethump %}

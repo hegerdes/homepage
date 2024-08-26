@@ -11,27 +11,15 @@
 
     {% block content %}
     <div class="container">
-        <div id="blog-list-title">
-            <h1 class="title text-center">
-                {{ section.title }}
-            </h1>
-        </div>
-        <div id="blog-list-thump" class="row text-center blog-list-thump">
-            <img src="/img/blog-posts-overview-thump.png" class="img-fluid"
-                alt="Thubnail for blog showing a desk with a notepad">
-        </div>
-        <div>
-            <h2 class="title text-center">
-                My Posts
-            </h2>
-        </div>
+
+        {{ shared::pagethump(title=section.title, pic="/img/blog-posts-overview-thump.png", subtitle="My Posts")}}
         <section id="posts">
             <div class="row row-cols-1 row-cols-md-2 g-5 mx-2">
                 {% for page in section.pages %}
                 <div class="col">
                     <div class="card h-100 blog-cards">
                         <a href="{{ get_url(path=page.path) }}">
-                            <img src='{{ page.extra.pic | default(value="/img/image-not-found-fallback-2.jpeg") | safe }}'
+                            <img src='{{ get_url(path=page.extra.pic | default(value="/img/image-not-found-fallback-2.jpeg") | safe) }}'
                                 class="card-img-top" alt="Thumpnal of a blog post showing an ai generated image">
                         </a>
                         <div class="card-body">

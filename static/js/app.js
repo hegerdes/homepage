@@ -122,4 +122,18 @@ document.addEventListener("DOMContentLoaded", function () {
   } catch (error) {
     console.warn("ParticleJS could not be oaded. Ignoring it!", error)
   }
+
+  let changeWords = () => {
+    let children = document.getElementsByClassName('codinfox-changing-keywords')[0].children;
+    let length = children.length;
+    let idx = 0;
+    setInterval(() => {
+      console.log(children)
+      children[idx].style.visibility = "hidden";
+      idx = (idx + 1) % length;
+      children[idx].style.visibility = "visible";
+    }, 2000);
+  }
+  // changeWords()
+
 }, false);
