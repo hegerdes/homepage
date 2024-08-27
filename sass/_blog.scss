@@ -36,13 +36,18 @@
     background-color: #f8f9fa;
     padding: 15px;
     border-right: 1px solid #ddd;
-    z-index: -1;
+    overflow-y: visible;
+
+    // z-index: -1;
+    // display: flex;
     // height: 0;
+    @media (max-width: $lg) {
+        width: 0%;
+    }
 }
 
 .sidebar-content {
     top: 6rem;
-    overflow: hidden;
 
     p {
         margin-bottom: 0;

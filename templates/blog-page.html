@@ -13,33 +13,64 @@
     <section id="post">
         <div class="row container-fluid">
             <!-- Offcanvis exampe: https://hot.page/demos/bootstrap -->
-            <div class="col-lg-2 sidebar shadow offcanvas-lg offcanvas-start">
-                <div class="sidebar-content sticky-top">
-                    <img src="/img/avatar.jpeg" alt="runded avatar anime profile pricture" class="rounded-circle">
-                    <p>Author:</p>
-                    <h4>{{ page.author | default(value=config.extra.username) }}</h4>
-                    <p>A passionate
-                        <span class="codinfox-changing-keywords">
-                            <b>developer</b>
-                            <!-- <b>writer</b> -->
-                        </span>
-                    </p>
-                    <h4>Tags:</h4>
-                    <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                        <li><a class="dropdown-item" href="#">New project...</a></li>
-                        <li><a class="dropdown-item" href="#">Settings</a></li>
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Sign out</a></li>
-                    </ul>
-                    <ul class="list-unstyled">
-                        <li><a href="#">Link 1</a></li>
-                        <li><a href="#">Link 2</a></li>
-                        <li><a href="#">Link 3</a></li>
-                        <li><a href="#">Link 4</a></li>
-                    </ul>
+            <!-- <div class="col-lg-2 sidebar offcanvas offcanvas-lg offcanvas-start show" data-bs-scroll="true" -->
+            <div class="col-lg-2 sidebar shadow offcanvas-lg offcanvas-start" data-bs-scroll="true"
+                data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling"
+                aria-labelledby="offcanvasScrollingLabel">
+                <!-- <div class="offcanvas-header">
+                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
+                        data-bs-target="#bdSidebar"></button>
+                </div> -->
+                <!-- <div class="offcanvas-body shodow overflow-auto"> -->
+                <div class="shodow overflow-auto">
+                    <div class="sidebar-content">
+                        <img src="{{get_url(path=config.extra.user_pic)}}" alt="runded avatar anime profile pricture"
+                            class="rounded-circle">
+                        <p>Author:</p>
+                        <h4>{{ page.author | default(value=config.extra.username) }}</h4>
+                        <!-- <p>A passionate
+                            <span class="codinfox-changing-keywords">
+                                <b>developer</b>
+                                <b>writer</b>
+                            </span>
+                        </p> -->
+                        <h4>Tags:</h4>
+
+
+                        <ul class="list-unstyled">
+                            {% set tag_tax = get_taxonomy(kind="tags") %}
+                            {% for tag in tag_tax.items %}
+                            {% if tag.name in page.taxonomies.tags %}
+                            <a href="/tags/{{tag.name | lower }}">
+                                <button type="button" class="btn rounded-pill btn-sm m-1 btn-primary">
+                                    {{ tag.name }} <span class="badge text-bg-secondary">{{ tag.pages | length }}</span>
+                                </button>
+                            </a>
+                            {% endif %}
+                            {% endfor %}
+                        </ul>
+                        <h4>Recent Articles:</h4>
+
+                        {% set cat_tax = get_taxonomy(kind="categories") %}
+                        {% for cat in cat_tax.items %}
+                        {% for page in cat.pages | slice(start=1, end=4) %}
+                        <div class="card my-2">
+                            <div class="card-header">
+                                {% if loop.index == 1 %}
+                                Most Recent
+                                {% else %}
+                                {{ page.date | date(format="%d/%m/%Y")}}
+                                {% endif %}
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{ page.title }}</h4>
+                                <a href="{{ page.permalink }}" class="btn btn-primary">Read Now</a>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        {% endfor %}
+                    </div>
 
                 </div>
             </div>
@@ -54,6 +85,9 @@
                             <i class="fab fa-readme"></i> {{ page.reading_time }} minute read
                         </p>
                     </div>
+
+                    {# <code>{{ tag_tax.items | json_encode(pretty=true) }}</code> #}
+
                     {{ page.content | safe }}
                 </article>
                 <!-- Sponsering links -->
