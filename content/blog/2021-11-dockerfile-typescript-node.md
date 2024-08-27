@@ -2,9 +2,13 @@
 title = "Dockerfile for NodeJS & Typescript"
 description = "Learn the best practices on how to bundle a TypeScript project for production with Docker. Get insights about Dockers overlay filesystem for small and secure builds."
 date = "2021-11-15"
+
+[taxonomies]
+categories=["it"]
+tags = ['Docker', 'NodeJS', 'Container', 'JavaScript', 'TypeScript']
+
 [extra]
 pic = "/img/blog/docker.png"
-tags = ['Docker', 'NodeJS', 'JavaScript', 'TypeScript']
 +++
 
 # How to build a Docker image for a TypeScript based NodeJS project

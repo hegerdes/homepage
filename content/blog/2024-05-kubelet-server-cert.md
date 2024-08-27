@@ -3,9 +3,12 @@ title = "The recurring problem of the Kubernetes metrics server and insecure Kub
 description = "The Metrics Server frequently encounters verification issues with Kubelet's self-signed certificates. I wrote a small summary and make a proposal for fixing it."
 date = '2024-05-18'
 
+[taxonomies]
+categories=["it"]
+tags = ['Kubernetes', 'TLS', 'Security']
+
 [extra]
 pic = "/img/blog/kubelet-insecure.jpg"
-tags = ['Kubernetes', 'TLS', 'Security']
 +++
 
 ## The recurring problem of the Metrics Server and Insecure Kubelet certificate
@@ -13,7 +16,7 @@ tags = ['Kubernetes', 'TLS', 'Security']
 ### What is this about:  
 Currently the kubelet, the client agent coordinating container lifecycle on each node, also runs a server, using a self signed certificate by default. Therefore any client connecting the the kubelet server, most prominent the metrics server, will not be able to verify the servers identity.
 
-![Avengers style fight scene with GitHub OctoCat and GitLab mascot](/img/blog/kubelet-insecure.png)
+![Avengers style fight scene with GitHub OctoCat and GitLab mascot](/img/blog/kubelet-insecure.jpg)
 
 
 ### Current state:  

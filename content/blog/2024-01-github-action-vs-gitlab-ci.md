@@ -3,9 +3,12 @@ title = "Comparing GitHub Actions with GitLab CI/CD - A deep dive!"
 description = "CI/CD systems are the core component of modern development processes. They ensure quality, reproducibility and save huge about of time for developers. Choosing and knowing your tools ensues how to properly chose and make sure they fulfill their requirements."
 date = '2024-01-31'
 
+[taxonomies]
+categories=["it"]
+tags = ['GitHub', 'GitLab', 'CI/CD', 'Automation', 'VCS']
+
 [extra]
 pic = "/img/blog/github-vs-gitlab-comic.jpeg"
-tags = ['GitHub', 'GitLab', 'CI/CD', 'Automation', 'VCS']
 +++
 
 # Comparing GitHub Actions with GitLab CI/CD 

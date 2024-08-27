@@ -3,9 +3,12 @@ title = "Building preconfigured OS images with HashiCorp Packer"
 description = "This article explains how to create custom OS images for Hetzner Cloud VMs using HashiCorp Packer."
 date = '2023-12-12'
 
+[taxonomies]
+categories=["it"]
+tags =["Hetzner Cloud", "IaC", "Packer", "CloudInit", "Linux"]
+
 [extra]
 pic = "/img/blog/software-packaging.jpeg"
-tags =["Hetzner Cloud", "IaC", "Packer", "CloudInit", "Linux"]
 +++
 # Building preconfigured OS images with Packer
 

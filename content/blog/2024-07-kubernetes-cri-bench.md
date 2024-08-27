@@ -3,19 +3,22 @@ title = "Benchmarking what actually drive our containers"
 description = "Kubernetes success and versatility often overshadows the lower-level details of what actually drives our containers. I took a deeper took on how the default container engine performs compared to some alternatives."
 date = '2024-07-01'
 
+[taxonomies]
+categories=["it"]
+tags = ['Kubernetes', 'Benchmark', 'Container']
+
 [extra]
 pic = "/img/blog/cri-test-thump.jpeg"
-tags = ['kubernetes', 'oci', 'benchmark', 'containerd']
 # To pdf: pandoc 2024-07-kubernetes-cri-bench.md -o 2024-07-kubernetes-cri-bench.pdf -V geometry:"margin=1in"
 +++
 # The Engines that run our Kubernetes Workloads
+🧾📖 [PDF version](https://henrikgerdes.me/docs/kubernetes_cri_bench.pdf)
 
-*Target audience:* This article is a deep dive for people living the Kubernetes lifestyle, for people who know or want to know how the low level stuff works and performs. I do not explain every container or Kubernetes component as it is expected to ne known.
+*Target audience:* This article is a deep dive for people living the Kubernetes lifestyle, for people who know or want to know how the low level stuff works and performs. I do not explain every container or Kubernetes component as it is expected to ne known.  
 
-Kubernetes has become THE standard for container orchestration. It is not just a software tool, it is a framework with extensive extensibility features. Entire businesses are built on top of Kubernetes and offer essential, nice to have and abstruse services. Tools like ArgoCD and Crossplane are build for Kubernetes and changed the way how we deploy software. There is even a new category of operating systems like CoreOS, Bottlerocket and Talos that are build purposely to run containers. All that happened in just 10 years. **Happy late birthday K8s!**
+Kubernetes has become THE standard for container orchestration. It is not just a software tool, it is a framework with extensive extensibility features. Entire businesses are built on top of Kubernetes and offer essential, nice to have and abstruse services. Tools like ArgoCD and Crossplane are build for Kubernetes and changed the way how we deploy software. There is even a new category of operating systems like CoreOS, Bottlerocket and Talos that are build purposely to run containers. All that happened in just 10 years. **Happy late birthday K8s!**  
 
 ![Kubernetes Container Stack Thumbnail](/img/blog/cri-test-thump.jpeg)
-PDF version [here!](https://henrikgerdes.me/docs/kubernetes_cri_bench.pdf)
 
 Kubernetes is dominating almost every Ted-talk and system architecture presentation, yet the actual engine that drive our workloads sometimes gets forgotten. Kubernetes is just an orchestrator, and its primary (but not only) task is to manage containers. It does not run any containers itself. That gets delegated to the container runtime interface.
 

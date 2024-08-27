@@ -3,9 +3,12 @@ title = "Broken NodeJS Apps due to secerity dot-release - Debugging the NodeJS C
 description = "When none of your code works anymore due to a to a innocuous secrity fix in a dot release you need some quality time with your rubber duck to find the root cause."
 date = '2022-08-18'
 
+[taxonomies]
+categories=["it"]
+tags = ['NodeJS', 'Debugging', 'CVE', 'Nginx']
+
 [extra]
 pic = "/img/blog/nodejs-header-square.png"
-tags = ['NodeJS', 'Work', 'Bug', 'debugging', 'CVE', 'nginx']
 +++
 
 # Broken NodeJS Apps due to security dot-release

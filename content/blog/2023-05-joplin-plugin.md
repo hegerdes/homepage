@@ -3,9 +3,12 @@ title = "The Notebook for Developers - now even better"
 description = "There are all these digital Notebook Apps but none fit quit in? Yeah had the same till I discovered Joplin, which was a game-changer for my digital note-taking. So much so that I even created my own plugin for it."
 date = '2023-03-06'
 
+[taxonomies]
+categories=["it"]
+tags = ['NodeJS', 'NoteBook', 'Joplin', 'OneNote', 'Markdown', 'Dev', 'TS/JS']
+
 [extra]
 pic = "/img/blog/joplin.jpg"
-tags = ['NodeJS', 'NoteBook', 'Joplin', 'OneNote', 'Markdown', 'Dev', 'TS/JS']
 +++
 
 # Joplin: The notebook for Devs

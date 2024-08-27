@@ -3,9 +3,12 @@ title = "LaTeX - A getting started for Devs"
 description = "How to get a quick LaTeX enviorment on every system to typset beautiful papers and articles."
 date = '2022-01-22'
 
+[taxonomies]
+categories=["it"]
+tags = ['LaTeX', 'Tex', 'VSCode', 'Docker', 'DevContainer']
+
 [extra]
 pic = "/img/blog/tex-big.png"
-tags = ['LaTeX', 'Tex', 'VSCode', 'Docker', 'DevContainer']
 +++
 
 # Getting started with LaTex as a Dev 

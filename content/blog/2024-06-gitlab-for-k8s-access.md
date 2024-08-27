@@ -3,9 +3,12 @@ title = "Using GitLab to manage Kubernetes access"
 description = "You have private Kubernetes cluster or a restricted network. There are modern solution to easily share and manage access with modern secure authentication. Let's dig some tunnels!"
 date = '2024-06-12'
 
+[taxonomies]
+categories=["it"]
+tags = ['Kubernetes', 'GitLab', 'Security']
+
 [extra]
 pic = "/img/blog/kubernetes-glab-auth-logo.jpeg"
-tags = ['Kubernetes', 'GitLab', 'Security']
 +++
 # Using GitLab to manage Kubernetes access
 

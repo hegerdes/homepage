@@ -3,9 +3,12 @@ title = "Install & Configure Grafana Promtail"
 description = "How to ship logs from multiple servers and use a nice interface to query access logs? Promtail is the right tool in order to use the powerful Grafana platform."
 date = '2021-12-21'
 
+[taxonomies]
+categories=["it"]
+tags = ['Logs', 'Grafana', 'DevOps', 'Monitoring']
+
 [extra]
 pic = "/img/blog/promtail_squer.jpg"
-tags = ['Logs', 'Grafana', 'DevOps', 'Monitoring']
 +++
 
 # Install & Configure Promtail for Grafana Loki
