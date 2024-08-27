@@ -11,6 +11,7 @@ base_url = "https://henrikgerdes.me"
 taxonomies = [
     { name = "tags", feed=true },
     { name = "year", feed=true },
+    { name = "categories", feed=true },
 ]
 
 # Whether to automatically compile all Sass files in the sass directory
@@ -62,6 +63,7 @@ smart_punctuation = true
 # Custom/Personal variables
 
 username = "Henrik Gerdes"
+user_pic = "img/avatar.jpeg"
 user_description = "Hello there!"
 user_title = "Software Engineer"
 

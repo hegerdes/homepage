@@ -23,6 +23,10 @@
 
 {% if config.extra.use_cdn_resources %}
 <!-- CDN Sources -->
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"
+  integrity="sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt" crossorigin="anonymous"></script>
+
+<!-- CDN Optional -->
 {% if include_particle_js %}
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"
   integrity="sha384-d+UOwmNNIC7V4izkTAKSXzWhjC2GxiS9PTykO1XdOPC3nc2z65UOS7SP6QdKPA70" crossorigin="anonymous"></script>
@@ -38,6 +42,10 @@
 
 {% else %}
 <!-- Local Sources -->
+<script src="/js/fuse-7.0.0.min.js" integrity="sha384-PCSoOZTpbkikBEtd/+uV3WNdc676i9KUf01KOA8CnJotvlx8rRrETbDuwdjqTYvt"
+  crossorigin="anonymous"></script>
+
+<!-- Local Optional -->
 {% if include_particle_js %}
 <script src="/js/particles-2.0.0.min.js"
   integrity="sha384-d+UOwmNNIC7V4izkTAKSXzWhjC2GxiS9PTykO1XdOPC3nc2z65UOS7SP6QdKPA70" crossorigin="anonymous"></script>

@@ -1,5 +1,10 @@
-/* sweetScroll load */
+/* Libs loaded */
+let fuse = null
 document.addEventListener("DOMContentLoaded", function () {
+  sleep = (ms) => {
+    return new Promise(resolve => setTimeout(resolve, ms));
+  }
+
   try {
     new SweetScroll({/* some options */ });
   } catch (error) {
@@ -123,6 +128,32 @@ document.addEventListener("DOMContentLoaded", function () {
     console.warn("ParticleJS could not be oaded. Ignoring it!", error)
   }
 
+  try {
+    // Fetch the JSON document
+    fetch("/search_index.en.json")
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok ' + response.statusText)
+        }
+        return response.json(); // Parse the JSON from the response
+      })
+      .then(data => {
+        const fuseOptions = {
+          isCaseSensitive: false,
+          keys: [
+            "title",
+            "description"
+          ]
+        };
+        fuse = new Fuse(data, fuseOptions);
+      })
+      .catch(error => {
+        throw error
+      });
+  } catch (error) {
+    console.warn("Fuse could not be loaded. Ignoring it!", error)
+  }
+
   let changeWords = () => {
     let children = document.getElementsByClassName('codinfox-changing-keywords')[0].children;
     let length = children.length;
@@ -136,4 +167,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   // changeWords()
 
+  if (fuse) {
+    const searchPattern = "hello"
+
+    let search_res = fuse.search(searchPattern)
+    console.log(search_res)
+  }
 }, false);
