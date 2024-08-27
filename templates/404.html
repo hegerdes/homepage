@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block body %}
+
+<body class="error-page">
+    <div class="container-flex error-container">
+        <div class="error-emoji">🤖</div>
+        <div class="error-code">404</div>
+        <div class="error-message">Uh-oh! You've hit a missing semicolon;</div>
+        <div class="error-description">
+            Looks like this page threw a 404 error.<br>
+            Let's debug this together!
+        </div>
+        <div class="code-snippet">
+            <pre>
+// 404 Error: Page Not Found
+if (page !== found) {
+    throw new Error("Page not found!");
+} else {
+    <a href="/">return toHomepage();</a>
+}
+        </pre>
+        </div>
+        <a href="/" class="btn btn-home">Return to Homepage</a>
+    </div>
+
+</body>
+
+{% endblock body %}
