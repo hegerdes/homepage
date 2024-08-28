@@ -1,0 +1,48 @@
+.tag-card {
+    max-width: $lg;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    background-color: $grey-light !important;
+
+    a,
+    img {
+        max-width: 250px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    a {
+        text-decoration: none;
+
+    }
+
+    h1,
+    h2 {
+        padding: 0;
+    }
+}
+
+
+@media (max-width: $lg) {
+
+    .tag-card {
+        margin-right: 2rem !important;
+        margin-left: 2rem !important;
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+
+        h1,
+        h2 {
+            font-size: larger;
+        }
+
+        img {
+            width: 150px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+}

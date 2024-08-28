@@ -1,4 +1,4 @@
-name: lint and test build
+name: Lint and Test build
 
 on:
   push:
@@ -23,9 +23,6 @@ jobs:
         run: npm i --prefer-offline --no-audit
 
       - name: Run linter 👀
-        run: npm run lint --if-present
-
-      - name: Run Build 🛠️
         run: npm run lint --if-present
 
       - name: Run Build 🛠️
