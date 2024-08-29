@@ -1,6 +1,7 @@
 .navbar {
     padding-top: 0;
     padding-bottom: 0;
+    z-index: 9000;
 
     @media only screen and (max-width:$cut) {
         padding-top: 2rem;

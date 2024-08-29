@@ -10,69 +10,56 @@
     {{ nav::navbar() }}
     {% block content %}
 
-    <section id="post">
+    <section id="post" class="mb2">
         <div class="row container-fluid">
-            <!-- Offcanvis exampe: https://hot.page/demos/bootstrap -->
-            <!-- <div class="col-lg-2 sidebar offcanvas offcanvas-lg offcanvas-start show" data-bs-scroll="true" -->
-            <div class="col-lg-2 sidebar shadow offcanvas-lg offcanvas-start" data-bs-scroll="true"
-                data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling"
-                aria-labelledby="offcanvasScrollingLabel">
-                <!-- <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasScrollingLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"
-                        data-bs-target="#bdSidebar"></button>
-                </div> -->
-                <!-- <div class="offcanvas-body shodow overflow-auto"> -->
-                <div class="shodow overflow-auto">
-                    <div class="sidebar-content">
-                        <img src="{{get_url(path=config.extra.user_pic)}}" alt="runded avatar anime profile pricture"
-                            class="rounded-circle">
-                        <p>Author:</p>
-                        <h4>{{ page.author | default(value=config.extra.username) }}</h4>
-                        <!-- <p>A passionate
+            <div class="col-lg-2 shadow d-none d-lg-block pb-4">
+                <div class="sidebar-content sticky-top">
+                    <img src="{{get_url(path=config.extra.user_pic)}}" alt="runded avatar anime profile pricture"
+                        class="rounded-circle">
+                    <p>Author:</p>
+                    <h4>{{ page.author | default(value=config.extra.username) }}</h4>
+                    <!-- <p>A passionate
                             <span class="codinfox-changing-keywords">
                                 <b>developer</b>
                                 <b>writer</b>
                             </span>
                         </p> -->
-                        <h4>Tags:</h4>
+                    <h4>Tags:</h4>
 
+                    <ul class="list-unstyled">
+                        {% set tag_tax = get_taxonomy(kind="tags") %}
+                        {% for tag in tag_tax.items %}
+                        {% if tag.name in page.taxonomies.tags %}
+                        <a href="/tags/{{tag.name | lower }}">
+                            <button type="button" class="btn rounded-pill btn-sm m-1 btn-primary">
+                                {{ tag.name }} <span class="badge text-bg-secondary">{{ tag.pages | length }}</span>
+                            </button>
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <h4>Recent Articles:</h4>
 
-                        <ul class="list-unstyled">
-                            {% set tag_tax = get_taxonomy(kind="tags") %}
-                            {% for tag in tag_tax.items %}
-                            {% if tag.name in page.taxonomies.tags %}
-                            <a href="/tags/{{tag.name | lower }}">
-                                <button type="button" class="btn rounded-pill btn-sm m-1 btn-primary">
-                                    {{ tag.name }} <span class="badge text-bg-secondary">{{ tag.pages | length }}</span>
-                                </button>
-                            </a>
+                    {% set cat_tax = get_taxonomy(kind="categories") %}
+                    {% for cat in cat_tax.items %}
+                    {% for page in cat.pages | slice(start=1, end=4) %}
+                    <div class="card my-2">
+                        <div class="card-header">
+                            {% if loop.index == 1 %}
+                            Most Recent
+                            {% else %}
+                            {{ page.date | date(format="%d/%m/%Y")}}
                             {% endif %}
-                            {% endfor %}
-                        </ul>
-                        <h4>Recent Articles:</h4>
-
-                        {% set cat_tax = get_taxonomy(kind="categories") %}
-                        {% for cat in cat_tax.items %}
-                        {% for page in cat.pages | slice(start=1, end=4) %}
-                        <div class="card my-2">
-                            <div class="card-header">
-                                {% if loop.index == 1 %}
-                                Most Recent
-                                {% else %}
-                                {{ page.date | date(format="%d/%m/%Y")}}
-                                {% endif %}
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">{{ page.title }}</h4>
-                                <a href="{{ page.permalink }}" class="btn btn-primary">Read Now</a>
-                            </div>
                         </div>
-                        {% endfor %}
-                        {% endfor %}
+                        <div class="card-body">
+                            <h4 class="card-title">{{ page.title }}</h4>
+                            <a href="{{ page.permalink }}" class="btn btn-primary">Read Now</a>
+                        </div>
                     </div>
-
+                    {% endfor %}
+                    {% endfor %}
                 </div>
+
             </div>
             <div class="col">
                 <!-- Main Contenr -->
@@ -91,7 +78,7 @@
                     {{ page.content | safe }}
                 </article>
                 <!-- Sponsering links -->
-                <div class="support-me">
+                <div class="support-me d-print-none pb-4">
                     <p><b>❤️ Is this article helpful?</b></p>
                     <p>
                         <a href="https://www.buymeacoffee.com/hegerdes">Buy me a coffee☕</a>,
@@ -107,7 +94,6 @@
     </section>
 
     {% endblock content %}
-
     {{ foot::footer() }}
 
 </body>
