@@ -11,19 +11,21 @@
     {{ nav::navbar() }}
 
     {% block content %}
-    <div class="flex items-center flex-col mt-10 px-4">
-        <h1 class="text-2xl text-bold">
-            Tags
+    <div class="container">
+        <h1 class="text-center">
+            All Tags
         </h1>
-        <p class="text-bold text-xl mt-4">{{ terms | length }} tags</p>
-        <div class="flex flex-wrap sm:flex-row flex-col sm:gap-x-7 gap-y-5 mt-6">
+        <div class="col all-tags mb-4">
             {% for tag in terms %}
-            <a href="{{ tag.permalink | safe }}" class="flex items-center space-x-2">
-                <span class="text-bold">{{tag.name}} <sup>{{ tag.pages | length }}</sup></span>
+            <a href="{{ tag.permalink | safe }}">
+                <button type="button" class="btn rounded-pill btn-sm m-1 btn-primary">
+                    {{ tag.name }} <span class="badge text-bg-secondary">{{ tag.pages | length }}</span>
+                </button>
             </a>
             {% endfor %}
         </div>
         {% endblock content %}
-        {{ foot::footer() }}
+    </div>
+    {{ foot::footer(extra_classes="fixed-bottom") }}
 </body>
 {% endblock body %}

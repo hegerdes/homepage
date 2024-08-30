@@ -1,10 +1,24 @@
 /* Libs loaded */
 let fuse = null
-document.addEventListener("DOMContentLoaded", function () {
-  sleep = (ms) => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-  }
+let goSearch = null
 
+let sleep = (ms) => {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+let changeWords = () => {
+  let children = document.getElementsByClassName('codinfox-changing-keywords')[0].children;
+  let length = children.length;
+  let idx = 0;
+  setInterval(() => {
+    console.log(children)
+    children[idx].style.visibility = "hidden";
+    idx = (idx + 1) % length;
+    children[idx].style.visibility = "visible";
+  }, 2000);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
   try {
     new SweetScroll({/* some options */ });
   } catch (error) {
@@ -154,23 +168,74 @@ document.addEventListener("DOMContentLoaded", function () {
     console.warn("Fuse could not be loaded. Ignoring it!", error)
   }
 
-  let changeWords = () => {
-    let children = document.getElementsByClassName('codinfox-changing-keywords')[0].children;
-    let length = children.length;
-    let idx = 0;
-    setInterval(() => {
-      console.log(children)
-      children[idx].style.visibility = "hidden";
-      idx = (idx + 1) % length;
-      children[idx].style.visibility = "visible";
-    }, 2000);
-  }
-  // changeWords()
+  goSearch = (event) => {
+    event.preventDefault()
+    const main1 = document.querySelector('body > div')
+    const main2 = document.querySelector('body > section')
+    const input = document.querySelector('input[type="search"]');
 
-  if (fuse) {
-    const searchPattern = "hello"
+    const main = main1 || main2
+    if (!main) {
+      console.error("Unable to select main content")
+      return false
+    }
+
+    const searchPattern = input.value
+    if (!searchPattern || searchPattern == "") {
+      console.error("Invalid search")
+      return false
+    }
+    if (!fuse) {
+      return false
+    }
+
 
     let search_res = fuse.search(searchPattern)
-    console.log(search_res)
+    console.debug(search_res)
+
+    let data = ""
+    var html = ""
+    html += `
+    <h1 class="text-center">
+    Results
+    </h1>
+    ${data}
+    `
+
+
+    for (let res of search_res) {
+      if (res.item.path.startsWith("/blog") && res.item.path != "/blog/") {
+        console.log(res.item)
+        let card = `
+          <div class="card mb-3 search-card px-4">
+            <div class="row g-0">
+              <div class="col">
+                <div class="card-body search-link">
+                  <a class="" href="${res.item.url}">
+                    <h3 class="card-title text-center">${res.item.title}</h3>
+                  </a>
+                  <div>
+                    <p>
+                      ${res.item.description}
+                    </p>
+                  </div>
+                  <a class="project-link justify-content-center" href="${res.item.url}">Read more</a>
+                </div>
+              </div>
+            </div>
+          </div>`
+        html += card
+      }
+
+    }
+    main.innerHTML = html
+    if (search_res.length <= 1) {
+      const footer = document.querySelector('#footer')
+      footer.classList.add("fixed-bottom");
+
+    }
+    return false
   }
+
+
 }, false);

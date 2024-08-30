@@ -1,5 +1,5 @@
-{% macro footer(include_sweet_scroll_js=true, include_bootstrab_js=true, include_particle_js=false) %}
-<footer id="footer" class="footer d-print-none">
+{% macro footer(include_sweet_scroll_js=true, include_bootstrab_js=true, include_particle_js=false, extra_classes="") %}
+<footer id="footer" class="footer d-print-none {{ extra_classes }}">
   <p>CONTACT INFORMATION</p>
   <div class="header-icons">
     <a aria-label="Send email" href="mailto:{{ config.extra.email }}"><i class="icon fas fa-envelope"></i></a>
