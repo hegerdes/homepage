@@ -5,7 +5,7 @@ date = "2021-11-15"
 
 [taxonomies]
 categories=["it"]
-tags = ['Docker', 'NodeJS', 'Container', 'JavaScript', 'TypeScript']
+tags = ['Docker', 'NodeJS', 'Container', 'JavaScript', 'TypeScript', 'JS/TS', 'IaC']
 
 [extra]
 pic = "/img/blog/docker.png"

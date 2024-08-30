@@ -5,7 +5,7 @@ date = '2022-01-22'
 
 [taxonomies]
 categories=["it"]
-tags = ['LaTeX', 'Tex', 'VSCode', 'Docker', 'DevContainer']
+tags = ['LaTeX', 'VSCode', 'Docker', 'DevContainer']
 
 [extra]
 pic = "/img/blog/tex-big.png"

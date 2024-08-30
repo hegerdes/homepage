@@ -5,7 +5,7 @@ date = '2023-03-06'
 
 [taxonomies]
 categories=["it"]
-tags = ['NodeJS', 'NoteBook', 'Joplin', 'OneNote', 'Markdown', 'Dev', 'TS/JS']
+tags = ['NodeJS', 'NoteBook', 'Joplin', 'OneNote', 'Markdown', 'Dev', 'TS/JS', 'JavaScript', 'TypeScript']
 
 [extra]
 pic = "/img/blog/joplin.jpg"
