@@ -13,26 +13,24 @@
 
   <section id="about">
     <div class="container">
-      <div class="">
-        <div class="col user-details mx-auto">
-          <h1> My Expertise </h1>
-          <p> In privious yeas I focused on identifying and solving problems in the software development lifecycle.
-            I've streamlined the development process by creating preview deployments for every pull-request and improved
-            stability of services by creating user frindly obverserbility stacks. All with the help of highly automated
-            processed!
-          </p>
-          <p>
-            Right now I'm implementing ChatOps practices and expanding
-            my knowledge of different cloud provider technologies, while further improving automated resource
-            provisioning, monitoring, and maintenance tasks.
-          </p>
-          <p>
-            I love experimenting with different technologies and sharing my knowledge with others (check out my blog),
-            even though if it
-            might involve spending some quality time with your favorite rubber <a
-              class="link-underline link-underline-opacity-0" href="https://rubberduckdebugging.com/">🦆</a>
-          </p>
-        </div>
+      <div class="col user-details mx-auto">
+        <h1 id="about_me"> My Expertise </h1>
+        <p> In privious yeas I focused on identifying and solving problems in the software development lifecycle.
+          I've streamlined the development process by creating preview deployments for every pull-request and improved
+          stability of services by creating user frindly obverserbility stacks. All with the help of highly automated
+          processed!
+        </p>
+        <p>
+          Right now I'm implementing ChatOps practices and expanding
+          my knowledge of different cloud provider technologies, while further improving automated resource
+          provisioning, monitoring, and maintenance tasks.
+        </p>
+        <p>
+          I love experimenting with different technologies and sharing my knowledge with others (check out my blog),
+          even though if it
+          might involve spending some quality time with your favorite rubber <a
+            class="link-underline link-underline-opacity-0" href="https://rubberduckdebugging.com/">🦆</a>
+        </p>
       </div>
     </div>
     <div class="row user mx-auto">
@@ -74,43 +72,31 @@
     <div class="container">
       <h1 class="text-center">Featured Projects</h1>
     </div>
-    <div class="container user-projects">
-      <div class="row mx-auto col images-right">
-        <img alt="Gif of Pacman on relas streets" src='{{ get_url(path="/img/pacmap-wide.webp") }}' />
-      </div>
-      <div class="">
-        <h3>Pacmap</h3>
-        <ul>
-          <li>Python, GameDev, Network</li>
-        </ul>
-        <p>Want to play <strong>Pacman</strong> in your home town streets?<br>
-          The map sections are based of the real world using OSM data so you and your capture packages while compeating
-          against the crowd simulation based movments of the gosts.
-        </p>
-        <a class="project-link" href="https://github.com/hegerdes/RealWorldPacman">Check it out</a>
-      </div>
-    </div>
-    <div class="container user-projects">
-      <div class="row mx-auto col images-left">
-        <img alt="Terminal output with asci art" src='{{ get_url(path="/img/ctf.png") }}' />
-      </div>
-      <div class="">
-        <h3>Beeblebrox CTF</h3>
-        <ul>
-          <li>ITSac, Auth, Web</li>
-        </ul>
-        <p>
-          A VM for <strong>IT-Sec Red-Team</strong> starters to learn Unix and find common IT Security flaws.
-          <br>
-          It includes similare to the challenges as OverTheWire like Scripting, Reverse engineering, SQL Injections,
-          Web-Scraping and manipulation of Web-Authentication.
-        </p>
-        <a class="project-link" href="https://github.com/hegerdes/BeeblebroxCTF">Check it out</a>
-      </div>
-    </div>
+    {% set featured_project_1 = "
+    <p>Want to play <strong>Pacman</strong> in your home town streets?<br>
+      The map sections are based of the real world using OSM data so you and your capture packages while
+      compeating
+      against the crowd simulation based movments of the gosts.
+    </p>"
+    %}
+    {% set featured_project_2 = "
+    <p>
+      A VM for <strong>IT-Sec Red-Team</strong> starters to learn Unix and find common IT Security flaws.
+      <br>
+      It includes similare to the challenges as OverTheWire like Scripting, Reverse engineering, SQL Injections,
+      Web-Scraping and manipulation of Web-Authentication.
+    </p>"
+    %}
+
+    {{ shared::projectcard(title="Pacmap", side="left", pic="/img/pacmap-wide.webp",
+    text=featured_project_1,technology="Python, GameDev,
+    Network", link_source="https://github.com/hegerdes/RealWorldPacman", pic_alt="Gif of Pacman on relas streets") }}
+    {{ shared::projectcard(title="Beeblebrox CTF", side="right", pic="/img/ctf.png", text=featured_project_2,
+    link_source="https://github.com/hegerdes/BeeblebroxCTF", technology="ITSac, Auth, Web", pic_alt="Terminal output
+    with asci
+    art") }}
+
   </section>
-  <!--
-  Within an IT-Security internship a created a training CTF. This CTF is for beginners and helps to understand Unix, the Terminal, Scripting, Reverse engineering, SQL Injections and Web- Authentication; Web-Scraping. The whole CTF is in a VM. Th get the VM please contact me. Every task in the CTF has its own WebPage with description which is done with NodeJS. Visit a copy of the pages here. The code for the CTF creation is on my GitHub. -->
 
   {% block content %}
   {% endblock content %}

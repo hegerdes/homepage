@@ -6,13 +6,27 @@
 
 {% block body %}
 
-
 <body>
     {{ nav::navbar() }}
 
     {% block content %}
     <div class="container">
-        {{ shared::pagethump(title=section.title, pic="/img/code.jpg", subtitle="My Projects") }}
+        {{ shared::pagethump(title=section.title, pic="/img/code.jpeg", subtitle="My Projects") }}
+
+        {% for page in section.pages %}
+        {% if loop.index is odd%}
+
+        {{ shared::projectcard(title=page.title, side="left", pic=page.extra.pic, text=page.content,
+        link_source=page.extra.link_source, technology=page.description , pic_alt=page.extra.pic_alt |
+        default(value="")) }}
+        {% else %}
+        {{ shared::projectcard(title=page.title, side="right", pic=page.extra.pic, text=page.content,
+        link_source=page.extra.link_source, technology=page.description , pic_alt=page.extra.pic_alt |
+        default(value="")) }}
+        {% endif %}
+
+        {% endfor %}
+
     </div>
     {% endblock content %}
     {{ foot::footer() }}

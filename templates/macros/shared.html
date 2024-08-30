@@ -32,3 +32,33 @@
   </h3>
 </div>
 {% endmacro pagethump %}
+
+{% macro projectcard(title, pic, side, technology="", text="", link_source="", pic_alt="") %}
+<div class="card mb-3 project-card px-4">
+  <!-- <div class="card-header text-end">Header</div> -->
+  <div class="row g-0">
+    {% if side == "left" %}
+    <div class="col-lg-4 d-flex align-items-center">
+      <img src="{{ get_url(path=pic) }}" class="img-fluid rounded-start" alt="{{ pic_alt }}">
+    </div>
+    {% endif %}
+    <div class="col-md-8 ">
+      <div class="card-body ">
+        <h3 class="card-title">{{ title }}</h3>
+        {% if technology %}
+        <p class="card-text"><small class="text-muted">{{ technology }}</small></p>
+        {% endif %}
+        <div class="">
+          {{ text | safe }}
+        </div>
+        <a class="project-link" href="{{ link_source }}">Check it out</a>
+      </div>
+    </div>
+    {% if side == "right" %}
+    <div class="col-lg-4 d-flex align-items-center">
+      <img src="{{ get_url(path=pic) }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endmacro projectcard %}
