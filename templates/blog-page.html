@@ -30,7 +30,7 @@
                         {% set tag_tax = get_taxonomy(kind="tags") %}
                         {% for tag in tag_tax.items %}
                         {% if tag.name in page.taxonomies.tags %}
-                        <a href="/tags/{{ tag.permalink | safe }}">
+                        <a href="{{ tag.permalink | safe }}">
                             <button type="button" class="btn rounded-pill btn-sm m-1 btn-primary">
                                 {{ tag.name }} <span class="badge text-bg-secondary">{{ tag.pages | length }}</span>
                             </button>

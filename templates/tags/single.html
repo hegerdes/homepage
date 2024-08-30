@@ -15,6 +15,7 @@
         <h1 class="text-center">
             Tag : {{ term.name }}
         </h1>
+        <p class="text-center">List <a href="/tags">all Tags</a></p>
         <div class=" flex-col">
             {% set pages = term.pages %}
 
@@ -29,7 +30,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h2><a href='{{ page.permalink }}'>{{ page.title }}</a></h2>
+                            <h2 class="search-link"><a href='{{ page.permalink }}'>{{ page.title }}</a></h2>
                             <p>{{ page.description }}</p>
                             <!-- Read time and word count -->
                             <div class="post-info">

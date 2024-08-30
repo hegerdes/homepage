@@ -34,9 +34,9 @@
 {% endmacro pagethump %}
 
 {% macro projectcard(title, pic, side, technology="", text="", link_source="", pic_alt="") %}
-<div class="card mb-3 project-card px-4">
+<div class="card mb-4 px-4 project-card">
   <!-- <div class="card-header text-end">Header</div> -->
-  <div class="row g-0">
+  <div class="row">
     {% if side == "left" %}
     <div class="col-lg-4 d-flex align-items-center">
       <img src="{{ get_url(path=pic) }}" class="img-fluid rounded-start" alt="{{ pic_alt }}">
