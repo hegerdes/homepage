@@ -11,6 +11,7 @@
   {{ nav::navbar() }}
   {{ me::header() }}
 
+  {% block content %}
   <section id="about">
     <div class="container">
       <div class="col user-details mx-auto">
@@ -95,12 +96,9 @@
     link_source="https://github.com/hegerdes/BeeblebroxCTF", technology="ITSac, Auth, Web", pic_alt="Terminal output
     with asci
     art") }}
-
   </section>
 
-  {% block content %}
   {% endblock content %}
-
   {{ foot::footer(include_particle_js=true) }}
 
 </body>

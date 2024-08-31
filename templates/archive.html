@@ -10,24 +10,83 @@
     {{ nav::navbar() }}
 
     {% block content %}
-    <div class="container">
+    <div class="container my-4">
         {{ shared::pagethump(title=section.title, pic="/img/archive.jpeg", subtitle="<q
             cite='https://www.azquotes.com/quote/543321?ref=remembering-the-past'>Remembering the past gives power
             to
             the present.</q><sub>Fae Ng</sub>") }}
+        <div class="row">
+            <div class="card archive-info">
+                <div class="card-header">
+                    <i class="far fa-message"></i>
+                </div>
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>A I like to preserve things!<br>
+                            It shows what you lerned and how you evolved over time, it holds you accountable for your
+                            creations.
+                        </p>
+
+                        <p class="text-center">“Those that fail to learn from history are doomed to repeat it!”</p>
+                        <footer class="blockquote-footer text-center"><cite title="Winston Churchill">Winston
+                                Churchill</cite>
+                        </footer>
+                    </blockquote>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h2 class="text-center">My history shelf 📖</h2>
+            <div class="archive-list my-4 py-4">
+                <div class="list-group">
+                    <div class="list-group-item">
+                        <div>
+                            <h4 class="mb-1">Previous versions this site</h4>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> <a href="{{ config.extra.website_url_v1 }}">v1 - Hand witten
+                                    HTML</a> </li>
+                            <li class="list-group-item"><a href="{{ config.extra.website_url_v1 }}">v2 - VUE & NUXT
+                                    based</a></li>
+                            <li class="list-group-item"><a href="{{ config.base_url }}">v3 - HTML with Zola
+                                    templating</a></li>
+                        </ul>
+
+                    </div>
+                    <div class="list-group-item">
+                        <div>
+                            <h4 class="mb-1">Papers & Publishments</h4>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"> <a href="/docs/Henrik_Gerdes_Thesis_DevContainer.pdf">Bachelor
+                                    Thesis:
+                                    DevContainer</a> </li>
+                            <li class="list-group-item"><a href="/docs/swe_connecting.pdf">Report: Connecting
+                                    Software</a></li>
+                            <li class="list-group-item"><a href="/docs/mptcp_scheduler.pdf">Report: MPTCP Scheduler</a>
+                            <li class="list-group-item"><a href="/docs/pac-poster-general.pdf">Poster: Pacmap Poster</a>
+                            </li>
+                            <li class="list-group-item"><a href="/docs/connecting_pres.pdf">Presentation: Connecting
+                                    Software</a></li>
+                            <li class="list-group-item"><a href="/docs/ctf_paper.pdf">Instructions: Beblebrox CTF</a>
+                        </ul>
+                    </div>
+                    <div class="list-group-item">
+                        <div>
+                            <h4 class="mb-1">Cerifications</h4>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><strong>Kubernes:</strong> CKA/CKAD/CKS</li>
+                            <li class="list-group-item"><strong>Docker:</strong> DCA</li>
+                            <li class="list-group-item"><strong>Azure:</strong> AZ-400</li>
+                        </ul>
+                        <!-- <small class="text-muted">And some muted small print.</small> -->
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
-
-
-    {% for year, posts in section.pages | group_by(attribute="year") %}
-    <h2>{{ year }}</h2>
-
-    <ul>
-        {% for post in posts %}
-        <li><a href="{{ post.permalink }}">{{ post.title }}</a></li>
-        {% endfor %}
-    </ul>
-    {% endfor %}
     {% endblock content %}
     {{ foot::footer() }}
 

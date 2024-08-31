@@ -170,8 +170,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   goSearch = (event) => {
     event.preventDefault()
-    const main1 = document.querySelector('body > div')
-    const main2 = document.querySelector('body > section')
+    const main1 = document.querySelector('body > section')
+    const main2 = document.querySelector('body > div')
     const input = document.querySelector('input[type="search"]');
 
     const main = main1 || main2
@@ -189,23 +189,20 @@ document.addEventListener("DOMContentLoaded", function () {
       return false
     }
 
-
     let search_res = fuse.search(searchPattern)
     console.debug(search_res)
 
     let data = ""
     var html = ""
     html += `
-    <h1 class="text-center">
-    Results
+    <h1 id="search-results"class="text-center">
+    Search Results
     </h1>
     ${data}
     `
 
-
     for (let res of search_res) {
       if (res.item.path.startsWith("/blog") && res.item.path != "/blog/") {
-        console.log(res.item)
         let card = `
           <div class="card mb-3 search-card px-4">
             <div class="row g-0">
@@ -226,9 +223,17 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>`
         html += card
       }
-
     }
     main.innerHTML = html
+
+    if (main2.id == 'particles-js') {
+      document.getElementById("search-results").scrollIntoView();
+    }
+
+    if (document.getElementById("projects")) {
+      document.getElementById("projects").remove()
+    }
+
     if (search_res.length <= 1) {
       const footer = document.querySelector('#footer')
       footer.classList.add("fixed-bottom");

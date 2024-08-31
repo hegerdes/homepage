@@ -79,3 +79,5 @@ use_cdn_resources = false # whether to use cdn for js/css libs or local paths
 page_source = "https://github.com/hegerdes/HomePage"
 page_version = "unknown"
 
+website_url_v1 = "https://homepage-v1.henrikgerdes.me"
+website_url_v2 = "https://homepage-v2.henrikgerdes.me"
