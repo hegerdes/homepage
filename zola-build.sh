@@ -11,13 +11,14 @@ PAGE_VERSION=${CF_PAGES_COMMIT_SHA-"unknown"}
 HOMEPAGE_URL=${PREVIEW_URL-https://henrikgerdes.me}
 
 # Check if the variable is unset or empty
-if [ -z "$HOMEPAGE_URL" ]; then
+if [ -z "$HOMEPAGE_URL" ] || [ "$CF_PAGES_BRANCH" = "main"]; then
     HOMEPAGE_URL=https://henrikgerdes.me
 else
     HOMEPAGE_URL=$PREVIEW_URL
 fi
 
 # Use sed to replace version
+echo "Base URL: ${HOMEPAGE_URL}"
 echo "page_version=${PAGE_VERSION}"
 sed -i "s/page_version.*/page_version = \"${PAGE_VERSION}\"/" "$ZOLA_CONF"
 
