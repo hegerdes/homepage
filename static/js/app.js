@@ -20,7 +20,10 @@ let changeWords = () => {
 
 document.addEventListener("DOMContentLoaded", function () {
   try {
-    new SweetScroll({/* some options */ });
+    let options = {
+      offset: -100
+    }
+    new SweetScroll(options);
   } catch (error) {
     console.warn("SweetScroll could not be oaded. Ignoring it!", error)
   }
@@ -208,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <div class="row g-0">
               <div class="col">
                 <div class="card-body search-link">
-                  <a class="" href="${res.item.url}">
+                  <a href="${res.item.url}">
                     <h3 class="card-title text-center">${res.item.title}</h3>
                   </a>
                   <div>

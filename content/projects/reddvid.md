@@ -12,6 +12,6 @@ link_source="https://github.com/hegerdes/ReddVid"
 link_demo="https://reddvid.netlify.app/"
 +++
 
-Having a hard time to download Videos from Reddit?
-ReddVid might be the perfect solution. It consits of two parts: the backend written in Python and the frontend written in VUE.js. The backend scrapes Reddit with the help of BeautifulSoup and combines the seperated video and audio with ffmpeg.
+Having a hard time downloading videos from Reddit?  
+ReddVid might be the perfect solution. It consists of two parts: the backend written in Python and the frontend, written in VUE.js. The backend scrapes Reddit with the help of BeautifulSoup and combines the separated video and audio with **[ffmpeg](https://www.ffmpeg.org/)**.  
 The API can be used in the terminal or by the frontend.

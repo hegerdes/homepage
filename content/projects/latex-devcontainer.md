@@ -11,6 +11,6 @@ pic_alt="Big letters LaTeX in whhite background"
 link_source="https://github.com/hegerdes/VSCode-LaTeX-Container"
 
 +++
-LaTeX is an awsome typesetting system to create gorgeous doucments. But getting started is hard and hosted solutions like Overleaf cost money for basic features.  
-While working on my bachlor thesis I created my own, repoducable and portable LaTeX enviorment based on the concept of DevContainers.  
-Since then the project found some lovable users so I continuously maintain it by building fresh docker images every month.
+LaTeX is an awesome typesetting system to create gorgeous documents. But getting started is hard, and hosted solutions like Overleaf cost money for basic features.  
+While working on my bachelor thesis, I created my own, reproducible and portable LaTeX environment based on the concept of **[DevContainers](/docs/Henrik_Gerdes_Thesis_DevContainer.pdf)**.  
+Since then the project has found some lovable users, so I continuously maintain it by building fresh Docker images every month.
