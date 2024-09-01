@@ -27,5 +27,3 @@ echo "Using url: ${HOMEPAGE_URL}"
 zola --root $BASE_DIR build --base-url $HOMEPAGE_URL
 
 echo "Build done!"
-
-printenv
