@@ -2,7 +2,6 @@
 title = "New Website - abandon javascript frameworks"
 description = "I finaly managed to rewrite my website and to turn my back on javascript frontend frameworks like react, angular and vue. Let me tell you why and what I ended up using instead."
 date = '2024-09-01'
-draft = true
 
 [taxonomies]
 categories=["it"]
