@@ -17,12 +17,12 @@
                 {% for page in section.pages %}
                 <div class="col">
                     <div class="card h-100 blog-cards">
-                        <a href="{{ get_url(path=page.path) }}">
+                        <a href="{{ page.permalink }}">
                             <img src='{{ get_url(path=page.extra.pic | default(value="/img/image-not-found-fallback-2.jpeg") | safe) }}'
                                 class="card-img-top" alt="Thumpnal of a blog post showing an ai generated image">
                         </a>
                         <div class="card-body">
-                            <a href="{{ get_url(path=page.path) }}">
+                            <a href="{{ page.permalink }}">
                                 <h5 class="card-title">{{ page.title }}</h5>
                             </a>
                             <p class="card-text">{{ page.description }}.</p>
