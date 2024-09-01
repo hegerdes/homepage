@@ -1,4 +1,4 @@
-name: lint and test build
+name: Lint and Test build
 
 on:
   push:
@@ -7,13 +7,8 @@ on:
     branches: [main]
 
 jobs:
-  ci:
+  test-build:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node: [18, 20]
-
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v4
@@ -21,24 +16,13 @@ jobs:
       - name: Setup node env 🏗
         uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 20
           check-latest: true
-
-      - name: Cache node_modules 📦
-        uses: actions/cache@v3
-        with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
 
       - name: Install dependencies 👨🏻‍💻
         run: npm i --prefer-offline --no-audit
 
       - name: Run linter 👀
-        run: npm run lint --if-present
-
-      - name: Run Build 🛠️
         run: npm run lint --if-present
 
       - name: Run Build 🛠️

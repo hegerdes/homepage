@@ -1,0 +1,48 @@
+pre {
+    margin-left: auto;
+    margin-right: auto;
+    overflow: auto;
+    width: 95%;
+
+    @media (max-width: $cut) {
+        margin-left: 1rem;
+        margin-right: 1rem;
+        width: 80%;
+    }
+
+    table {
+        td {
+            padding: 0;
+            padding-right: 4px;
+            // Unset default table style
+            background-color: initial;
+        }
+
+        tr:nth-child(even) td {
+            // Unset default table style
+            background-color: initial;
+        }
+
+        /* The line number cells */
+        td:nth-of-type(1) {
+            text-align: center;
+            user-select: none;
+        }
+    }
+
+    mark {
+        /* If you want your highlights to take the full width */
+        display: block;
+        /* The default background colour of a mark is bright yellow */
+        background-color: rgba(254, 252, 232, 0.9);
+    }
+}
+
+code {
+    word-wrap: break-word;
+}
+
+/* The line numbers already provide some kind of left/right padding */
+pre[data-linenos] {
+    padding: 1em;
+}

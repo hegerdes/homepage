@@ -7,7 +7,7 @@ In addition to that, it is a fill headless content management system (HCMS) for 
 
 ## Build Setup
 
-```bash
+```bash,linenos
 # install dependencies
 $ npm install
 

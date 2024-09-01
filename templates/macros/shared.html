@@ -1,0 +1,64 @@
+{% macro head() %}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ config.title }}{% endif %}</title>
+  <meta name="description"
+    content="{% if page.description %}{{ page.description | striptags | trim | truncate(length=160) }}{% else %}{{ config.description }}{% endif %}">
+  <meta name="keywords" content="personal webpage, blog, it, devops">
+  <!-- Local Main CSS -->
+  <link rel="stylesheet" href="/main.css">
+
+  <!-- Alternative CDN Sources -->
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"> -->
+</head>
+{% endmacro head %}
+
+{% macro pagethump(title, pic, subtitle="", text="") %}
+<div id="page-thump-row">
+  <h1 class="title text-center">
+    {{ title }}
+  </h1>
+</div>
+<div id="page-thump-pic" class="text-center page-thump-pic">
+  <img src="{{ get_url(path=pic) }}" class="img-fluid" alt="Thubnail for blog showing a desk with a notepad">
+</div>
+<div class="page-thump-text">
+  <h3 class="title text-center">
+    {{ subtitle | safe }}
+  </h3>
+</div>
+{% endmacro pagethump %}
+
+{% macro projectcard(title, pic, side, technology="", text="", link_source="", pic_alt="") %}
+<div class="card mb-4 px-4 project-card">
+  <!-- <div class="card-header text-end">Header</div> -->
+  <div class="row">
+    {% if side == "left" %}
+    <div class="col-lg-4 d-flex align-items-center">
+      <img src="{{ get_url(path=pic) }}" class="img-fluid rounded-start" alt="{{ pic_alt }}">
+    </div>
+    {% endif %}
+    <div class="col-md-8 ">
+      <div class="card-body ">
+        <h3 class="card-title">{{ title }}</h3>
+        {% if technology %}
+        <p class="card-text"><small class="text-muted">{{ technology }}</small></p>
+        {% endif %}
+        <div class="search-link">
+          {{ text | safe }}
+        </div>
+        <a class="project-link" href="{{ link_source }}">Check it out</a>
+      </div>
+    </div>
+    {% if side == "right" %}
+    <div class="col-lg-4 d-flex align-items-center">
+      <img src="{{ get_url(path=pic) }}" class="img-fluid rounded-start" alt="...">
+    </div>
+    {% endif %}
+  </div>
+</div>
+{% endmacro projectcard %}

@@ -1,0 +1,84 @@
+# Format: https://www.getzola.org/documentation/getting-started/configuration/
+
+# The URL the site will be built for
+base_url = "https://henrikgerdes.me"
+description = "Webpage of Henrik Gerdes"
+
+# Theme
+# theme = "particle-zola"
+# theme = "shadharon"
+# theme = "hegerdes"
+
+taxonomies = [
+    { name = "tags", feed=true },
+    { name = "year", feed=true },
+    { name = "categories", feed=true },
+]
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# The default language; used in feeds.
+default_language = "en"
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+# When set to "true", the generated HTML files are minified.
+minify_html = true
+
+# Output dir build
+output_dir = "dist"
+
+# When set to "true", a feed is automatically generated.
+generate_feeds = true
+feed_filenames = ["rss.xml", "atom.xml"]
+
+# The default author for pages
+author = "hegerdes"
+
+[search]
+include_title = true
+include_description = true
+include_path = true
+include_content = true
+index_format = "fuse_json"
+
+
+[markdown]
+# Whether to do syntax highlighting
+highlight_code = true
+
+# Links
+external_links_target_blank = true
+
+# Code theme
+highlight_theme = "one-dark"
+
+# Whether smart punctuation is enabled (changing quotes, dashes, dots in their typographic form)
+# For example, `...` into `…`, `"quote"` into `“curly”` etc
+smart_punctuation = true
+
+
+[extra]
+# Custom/Personal variables
+
+username = "Henrik Gerdes"
+user_pic = "img/avatar.jpeg"
+user_description = "Hello there!"
+user_title = "Software Engineer"
+
+# Socials
+email = "hegerdes@outlook.de"
+github_username = "hegerdes"
+gitlab_username = "hegerdes"
+linkedin_profile = "https://www.linkedin.com/in/henrik-gerdes-97603b22a/"
+mastodon_profile = "https://social.henrikgerdes.me/@hegerdes"
+
+# Extra settings
+use_cdn_resources = false # whether to use cdn for js/css libs or local paths
+page_source = "https://github.com/hegerdes/HomePage"
+page_version = "unknown"
+
+website_url_v1 = "https://homepage-v1.henrikgerdes.me"
+website_url_v2 = "https://homepage-v2.henrikgerdes.me"

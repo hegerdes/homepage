@@ -1,0 +1,22 @@
+.footer {
+  background: $main;
+  padding: 10px 0;
+  text-align: center;
+  color: #FFF;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  a {
+    text-decoration: none;
+    margin: 0;
+    color: #FFF;
+
+    &:hover {
+      color: $sec;
+    }
+
+    &:active {
+      color: $sec;
+    }
+  }
+}

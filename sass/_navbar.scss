@@ -1,0 +1,50 @@
+.navbar {
+    padding-top: 0;
+    padding-bottom: 0;
+    z-index: 9000;
+
+    @media only screen and (max-width:$cut) {
+        padding-top: 2rem;
+        padding-bottom: .5rem;
+    }
+}
+
+.navbar-search-container {
+    display: flex;
+
+    input[type="search"] {
+        width: 0;
+        height: 40px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 20px;
+        transition: width 0.4s ease-in-out;
+        opacity: 0;
+
+        @media only screen and (max-width:$cut) {
+            width: 200px;
+            opacity: 1;
+        }
+    }
+
+    button {
+        width: 40px;
+        height: 40px;
+        background-color: $blue;
+        border: none;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s ease;
+
+        i {
+            color: white;
+            font-size: 20px;
+        }
+    }
+
+    &:hover input[type="search"] {
+        width: 200px;
+        opacity: 1;
+    }
+}

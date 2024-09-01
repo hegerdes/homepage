@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% import "macros/shared.html" as shared %}
+{% import "macros/navbar.html" as nav %}
+{% import "macros/footer.html" as foot %}
+
+{% block body %}
+
+<body>
+    {{ nav::navbar() }}
+    {% block content %}
+
+    <section id="post" class="mb2">
+        <div class="row container-fluid">
+            <div class="col-lg-2 shadow d-none d-lg-block pb-4">
+                <div class="sidebar-content sticky-top">
+                    <img src="{{get_url(path=config.extra.user_pic)}}" alt="runded avatar anime profile pricture"
+                        class="rounded-circle">
+                    <p>Author:</p>
+                    <h4>{{ page.author | default(value=config.extra.username) }}</h4>
+                    <!-- <p>A passionate
+                            <span class="codinfox-changing-keywords">
+                                <b>developer</b>
+                                <b>writer</b>
+                            </span>
+                        </p> -->
+                    <h4>Tags:</h4>
+
+                    <ul class="list-unstyled">
+                        {% set tag_tax = get_taxonomy(kind="tags") %}
+                        {% for tag in tag_tax.items %}
+                        {% if tag.name in page.taxonomies.tags %}
+                        <a href="{{ tag.permalink | safe }}">
+                            <button type="button" class="btn rounded-pill btn-sm m-1 btn-primary">
+                                {{ tag.name }} <span class="badge text-bg-secondary">{{ tag.pages | length }}</span>
+                            </button>
+                        </a>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <h4>Recent Articles:</h4>
+
+                    {% set cat_tax = get_taxonomy(kind="categories") %}
+                    {% for cat in cat_tax.items %}
+                    {% for page in cat.pages | slice(start=1, end=4) %}
+                    <div class="card my-2">
+                        <div class="card-header">
+                            {% if loop.index == 1 %}
+                            Most Recent
+                            {% else %}
+                            {{ page.date | date(format="%d/%m/%Y")}}
+                            {% endif %}
+                        </div>
+                        <div class="card-body">
+                            <h4 class="card-title">{{ page.title }}</h4>
+                            <a href="{{ page.permalink }}" class="btn btn-primary">Read Now</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
+                </div>
+
+            </div>
+            <div class="col">
+                <!-- Main Contenr -->
+                <article class="content-area">
+                    <div class="post-info">
+                        <p style="text-align: right;">
+                            <i class="fas fa-pen"></i> {% if page.date %}Published: {{ page.date |
+                            date(format="%d/%m/%Y")
+                            }} {%endif %}<br>
+                            <i class="fab fa-readme"></i> {{ page.reading_time }} minute read
+                        </p>
+                    </div>
+
+                    {# <code>{{ tag_tax.items | json_encode(pretty=true) }}</code> #}
+
+                    {{ page.content | safe }}
+                </article>
+                <!-- Sponsering links -->
+                <div class="support-me d-print-none pb-4">
+                    <p><b>❤️ Is this article helpful?</b></p>
+                    <p>
+                        <a href="https://www.buymeacoffee.com/hegerdes">Buy me a coffee☕</a>,
+                        <a href="https://paypal.me/hegerdes?country.x=DE&locale.x=de_DE">PayPal me</a>
+                        or support this space to keep it 🖖 and ad-free.
+                    </p>
+                    <p>
+                        If you can't, do send some 💖 or help to share this article.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {% endblock content %}
+    {{ foot::footer() }}
+
+</body>
+{% endblock body %}

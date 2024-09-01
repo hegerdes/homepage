@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% import "macros/shared.html" as shared %}
+{% import "macros/navbar.html" as nav %}
+{% import "macros/footer.html" as foot %}
+{% import "macros/me.html" as me %}
+
+{% block body %}
+
+<body data-bs-theme="light">
+  {{ nav::navbar() }}
+  {{ me::header() }}
+
+  {% block content %}
+  <section id="about">
+    <div class="container">
+      <div class="col user-details mx-auto">
+        <h1 id="about_me">My Expertise</h1>
+        <p> In previous years, I focused on identifying and solving problems in the software development lifecycle. I've
+          streamlined the development process by creating preview deployments for every pull-request and improved the
+          stability of services by creating user-friendly, observability stacks. All driven by highly automated
+          processes!
+        </p>
+        <p>
+          Right now, I'm implementing ChatOps practices and expanding my knowledge of different cloud provider
+          technologies, while further improving automated resource provisioning, monitoring, and maintenance tasks.
+        </p>
+        <p>
+          I love experimenting with different technologies and sharing my knowledge with others (check out my blog),
+          even though if it
+          might involve spending some quality time with your favorite rubber <a
+            class="link-underline link-underline-opacity-0" href="https://rubberduckdebugging.com/">🦆</a>
+        </p>
+      </div>
+    </div>
+    <div class="row user mx-auto">
+      <div class="col">
+        <h2>Code</h2>
+        <i class="devicon-git-plain colored"></i>
+        <i class="devicon-python-plain"></i>
+        <i class="devicon-go-original-wordmark colored"></i>
+        <p>I've acquired skills in <strong>Python, Go, JS/TS</strong> and other languages to be able to create the
+          solution for your problem.<br>
+          <!-- I'm conftable with general programming <strong>concepts</strong> and know which tool to use. -->
+        </p>
+      </div>
+      <div class="col">
+        <h2>Deploy</h2>
+        <i class="devicon-githubactions-plain"></i>
+        <i class="devicon-kubernetes-plain colored"></i>
+        <i class="devicon-googlecloud-plain"></i>
+        <p><strong>Kubernetes</strong> is the OS of the cloud!<br>Driving it requires deep knowlage in container
+          technology, automation
+          and cloud specific features of <strong>Azure, AWS and GCP</strong>.
+        </p>
+      </div>
+      <div class="col">
+        <h2>Monitor</h2>
+        <i class="devicon-grafana-plain colored"></i>
+        <i class="devicon-oauth-plain colored"></i>
+        <i class="devicon-opentelemetry-plain colored"></i>
+        <p><strong>Obverserbility</strong> and <strong>Security</strong> are the two major factors to run reliable and
+          trustworthy servises.<br>
+          <!-- Standards like <strong>Opentelemetry</strong> and <strong>OAuth2</strong> enable
+          smooth operation. -->
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <div class="container">
+      <h1 class="text-center">Featured Projects</h1>
+    </div>
+    {% set featured_project_1 = "
+    <p class='search-link'>Want to play <strong>Pacman</strong> on your hometown streets?<br>
+      The map sections are based on the real world using <strong><a
+          href='https://www.openstreetmap.org/'>OSM-data</a></strong> so you
+      and your capture packages while
+      competing
+      against the crowd simulation based movements of the ghosts.
+    </p>"
+    %}
+    {% set featured_project_2 = "
+    <p>
+      A VM for <strong>IT-Sec Red-Team</strong> starters to learn Unix and find common IT Security flaws.
+      <br>
+      It includes similar challenges as OverTheWire like scripting, reverse engineering, SQL injections,
+      web-scraping and manipulation of web-authentication.
+    </p>"
+    %}
+
+    {{ shared::projectcard(title="Pacmap", side="left", pic="/img/pacmap-wide.webp",
+    text=featured_project_1,technology="Python, GameDev,
+    Network", link_source="https://github.com/hegerdes/RealWorldPacman", pic_alt="Gif of Pacman on relas streets") }}
+    {{ shared::projectcard(title="Beeblebrox CTF", side="right", pic="/img/ctf.png", text=featured_project_2,
+    link_source="https://github.com/hegerdes/BeeblebroxCTF", technology="ITSac, Auth, Web", pic_alt="Terminal output
+    with asci
+    art") }}
+  </section>
+
+  {% endblock content %}
+  {{ foot::footer(include_particle_js=true) }}
+
+</body>
+{% endblock body %}

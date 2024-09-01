@@ -1,0 +1,123 @@
+// @import url('https://fonts.googleapis.com/css?family=Montserrat');
+/* latin */
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/montserrat.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* latin */
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url('/fonts/roboto-regular.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+body {
+    font-size: 100%;
+    scroll-behavior: smooth;
+    line-height: 1.5;
+    color: $thd;
+    font-family: 'Montserrat', sans-serif;
+    padding-right: 0;
+    padding-left: 0;
+
+}
+
+article,
+aside,
+figcaption,
+figure,
+footer,
+header,
+nav,
+section {
+    display: block;
+}
+
+h1,
+h2,
+h3,
+h4,
+stong {
+    margin-top: 1em;
+    padding-top: 1em;
+    line-height: 1.25;
+    color: #333;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
+
+h4 {
+    font-size: 1rem;
+}
+
+img {
+    // margin-left: auto;
+    // margin-right: auto;
+    width: 90%;
+    display: block;
+}
+
+sup,
+sub {
+    line-height: 0;
+}
+
+table {
+    margin-left: auto;
+    margin-right: auto;
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    td {
+        background-color: #ffffff;
+    }
+
+    tr:nth-child(even) td {
+        background-color: #f9f9f9;
+    }
+
+    caption {
+        caption-side: top;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
+}
+
+.container {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.page-thump-pic {
+    img {
+        margin-left: auto;
+        margin-right: auto;
+        // max-width: 70%;
+        max-width: 650px
+    }
+
+}
+
+.page-thump-text {
+    sub {
+        font-size: x-small;
+    }
+}
