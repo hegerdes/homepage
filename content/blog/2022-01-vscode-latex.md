@@ -8,7 +8,7 @@ categories=["it"]
 tags = ['LaTeX', 'VSCode', 'Docker', 'DevContainer']
 
 [extra]
-pic = "/img/blog/tex-big.png"
+pic = "/img/blog/tex-big.jpeg"
 +++
 
 # Getting started with LaTex as a Dev 

@@ -2,6 +2,7 @@
 
 # The URL the site will be built for
 base_url = "https://henrikgerdes.me"
+description = "Webpage of Henrik Gerdes"
 
 # Theme
 # theme = "particle-zola"

@@ -6,7 +6,7 @@ categories=[]
 tags = []
 
 [extra]
-pic = "/img/blog/tex-big.png"
+pic = "/img/blog/tex-big.jpeg"
 pic_alt="Big letters LaTeX in whhite background"
 link_source="https://github.com/hegerdes/VSCode-LaTeX-Container"
 
