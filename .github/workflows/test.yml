@@ -17,7 +17,7 @@ jobs:
         run: bash zola-install.sh
 
       - name: Run linter 👀
-        run: zola --check
+        run: zola check
 
       - name: Run Build 🛠️
-        run: zola --build
+        run: zola build
