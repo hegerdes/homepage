@@ -101,30 +101,30 @@ Not having to leave the keyboard to reach the mouse in order to click a button t
 
 _Common:_
 ```bash,linenos
-# Copy              # Print                         # Search            # Swicht between windows        
-Ctrl + c            Ctrl + p                        Win + SeachWord     Alt + tab                       
-# Past              # Open                          # Desktop           # Open app x in taskbar         
-Ctrl + v            Ctrl + o                        Win + d             Win + [0-9]                     
-# Cut               # New document                  # Snap Window       # Duplicate/Extend monitor      
-Ctrl + x            Ctrl + n                        Win + any-arrow     Win + p                         
-# Search            # New tab                       # Open explorer     # Open settings                 
-Ctrl + f            Ctrl + t                        Win + e             Win + i                         
-# Undo              # close tab                     # Lock screen       # Screen Record                 
-Ctrl + z            Ctrl + w                        Win + l             Win + g                         
-# Redo              # Select all                    # Emoj              #Paste with history clipbord    
-Ctrl + y            Ctrl + a                        Win + .             Win + v                         
-# Save              # Mark wohle word               # Open              Screenshot                      
-Ctrl + s            Ctrl + Shift + arrow            Ctrl + o            Win + Shift + s                 
+# Copy              # Print                         # Search            # Swicht between windows  
+Ctrl + c            Ctrl + p                        Win + SeachWord     Alt + tab  
+# Past              # Open                          # Desktop           # Open app x in taskbar  
+Ctrl + v            Ctrl + o                        Win + d             Win + [0-9]  
+# Cut               # New document                  # Snap Window       # Duplicate/Extend monitor  
+Ctrl + x            Ctrl + n                        Win + any-arrow     Win + p  
+# Search            # New tab                       # Open explorer     # Open settings  
+Ctrl + f            Ctrl + t                        Win + e             Win + i  
+# Undo              # close tab                     # Lock screen       # Screen Record  
+Ctrl + z            Ctrl + w                        Win + l             Win + g  
+# Redo              # Select all                    # Emoj              #Paste with history clipbord  
+Ctrl + y            Ctrl + a                        Win + .             Win + v  
+# Save              # Mark wohle word               # Open              Screenshot  
+Ctrl + s            Ctrl + Shift + arrow            Ctrl + o            Win + Shift + s  
 ```
 
 _Browser:_
 ```bash,linenos
-# Reload            # Open history                  # Switch tabs       # Go to tab [1-9]               
-Ctrl + r            Ctrl + h                        Ctrl + tab          Ctrl + [0-9]                    
-# Add favo          # Focuse searchbar              # Reopen tab        # Zoom                          
-Ctrl + d            Ctrl + e                        Ctrl + Shift + t    Ctrl + Shift + +/-              
-# Go back           # go forward                                                                        
-alt + left-arrow    alt + right-arrow                                                                   
+# Reload            # Open history                  # Switch tabs       # Go to tab [1-9]  
+Ctrl + r            Ctrl + h                        Ctrl + tab          Ctrl + [0-9]  
+# Add favo          # Focuse searchbar              # Reopen tab        # Zoom  
+Ctrl + d            Ctrl + e                        Ctrl + Shift + t    Ctrl + Shift + +/-  
+# Go back           # go forward  
+alt + left-arrow    alt + right-arrow  
 ```
 
 _VSCode:_

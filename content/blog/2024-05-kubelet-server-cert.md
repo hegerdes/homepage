@@ -55,8 +55,8 @@ nodeRegistration:
     node-ip: "10.100.0.1"
     # Proposal: ether as an arg
     serverCertSANs: "10.100.0.1,ec2-10-100-0-1.compute-1.amazonaws.com"
-  # Proposal: or as an own kubeadm nodeRegistration property 
-  serverCertSANs: 
+  # Proposal: or as an own kubeadm nodeRegistration property
+  serverCertSANs:
     - "10.100.0.1"
     - "ec2-10-100-0-1.compute-1.amazonaws.com"
 ```
@@ -64,8 +64,8 @@ nodeRegistration:
 Personal I'm in favor of adding an extra arg to the kubelet binary to include a list of additional SANs. This would also allow profit users not using kubeadm to have a properly configured kubelet server certificate.
 
 ### The Workaround:  
-For personal testing setups I use ansible to prepare my nodes and bootstrab a cluster. One the certificate generation phase is complete I can generate my onw private key and certificate request and sing it with the clusters ca. 
-Though I don't recommend this for production, this is why we need a more managed and automated approach. 
+For personal testing setups I use ansible to prepare my nodes and bootstrab a cluster. One the certificate generation phase is complete I can generate my onw private key and certificate request and sing it with the clusters ca.
+Though I don't recommend this for production, this is why we need a more managed and automated approach.
 
 ### References
  * [Kubernetes Docs TLS Bootstrap](https://kubernetes.io/docs/reference/access-authn-authz/kubelet-tls-bootstrapping/#certificate-rotation)

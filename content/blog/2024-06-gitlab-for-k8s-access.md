@@ -223,7 +223,7 @@ In traditional IT, these were areas that were strictly separated between develop
 
 ## Types of authentication
 When consulting the [Kubernetes doukentation](https://Kubernetes.io/docs/reference/access-authn-authz/authentication) regarding authentication is are a bunch of different strategies to authenticate. These can be catagrized into these types:
- 
+
   * Static Authentication
 	  * X509 client certificates
 	  * Static token file
@@ -236,11 +236,11 @@ When consulting the [Kubernetes doukentation](https://Kubernetes.io/docs/referen
 
 ## Static Tokens
 When looking at the static authentication methods, these can be further subdivided. Both Bootstrap tokens and Service account tokens are primarly used for in-cluster authentication. Bootstrap tokens are tokens that are justed jused to add a new node to a cluster. In general they have a short expiration time and a very limited scope of allowed actions. The kubelet uses these to request a client-configuration set which will be used for all further requests.  
-The Service account tokens are compleatly managed by Kubernetes and are intendet to allow pods within the cluster to communicate with the api-server. When a new pod is created, Kubernetes mounts the Service account tokens as a file into the pods filesystem at a wellknown location if not configured otherwise. 
+The Service account tokens are compleatly managed by Kubernetes and are intendet to allow pods within the cluster to communicate with the api-server. When a new pod is created, Kubernetes mounts the Service account tokens as a file into the pods filesystem at a wellknown location if not configured otherwise.
 
 
 ## Dynamic Authtification
 The lack of easy creation and managment of these static authentication processes is the reson manny managed Kubernetes offerings recommend using dynamic approches that integrate within the existing organization.  
-This can be done with Webhook Token Authentication or a Authenticating Proxy but as staited above these can be implemented in any imagable way and will not be further discussed here. Insted this article will focuse on OpenID Connect and will also give an alternative if OIDC is not an option. 
+This can be done with Webhook Token Authentication or a Authenticating Proxy but as staited above these can be implemented in any imagable way and will not be further discussed here. Insted this article will focuse on OpenID Connect and will also give an alternative if OIDC is not an option.
 
 -->

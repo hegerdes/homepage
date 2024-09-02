@@ -43,19 +43,19 @@ And that is exactly what people did, and I will take a look at some of them and 
 Containers are created all the time. We don't even think about them anymore when we schedule a deployment with 42 replicas. But since it happens so frequently, we might take an occasional look at what actually happens at a low level and how it impacts our cluster's efficiency. Do container engines impact start-up time and memory consumption? Since I didn't find any real up-to-date comparisons, I took a look for myself and ended up comparing these implementations:
 
  * runc - The default OCI engine written in go that comes with containerd
- * crun - Alternative OCI implantation written in C, claiming to be -49.4% faster than runc for running `/usr/bin/true` 
+ * crun - Alternative OCI implantation written in C, claiming to be -49.4% faster than runc for running `/usr/bin/true`
  * gvisor/runsc - Googles safe OCI implantation (also written in go) that aims to improve security by running many syscalls in userspace
  * youki - Quiet young alternative OCI implantation written in rust
 
 <!---
 ### Assumtion
-The crun project makes some bold claims but for my self managed test cluster I've been using crun for over an year and must say that I had the impression the everything felt a little more snappy with it. I also like its extendability. You can compile crun with webassembly support and run wasm containers the same way as normal one without any additional OCI engine needed. I think it will slightly outperform runc but not as much as claimed. Googles gvisor will defintly be slower since its main purose is enhancing security and that extra layer to run syscalls in userspace will cost performance. For youki I don't have any expectation since I've never used it before.  Might be at the same level as runc, maybe a little slower since it didn't had time yet to mature and optimize. 
+The crun project makes some bold claims but for my self managed test cluster I've been using crun for over an year and must say that I had the impression the everything felt a little more snappy with it. I also like its extendability. You can compile crun with webassembly support and run wasm containers the same way as normal one without any additional OCI engine needed. I think it will slightly outperform runc but not as much as claimed. Googles gvisor will defintly be slower since its main purose is enhancing security and that extra layer to run syscalls in userspace will cost performance. For youki I don't have any expectation since I've never used it before.  Might be at the same level as runc, maybe a little slower since it didn't had time yet to mature and optimize.
 -->
 
 ### Testsetup
 *Disclaimer:* This is NOT a scientific benchmark. I'm quite a noop in profiling such applications, and I cannot claim full correctness for my findings. If you know how to do it better, please show me.
 
-I created a VM on the Hetzner-Cloud using their dedicated offerings to avoid the effect of noisy neighbors. I redid the test on another instance to ensure I didn't get a low-performing one. System Data: 
+I created a VM on the Hetzner-Cloud using their dedicated offerings to avoid the effect of noisy neighbors. I redid the test on another instance to ensure I didn't get a low-performing one. System Data:
 ```yaml,linenos
 region: nbg1-dc3
 os: Linux 6.1.0-21-amd64 Debian 12 (2024-05-03) x86_64 GNU/Linux
@@ -76,7 +76,7 @@ youki version 0.3.3
 ```
 
 ### Results
-The node's CPU and RAM were not even remotely utilized as seen in the Grafana dashboard below. In contrast to the production environment where the kubelet can create several containers simultaneously, my benchmark runs in serial. Nevertheless, some conclusions can be drawn. 
+The node's CPU and RAM were not even remotely utilized as seen in the Grafana dashboard below. In contrast to the production environment where the kubelet can create several containers simultaneously, my benchmark runs in serial. Nevertheless, some conclusions can be drawn.
 The test showed indeed that crun outperforms containerd's default OCI engine, yet the difference is not as big as claimed on the crun website. However, you have to bear in mind that it was not the same test as on the crun page. The performed benchmark includes the overhead of containerd,  to represent a more realistic deployment compared to calling the OCI engine directly.  
 
 ![Grafana Dashboard showing OCI CPU usage](/img/blog/oci-data-2.jpg)
@@ -107,7 +107,7 @@ I did not expect that starting a small container like busybox would cause some s
 ![Grafana Dashboard showing OCI system context switches](/img/blog/oci-data-4.jpg)
 
 
-The complete raw output can be found on my [GitHub Gist](https://gist.github.com/hegerdes/c9b1a171d82bf19a10c8505ee6b9ee10). 
+The complete raw output can be found on my [GitHub Gist](https://gist.github.com/hegerdes/c9b1a171d82bf19a10c8505ee6b9ee10).
 
 ## Conclusion
 The performance differences between the tested OCI implementations are not as big as I expected, and even though crun performs better, I doubt that switching to it justifies the operational overhead for most companies - at least for managed Kubernetes offerings. As far as I know most managed Kubernetes offerings use containerd with runc. Being able to just use AWS managed AMIs (or Azures) is a huge time and cost saver. Unless the last percent of performance is highly important, I would just stick with runc. It would still be nice to see hyperscaler's include crun in their AMIs (which costs 2MB of space) and give users the choice via runtimeclasses.  

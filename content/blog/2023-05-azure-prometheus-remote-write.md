@@ -33,12 +33,12 @@ You have to do the following steps:
    * Allow public networking
    * Create and wait
 
-This will create a new managed monitor resource-group with your Prometheus instance. 
+This will create a new managed monitor resource-group with your Prometheus instance.
 ![Azure meets Prometheus](/img/blog/azure-prom-1-create.png)
 Write down the *Metrics ingestion endpoint*
 
 Next step is to create an App/User that can push to that endpoint. For this we:
- * Open the Azure Active Directory 
+ * Open the Azure Active Directory
  * Go to App Registrations
  * Click New Registration
    * Provide a name

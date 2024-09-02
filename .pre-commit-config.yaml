@@ -3,9 +3,11 @@ repos:
     rev: v4.6.0
     hooks:
       - id: end-of-file-fixer
+        exclude: static/js/.*js
       - id: check-added-large-files
-      - id: check-executables-have-shebangs
+      # - id: check-executables-have-shebangs
       - id: check-json
+        exclude: .vscode
       - id: check-toml
       - id: check-symlinks
       - id: check-case-conflict

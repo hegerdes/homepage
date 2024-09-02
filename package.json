@@ -6,7 +6,6 @@
   "engines": {
     "node": ">=18"
   },
-
   "author": {
     "name": "hegerdes",
     "url": "https://henrikgerdes.me"

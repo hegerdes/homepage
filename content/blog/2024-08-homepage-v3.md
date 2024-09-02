@@ -84,4 +84,3 @@ Some stats between my site:
 | Build Time | 0s    | 14s   | 2.2s  |
 
 🧾📖 NOTE: You might want to check out [v1](https://homepage-v1.henrikgerdes.me), [v2](https://homepage-v2.henrikgerdes.me) and [v3](https://henrikgerdes.me) of my site.
-

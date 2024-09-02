@@ -88,9 +88,9 @@ The correct sequence, based on the protocol, should be `0a0d09` which is `\r\n\t
 
 ### The Solution:
 The solution is easy - just change the way the certificates are encoded! - *Wait! We can't do that!*  
-Due to the nature of our service we don't have direct control over the clients connecting to our server. It would be a major inconvenience to change this on all clients. Another option is to start NodeJS with the `--insecure-http-parser` flag - which isn't an option either.   
+Due to the nature of our service we don't have direct control over the clients connecting to our server. It would be a major inconvenience to change this on all clients. Another option is to start NodeJS with the `--insecure-http-parser` flag - which isn't an option either.  
 What about our reverse proxy? Turns out [NGINX](https://www.nginx.com/) has a dedicated variable for client certificates in its [ssl-module](https://nginx.org/en/docs/http/ngx_http_ssl_module.html) since version 1.13.5. Instead of `ssl_client_cert` we could use `ssl_client_escaped_cert` which contains the url-encoded (and therefore valid encoded) certificate.  
-A quick test with the new proxy configuration showed that the new NodeJS version was now working. 
+A quick test with the new proxy configuration showed that the new NodeJS version was now working.
 
 
 ### Some Background Information
