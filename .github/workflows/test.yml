@@ -13,17 +13,11 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v4
 
-      - name: Setup node env 🏗
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          check-latest: true
-
       - name: Install dependencies 👨🏻‍💻
-        run: npm i --prefer-offline --no-audit
+        run: bash zola-install.sh
 
       - name: Run linter 👀
-        run: npm run lint --if-present
+        run: zola --check
 
       - name: Run Build 🛠️
-        run: npm run generate
+        run: zola --build
