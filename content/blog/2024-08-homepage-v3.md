@@ -20,7 +20,7 @@ I was still in university and wanted to get some practical experience. My univer
 I also have never shipped any software yet, so I had no clue how to put something out there for others to use. So I found a nice template I liked and customized it to my likings. HTML is not that complicated, and I didn't need any JavaScript for this simple static site. So building the skeleton was quite easy, unitl I wanted to style it with CSS.  
 I have worked with various programming languages, also low level languages like C/C++ but I've never had to fight this much to get things working. I get the idea of classes but to this day I never fully understood the global scope of styles, overrides nor am I even close to now even a subset of all the CSS properties and transformers.  
 
-Now I had something usable, I needed to get it out there. I bought my first domain from the small German hoster IONOS - which was exiting back then. Now I was looking for a free hosting solution and eventually found [netlify](https://www.netlify.com/). Now I needed to put put domain and hosting together. DNS at IONOS sucks (like almost everything) so I transferred the DNS zone to netlify and started battling a little with TLS.
+Now I had something usable, I needed to get it out there. I bought my first domain from the small German hoster IONOS - which was exiting back then. Now I was looking for a free hosting solution and eventually found [netlify](https://www.netlify.com/). Now I needed to put put domain and hosting together. DNS at IONOS sucks (like almost everything from their offerings) so I transferred the DNS zone to netlify and started battling a little with TLS.
 
 Yet, eventually I got to a state that was fine for me. Still the site had issues.  
 Whenever I wanted to add a project I copied a bunch of HTML and added the new text. The header/footer was manually copied to every page and the CSS was looking okay, but was actually a mess. But it worked for back then.  
@@ -36,13 +36,13 @@ Having to keep in mind which part of the app was rendered server-side and which 
 
 But since everyone is using the technology, it seems like this is the way.
 
-Yet, eventually I got to a state that was fine for me. Still the site had Issues.  
-Load times where a not good, he style was inconsistent, code-blocks looked awful and I never good it working that the site remembered if had dark-mode activated on refreshes. But it was good enough. I used that site for almost three years. It worked for writing articles and I prioritized other things.
+Yet, eventually I got to a state that was fine for me. Still the site had issues.  
+Load times where a not good, the style was inconsistent, code-blocks looked awful and I never good it working that the site remembered if had dark-mode activated on refreshes. But it was good enough. I used that site for almost three years. It worked for writing articles and I prioritized other things.
 
 ## A fresh start - escaping the JS dept
-The site was automatically build from the main branch via netlify. Dependabot was setup to pack my packages. But the JavaScript world is fast moving and a lot of people dont bother with backwards compatibly. With time nuxt3 was released, but nothing worked with it. The site was using vue2, bootstrab4 and webpack4. Everything got deprecated and Dependabot kept reminding me of updates and vulnabilities. The site was slow and vulnerabilities!
+The site was automatically build from the main branch via netlify. Dependabot was setup to pack my packages. But the JavaScript world is fast moving and a lot of people dont bother with backwards compatibly. With time nuxt3 was released, but nothing worked with it. The site was using vue2, bootstrab4 and webpack4. Everything got deprecated and Dependabot kept reminding me of updates and vulnabilities. The site was slow, full of outdated packages and vulnerabilities!
 
-To that day I carefully select my JS packages and avoid dependencies when ever possible because I think the JS ecosystem is a **mess**.  
+To this day I carefully select my JS packages and avoid dependencies when ever possible because I think the JS ecosystem is a **mess**.  
 
 I was looking for alternatives quite some time. I did't want to go down the JS framework road again, mainly because I did't need most of their functions. I wanted a static site generator. I looked into hugo which is great but I did't find nice themes and found the themes creation process to much for my task.  
 Check out [v2](https://homepage-v2.henrikgerdes.me)
@@ -56,9 +56,10 @@ It looked great, entirely content orientated:
  * Single small binary
  * Build & refresh is fast as heck
  * Support for SASS
+ * Auto generation for search index
 
 So I started porting over my first page as a proof of concept. And it worked great!  
-Exactly the feature-set I wanted and nothing more. Templating is done with [terra](https://keats.github.io/tera/) a python jinja2 like templating language which I was quite familiar with thanks to my cuntless hours in ansible. I had not a single issue with it. At least not with zola. CSS on the other hand reminded me why I will never be a web-developer. Getting things look nice on every device is hard - even with bootstrap.
+Exactly the feature-set I wanted and nothing more. Templating is done with [terra](https://keats.github.io/tera/), a python jinja2 like templating language which I was quite familiar with thanks to my cuntless hours in ansible. I had not a single issue with it. At least not with zola. CSS on the other hand reminded me why I will never be a web-developer. Getting things look nice on every device is hard - even with bootstrap.
 
 If I could with for one thing regarding zola it would be better control on how to pass classed into rendered content and more built-in code syntax highlight themes.
 
