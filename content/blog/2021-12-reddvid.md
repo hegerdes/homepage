@@ -15,7 +15,8 @@ pic = "/img/blog/reddvid_small.jpg"
 ---
 It has become kind of annoying to download a simple video from Reddit. My sister wanted to save a video but couldn't do it. So, I did what all programmers do - I wrote a small app.  
 You can try it out [here](https://reddvid.netlify.app/) or use it via your terminal like described *below*.
-![Pic](/img/blog/reddvid_small.png)
+
+![Pic](/img/blog/reddvid_small.jpg)
 
 ## Some Background
 The URLs of videos on Reddit are not directly visible. You have dig through some HTML tags and even more annoying, Reddit sores to video and audio files separably. So we need to find the URLs, download the content and combine video and audio. For this I wrote a small Python backend.  

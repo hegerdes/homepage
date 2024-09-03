@@ -198,7 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let data = ""
     var html = ""
     html += `
-    <h1 id="search-results"class="text-center">
+    <h1 id="search-results "class="text-center search-title">
     Search Results
     </h1>
     ${data}
@@ -230,7 +230,10 @@ document.addEventListener("DOMContentLoaded", function () {
     main.innerHTML = html
 
     if (main2.id == 'particles-js') {
-      document.getElementById("search-results").scrollIntoView();
+      document.getElementById("search-results").scrollIntoView({
+        block: 'start',
+        behavior: 'smooth',
+      });
     }
 
     if (document.getElementById("projects")) {
