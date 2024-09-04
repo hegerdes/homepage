@@ -176,6 +176,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const main1 = document.querySelector('body > section')
     const main2 = document.querySelector('body > div')
     const input = document.querySelector('input[type="search"]');
+    const footer = document.querySelector('#footer')
 
     const main = main1 || main2
     if (!main) {
@@ -228,12 +229,10 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
     main.innerHTML = html
+    footer.classList.remove("fixed-bottom")
 
-    if (main2.id == 'particles-js') {
-      document.getElementById("search-results").scrollIntoView({
-        block: 'start',
-        behavior: 'smooth',
-      });
+    if (document.getElementById("particles-js")) {
+      document.getElementById("particles-js").remove()
     }
 
     if (document.getElementById("projects")) {
@@ -241,9 +240,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     if (search_res.length <= 1) {
-      const footer = document.querySelector('#footer')
       footer.classList.add("fixed-bottom");
+    }
 
+    if (document.getElementById("search-results")) {
+      document.getElementById("search-results").scrollIntoView({
+        block: 'start',
+        behavior: 'smooth',
+      });
     }
     return false
   }
