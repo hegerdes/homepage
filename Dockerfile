@@ -18,5 +18,5 @@ LABEL COMMIT_HASH=$COMMIT_HASH
 COPY --chown=nginx:nginx --from=build /app/dist/ /usr/share/nginx/html/
 # COPY default.conf /etc/nginx/conf.d/default.conf
 
-HEALTHCHECK --interval=5m --timeout=3s CMD curl --fail http://localhost || exit 1
+HEALTHCHECK --interval=1m --timeout=3s CMD curl --fail http://localhost || exit 1
 ENTRYPOINT [ "nginx" , "-g", "daemon off;"]
