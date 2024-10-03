@@ -2,7 +2,7 @@ name: Deploy Site
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   workflow_dispatch:
 
 permissions:
@@ -12,7 +12,7 @@ permissions:
   pages: write
 
 concurrency:
-  group: 'pages'
+  group: "pages"
   cancel-in-progress: false
 
 jobs:
@@ -24,8 +24,7 @@ jobs:
       build-cache: type=gha
       build-args: COMMIT_HASH=${{ github.sha }},COMMIT_TAG=${{ github.ref_name }}
       build-labels: MAINTAINER=${{ github.repository_owner }}
-      # build-platforms: linux/amd64,linux/arm64 # disabled for now till zola has arm builds
-      build-platforms: linux/amd64
+      build-platforms: linux/amd64,linux/arm64
 
   site-build:
     runs-on: ubuntu-latest
