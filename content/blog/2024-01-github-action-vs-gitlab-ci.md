@@ -19,6 +19,8 @@ GitLab just announced the availability of their [GitLab CI/CD Catalog (2023/12),
 
 *Disclaimer:* While there are a lot of other CI/CD systems like Circle CI, Azure DevOps, AWS CodeBuild, Travis CI and surprisingly, even Jenkins is still around, these tools are dedicated to solving one problem and are not part of a fully integrated developer platform. I also have not used most of them to a sufficient extent to be able to provide a meaningful review. This post only focuses on GitLab CI and GitHub Actions, especially their SaaS offerings, from a technical and software engineering standpoint. The value of these tools may vary depending on your specific requirements.
 
+*2024-10-12 Update:* GitLab is working on [step-runners](https://handbook.gitlab.com/handbook/engineering/architecture/design-documents/gitlab_steps/) a more modular approach of running CI jobs. The existing of this project might give some insides of what GitLab thinks for its current CI design.
+
 ![Avengers style fight scene with GitHub OctoCat and GitLab mascot](/img/blog/github-vs-gitlab-comic.png)
 
 ## General CI setup & flow
