@@ -5,7 +5,7 @@ date = "2021-11-15"
 
 [taxonomies]
 categories=["it"]
-tags = ['Docker', 'NodeJS', 'Container', 'JavaScript', 'TypeScript', 'IaC']
+tags = ['Docker', 'NodeJS', 'Container', 'TS/JS', 'IaC']
 
 [extra]
 pic = "/img/blog/docker.png"
@@ -22,11 +22,11 @@ This post shows demonstrates how to create an optimized production ready Docker 
 ## Pre-Requirements
 In order to build a Docker image you must have access to system that has the Docker engine installed. Depending on your system you need one of the following:
 
-| Host    | Version        | Link         |
-|---------|----------------|--------------|
-| Linux   | docker-ce      | [Download](https://docs.docker.com/engine/install/debian/)     |
-| Windows | Docker Desktop | [Download](https://docs.docker.com/desktop/windows/install/)   |
-| MacOS   | Docker Desktop | [Download](https://docs.docker.com/desktop/mac/install/)       |
+| Host    | Version        | Link                                                         |
+| ------- | -------------- | ------------------------------------------------------------ |
+| Linux   | docker-ce      | [Download](https://docs.docker.com/engine/install/debian/)   |
+| Windows | Docker Desktop | [Download](https://docs.docker.com/desktop/windows/install/) |
+| MacOS   | Docker Desktop | [Download](https://docs.docker.com/desktop/mac/install/)     |
 
 *Note:* Docker builds upon functions provided by the Linux kernel. Windows and macOS need to virtualize the kernel. Therefore, the best performance is achievable on linux.
 

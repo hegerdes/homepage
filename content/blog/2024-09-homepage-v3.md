@@ -5,7 +5,7 @@ date = '2024-09-01'
 
 [taxonomies]
 categories=["it"]
-tags = ['Website', 'Dev', 'Vue', 'JavaScript', 'TypeScript', 'NodeJS']
+tags = ['Website', 'Dev', 'Vue', 'TS/JS', 'NodeJS']
 
 [extra]
 pic = "/img/blog/website_v3.jpeg"
@@ -77,7 +77,7 @@ Things to do:
 
 Some stats between my site:
 |            | RAW   | Nuxt  | Zola  |
-|------------|-------|-------|-------|
+| ---------- | ----- | ----- | ----- |
 | JS         | 140KB | 4.2MB | 156KB |
 | HTML       | 544KB | 13MB  | 1.4MB |
 | Build Time | 0s    | 14s   | 2.2s  |
