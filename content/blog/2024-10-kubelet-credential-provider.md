@@ -49,17 +49,18 @@ providers:
         value: <my-password>
   # Optional: More credential providers
 ```
-Now I doubled my DockerHub pull limit and can use private registries without any additional work for any devs. And let me say this, they will love you for not having to deal with these secrets.
+Now I doubled my DockerHub pull limit and can use private registries without any additional work for any devs. And let me say this, they will love you for not having to deal with these secrets.  
+By the way, this is also a good method to bootstrap a cluster where the images are in private registries.
 
 **NOTE:**  
 My `static-credential-provider` is written in Go and uses the native Kubernetes types. But since it is such a simple interface, you can easily create the same functionality in a bash script when type safety is not so important. Don't believe me? I also did a bash version, check it out [here](https://github.com/hegerdes/kubelet-static-credential-provider/blob/main/hack/static-credential-provider.sh).
 
 ## A word about security
-I already hear the screaming. **THIS IS NOT Secure! This is bad practice!!1!**  
-Yeah, my implementation expects credentials that are on every node in plain text. But if some attacker gains access to one of Kubernetes worker nodes you have far bigger problems to deal with. When an attacker has access to a node, he can get to the information and credentials on every container on that node. He can see all traffic and export any data on that node. Your infrastructure was compromised long before the attacker got access to the registry credentials.  
+I already hear the screaming. **THIS IS NOT SECURE! This is bad practice!!1!**  
+Yeah, my implementation expects credentials that are on every node in plain text. But if some attacker gains access to one of your Kubernetes worker nodes you have far bigger problems to deal with. When an attacker has access to a node, he can get to the information and credentials on every container on that node. He can see all traffic and export any data on that node. Your infrastructure was compromised long before the attacker got access to the registry credentials.  
 Even more important: Container images are not considered a safe place in the first place. If there is anything sensitive in your container image you are doing things wrong!
 
-My advice is to create credentials that are read-only. So even in the case these leak, they can only be used to pull images with some application code that is to no use for anyone outside the company. It is also entirely possible to authenticate just a few registries with this method. The `matchImages` attribute allows a list of images for which the kubelet should invoke the `credential-provider`. You can even use patterns like `docker.io/company-x-common/*` in each entry to have fine control over when to use this functionally.
+My advice is to create credentials that are read-only. So even in the case these leak, they can only be used to pull images with some application code that is to no use for anyone outside the company. It is also entirely possible to authenticate just a few registries with this method. The `matchImages` attribute allows a list of images for which the kubelet should invoke the `credential-provider`. You can even use patterns like `docker.io/company-xyz-common/*` in each entry to have fine grain control over when to use this functionally.
 
 ## Conclusion
 If you have a self hosted Kubernetes cluster, this is an easy way to boos the devs productivity. It also allows pulling images from private registry in the bootstrap process when you can't use `image-pull-secrets` yes. Implementing this is quite easy. Feel free to use my `static-credential-provider` or write you own version. Even a bash script can be enough and I also provided some alternatives in the *Readme* of my implementation. You can check it out here: [kubelet-static-credential-provider](https://github.com/hegerdes/kubelet-static-credential-provider)
