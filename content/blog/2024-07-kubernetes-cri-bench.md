@@ -14,7 +14,7 @@ pic = "/img/blog/cri-test-thump.jpeg"
 # The Engines that run our Kubernetes Workloads
 🧾📖 [PDF version](https://henrikgerdes.me/docs/kubernetes_cri_bench.pdf)
 
-*Target audience:* This article is a deep dive for people living the Kubernetes lifestyle, for people who know or want to know how the low level stuff works and performs. I do not explain every container or Kubernetes component as it is expected to ne known.  
+*Target audience:* This article is a deep dive for people living the Kubernetes lifestyle, for people who know or want to know how the low level stuff works and performs. I do not explain every container or Kubernetes component as it is expected to be known.  
 
 Kubernetes has become THE standard for container orchestration. It is not just a software tool, it is a framework with extensive extensibility features. Entire businesses are built on top of Kubernetes and offer essential, nice to have and abstruse services. Tools like ArgoCD and Crossplane are build for Kubernetes and changed the way how we deploy software. There is even a new category of operating systems like CoreOS, Bottlerocket and Talos that are build purposely to run containers. All that happened in just 10 years. **Happy late birthday K8s!**  
 
