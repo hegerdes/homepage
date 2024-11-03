@@ -5,7 +5,7 @@ date = '2021-12-24'
 
 [taxonomies]
 categories=["it"]
-tags = ['Python', 'Reddit', 'Flask', 'ffmpeg', 'API', 'VUE']
+tags = ['Python', 'Reddit', 'Flask', 'API', 'VUE']
 
 [extra]
 pic = "/img/blog/reddvid_small.jpg"

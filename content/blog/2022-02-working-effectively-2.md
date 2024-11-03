@@ -5,7 +5,7 @@ date = '2022-02-12'
 
 [taxonomies]
 categories=["it"]
-tags = ['Efficency', 'Work', 'Tricks']
+tags = ['efficiency', 'Work', 'Tricks']
 
 [extra]
 pic = "/img/blog/smart_work.jpg"
