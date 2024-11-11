@@ -5,7 +5,7 @@ date = '2024-07-01'
 
 [taxonomies]
 categories=["it"]
-tags = ['Kubernetes', 'Benchmark', 'Container']
+tags = ['Kubernetes', 'Benchmark', 'Container', 'Linux']
 
 [extra]
 pic = "/img/blog/cri-test-thump.jpeg"
