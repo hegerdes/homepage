@@ -30,8 +30,8 @@ body {
     font-family: 'Montserrat', sans-serif;
     padding-right: 0;
     padding-left: 0;
-    background: light-dark(white, $not-found);
-    color: light-dark(black, white);
+    background: light-dark($bg-light, $bg-dark);
+    color: light-dark($text-light, $text-dark);
 }
 
 article,
@@ -49,11 +49,12 @@ h1,
 h2,
 h3,
 h4,
+a,
 stong {
     margin-top: 1em;
     padding-top: 1em;
     line-height: 1.25;
-    color: #333;
+    color: light-dark($text-light, $text-dark);
 }
 
 h1 {
@@ -87,15 +88,15 @@ table {
     margin-right: auto;
 
     th {
-        background-color: #f2f2f2;
+        background: light-dark($table-bg-head-light, $table-bg-head-dark);
     }
 
     td {
-        background-color: #ffffff;
+        background: light-dark($table-bg1-light, $table-bg1-dark);
     }
 
     tr:nth-child(even) td {
-        background-color: #f9f9f9;
+        background: light-dark($table-bg2-light, $table-bg2-dark);
     }
 
     caption {

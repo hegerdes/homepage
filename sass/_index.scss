@@ -40,12 +40,21 @@
 }
 
 .project-card {
+  background: light-dark($bg-light, $main);
+  color: light-dark($text-light, $text-dark);
+  border-color: $black;
+
   img {
     margin-left: auto;
     margin-right: auto;
   }
 
   @media (max-width: $lg) {
+    div {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
     img {
       max-width: 500px;
       margin-top: 2rem;
@@ -62,11 +71,12 @@
   margin-left: auto;
   margin-right: auto;
   max-width: $md;
+  background: light-dark($bg-light, $main-dark);
+  color: light-dark($main, $white);
 }
 
 .search-link {
   a {
-    color: $main;
     text-decoration: none;
     margin: 0;
 
@@ -85,11 +95,14 @@
     margin-bottom: 1rem;
   }
 
+  @media (max-width: $lg) {
+    margin: auto;
+  }
+
   display: inline-block;
   margin: 10px 0px;
   padding: 5px;
   margin-bottom: 5rem;
-  color: $main;
   background-color: transparent;
   border: 1px solid $main;
   border-radius: 10px;

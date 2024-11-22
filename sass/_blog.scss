@@ -13,12 +13,16 @@
 }
 
 .blog-cards {
+    background: light-dark($bg-light, $main-dark);
+    color: light-dark($main, $white);
+
     h5 {
         font-size: large;
     }
 
     a {
         text-decoration: none;
+        padding: 0;
         margin: 0;
 
         &:hover {
@@ -32,7 +36,6 @@
 }
 
 .sidebar {
-    background-color: #f8f9fa;
     padding: 15px;
     border-right: 1px solid #ddd;
     overflow-y: visible;
@@ -59,9 +62,14 @@
     }
 }
 
+.sidbar-cards {
+    background: light-dark($bg-light, $main-dark);
+    color: light-dark($main, $white);
+}
+
 .post-info {
     text-align: right;
-    color: $thd;
+    color: light-dark($main, $white);
 }
 
 .support-me {
