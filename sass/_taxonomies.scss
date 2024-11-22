@@ -2,11 +2,9 @@
     max-width: $lg;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    // background-color: $grey-light !important;
-    background: light-dark($grey-light, $main) !important;
-    color: light-dark($text-light, $text-dark) !important;
-
-
+    background: light-dark($grey-light, $main);
+    color: light-dark($text-light, $text-dark);
+    border-color: light-dark($grey-light, $sec-light) !important;
 
     a,
     img {

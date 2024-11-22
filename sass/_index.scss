@@ -42,7 +42,7 @@
 .project-card {
   background: light-dark($bg-light, $main);
   color: light-dark($text-light, $text-dark);
-  border-color: $black;
+  border-color: $sec-light;
 
   img {
     margin-left: auto;
@@ -71,7 +71,7 @@
   margin-left: auto;
   margin-right: auto;
   max-width: $md;
-  background: light-dark($bg-light, $main-dark);
+  background: light-dark($bg-light, $main);
   color: light-dark($main, $white);
 }
 
@@ -81,11 +81,11 @@
     margin: 0;
 
     &:hover {
-      color: $sec;
+      color: $sec-light;
     }
 
     &:active {
-      color: $sec;
+      color: $sec-light;
     }
   }
 }
@@ -100,16 +100,17 @@
   }
 
   display: inline-block;
-  margin: 10px 0px;
-  padding: 5px;
-  margin-bottom: 5rem;
-  background-color: transparent;
-  border: 1px solid $main;
-  border-radius: 10px;
   text-align: center;
   outline: none;
   text-decoration: none;
+  margin: 10px 0px;
+  padding: 5px;
+
+  background-color: transparent;
+  border: 1px solid $main;
+  border-radius: 10px;
   cursor: pointer;
+
   transition: color 0.3s ease-out,
   background-color 0.3s ease-out,
   border-color 0.3s ease-out;

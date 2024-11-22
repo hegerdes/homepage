@@ -43,8 +43,8 @@
                     {% set cat_tax = get_taxonomy(kind="categories") %}
                     {% for cat in cat_tax.items %}
                     {% for page in cat.pages | slice(start=1, end=4) %}
-                    <div class="card my-2">
-                        <div class="card-header">
+                    <div class="card my-2 sidbar-cards">
+                        <div class="card-header sidebar-cards-header">
                             {% if loop.index == 1 %}
                             Most Recent
                             {% else %}

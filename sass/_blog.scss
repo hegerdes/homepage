@@ -13,7 +13,7 @@
 }
 
 .blog-cards {
-    background: light-dark($bg-light, $main-dark);
+    background: light-dark($bg-light, $main);
     color: light-dark($main, $white);
 
     h5 {
@@ -26,18 +26,17 @@
         margin: 0;
 
         &:hover {
-            color: $sec;
+            color: $sec-light;
         }
 
         &:active {
-            color: $sec;
+            color: $sec-light;
         }
     }
 }
 
 .sidebar {
     padding: 15px;
-    border-right: 1px solid #ddd;
     overflow-y: visible;
 
     // z-index: -1;
@@ -63,8 +62,12 @@
 }
 
 .sidbar-cards {
-    background: light-dark($bg-light, $main-dark);
+    background: light-dark($bg-light, $main);
     color: light-dark($main, $white);
+}
+
+.sidebar-cards-header {
+    background: light-dark($bg-light, $sec-dark);
 }
 
 .post-info {
@@ -89,7 +92,7 @@
         word-wrap: break-word;
         line-height: 1.8em;
 
-        color: $main;
+        color: light-dark($main, $white);
         font-family: 'Roboto';
         letter-spacing: 1px;
 
