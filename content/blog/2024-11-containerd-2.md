@@ -31,10 +31,10 @@ This is a big one for me and will increase security of containerized workloads b
 > Why is it impotent?
 
 If you run a container today you can set the `UID`, the user UserID as which the main container process runs. Every single security guide regarding containers recommends to run container processes as none-root and as a unprivileged user, which IDs start at the 1000 range.  
-For most applications this is not an issue, but there are certain processes that require root. If processes need to install packages they require root, CI-Jobs often require root and it is really hard to run an `ssh` server as none-root. Even one of the most used containers, `nginx`, start as root and then drop their permissions to a none privileged user. The problem with root is that if an attacker manages to escape the container sandbox he is automatically root on the host system since UserIDs in a container map one to one to the one on the host.  
-User-Namespaces changes that. If you ran a container with the user-namespaces feature enabled that container can run as root, but has a different, unprivileged UserID on the host. This is a great feature that drastically improves security.  
-The 2.0 release of containerd supports user-namespaces by default but you may still have to enable it in your kernel parameters with `user.max_user_namespaces=1048576` (Suggested values from CoreOS for CRI-O).  
-While it is now shipped with containerd, it is still in beta for Kubernetes. Your can enable it by setting the `featureGate` `UserNamespacesSupport` to `true` on the api-server.  
+For most applications this is not an issue, but there are certain processes that require root. If processes need to install packages they require root, CI-Jobs often require root and it is really hard to run an `ssh` server as none-root. Even one of the most used containers, `nginx`, start as root and then drop their permissions to a none privileged user. The problem with root is that if an attacker manages to escape the container sandbox he is automatically root on the host system since UserIDs in a container map one to one to the ones on the host.  
+User-Namespaces changes this. If you ran a container with the user-namespaces feature enabled a container can run as root, but has a different, unprivileged UserID on the host. This is a great feature that drastically improves security without a performance penalty.  
+The 2.0 release of containerd supports user-namespaces by default but you may still have to enable it in your kernel via `user.max_user_namespaces=1048576` (Suggested values from CoreOS for CRI-O).  
+While the feature is now shipped with containerd, it is still in beta for Kubernetes. Your can enable it by setting the `featureGate` `UserNamespacesSupport` to `true` on the api-server.  
 To start a pod which uses user-namespaces set the `hostUsers` parameter to `false`. Thats all you need to do. This can also be enforced via admission controllers.
 
 ```yaml,linenos
@@ -54,7 +54,7 @@ spec:
 ```
 
 **Intel ISA-L's igzip**  
-This is a nice addition which may increase your container startup times by a few hundred millisecond. But how?  
+This is a nice addition which may increase your container startup times by a few hundred milliseconds. But how?  
 Container images are just a bunch of gziped archives layered ontop of each other. A manifest specifies which archives belong to which image. When an image is pulled it gets transferred via HTTP over the network and has to be extracted and decompressed. Most of the time this is done via `gzip`.  
 But `gzip` is single-threaded and does not use the full potential of modern processor. To overcome this there is also a multithreaded implementation of `gzip` called `pigz`. While `pigz` is faster then the default variant, `igzip` is even more performant. Acording to [benchmark by simonis](https://github.com/simonis/zlib-bench/blob/master/Results.md) `igzip` is twice as fas as `gzip`.  
 If you want to profit from this improvement just install `igzip` (debian package is called `isal`), containerd automatically check which version is installed on the system and picks the most preformat one.
