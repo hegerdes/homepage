@@ -37,12 +37,16 @@ Visit [Hashicorp Packer](https://developer.hashicorp.com/packer/install) and ins
 On Debian based Linux, run:
 
 ```bash,linenos
-> wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
-> echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
-> sudo apt update && sudo apt install packer
+# Get the latest version
+curl -sL https://api.github.com/repos/hashicorp/packer/releases/latest | jq -r .tag_name
+# Set the version and download
+PACKER_VERSION=1.11.2
+curl -sL https://releases.hashicorp.com/packer/${PACKER_VERSION}/packer_${PACKER_VERSION}_linux_amd64.zip -o /tmp/packer.zip
+# Unzip - may needs sudo
+unzip -q /tmp/packer.zip -d /usr/local/bin -x "LICENSE.txt"
 ```
 
-> You can run `packer --version` to view the version and check if the installation was successful.
+You can run `packer --version` to view the version and check if the installation was successful.
 
 ## Creating a custom image
 
@@ -113,11 +117,11 @@ To create that image run the following commands:
 
 ```bash,linenos
 # Set your Hetzner API Token
-> export HCLOUD_TOKEN="XXX"
+export HCLOUD_TOKEN="XXX"
 # Initialize the project - only needed once
-> packer init .
+packer init .
 # Build
-> packer build .
+packer build .
 ```
 
 Now Packer builds that server and streams all the logs to your current terminal. Verify that the new image is available in the Hetzer [Cloud Console](https://console.hetzner.cloud/):
