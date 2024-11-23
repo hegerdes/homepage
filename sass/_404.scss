@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: $sec;
+    background-color: $sec-light;
     color: $blue-light;
     font-family: "Courier New", Courier, monospace;
 }
@@ -14,7 +14,7 @@
     text-align: center;
     max-width: 600px;
     padding: 20px;
-    background: $main-404;
+    background: $not-found;
     border-radius: 10px;
     box-shadow: 0 4px 8px $black
 }

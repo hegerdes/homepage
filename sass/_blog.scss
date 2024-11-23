@@ -13,29 +13,30 @@
 }
 
 .blog-cards {
+    background: light-dark($bg-light, $main);
+    color: light-dark($main, $white);
+
     h5 {
         font-size: large;
     }
 
     a {
         text-decoration: none;
+        padding: 0;
         margin: 0;
-        color: $main;
 
         &:hover {
-            color: $sec;
+            color: $sec-light;
         }
 
         &:active {
-            color: $sec;
+            color: $sec-light;
         }
     }
 }
 
 .sidebar {
-    background-color: #f8f9fa;
     padding: 15px;
-    border-right: 1px solid #ddd;
     overflow-y: visible;
 
     // z-index: -1;
@@ -60,9 +61,18 @@
     }
 }
 
+.sidbar-cards {
+    background: light-dark($bg-light, $main);
+    color: light-dark($main, $white);
+}
+
+.sidebar-cards-header {
+    background: light-dark($bg-light, $sec-dark);
+}
+
 .post-info {
     text-align: right;
-    color: $thd;
+    color: light-dark($main, $white);
 }
 
 .support-me {
@@ -82,15 +92,9 @@
         word-wrap: break-word;
         line-height: 1.8em;
 
-        color: $main;
+        color: light-dark($main, $white);
         font-family: 'Roboto';
         letter-spacing: 1px;
-
-
-        @media (max-width: $cut) {
-            // margin-right: 2rem;
-            // margin-left: .5rem;
-        }
 
         img {
             margin-left: auto;
@@ -121,7 +125,6 @@
 }
 
 @media (max-width: $lg) {
-
     .content-area {
         margin-left: 5%;
         margin-right: 5%;

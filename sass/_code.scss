@@ -3,11 +3,17 @@ pre {
     margin-right: auto;
     overflow: auto;
     width: 95%;
+    max-width: 58rem;
+
 
     @media (max-width: $cut) {
         margin-left: 1rem;
         margin-right: 1rem;
         width: 80%;
+    }
+
+    @media (max-width: $xl) {
+        max-width: 45rem;
     }
 
     table {

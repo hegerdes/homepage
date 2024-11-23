@@ -46,7 +46,7 @@ metadata:
   name: user-namespaces-demo
 spec:
   # Enables user-namespaces
-  hostUsers: false 
+  hostUsers: false
   containers:
   - image: nginx
     name: user-namespaces-demo
@@ -67,4 +67,3 @@ This is more of a debug function, but with containerd 2.0 you now can freeze an 
  * Containerd now allows container processes to bind to privileged ports by default.
  * Enables the Container-Device-Interface (CDI) by default
  * Deprecated `aufs` snapshotter was deleted
-

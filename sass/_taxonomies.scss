@@ -2,7 +2,9 @@
     max-width: $lg;
     padding-top: 0 !important;
     padding-bottom: 0 !important;
-    background-color: $grey-light !important;
+    background: light-dark($grey-light, $main);
+    color: light-dark($text-light, $text-dark);
+    border-color: light-dark($grey-light, $sec-light) !important;
 
     a,
     img {
@@ -13,7 +15,6 @@
 
     a {
         text-decoration: none;
-
     }
 
     h1,
@@ -27,6 +28,11 @@
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+    min-height: 32vh;
+
+    @media (max-width: $cut) {
+        max-width: 85%;
+    }
 }
 
 
@@ -51,5 +57,4 @@
             margin-right: auto;
         }
     }
-
 }

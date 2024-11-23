@@ -20,7 +20,7 @@
             {% set pages = term.pages %}
 
             {% for page in pages %}
-            <div class="card border border-4 border-gray-200 p-5 my-4 mx-auto tag-card text-dark bg-light">
+            <div class="card border border-4 p-5 my-4 mx-auto tag-card">
                 <div class="row">
                     <div class="col-md-4 d-flex align-items-center">
                         <a href="{{ page.permalink }}">
@@ -30,7 +30,7 @@
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
-                            <h2 class="search-link"><a href='{{ page.permalink }}'>{{ page.title }}</a></h2>
+                            <h2><a href='{{ page.permalink }}'>{{ page.title }}</a></h2>
                             <p>{{ page.description }}</p>
                             <!-- Read time and word count -->
                             <div class="post-info">

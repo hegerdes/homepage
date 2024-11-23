@@ -11,21 +11,25 @@
     {{ nav::navbar() }}
 
     {% block content %}
-    <div class="container">
-        <h1 class="text-center">
-            All Tags
-        </h1>
-        <div class="col all-tags mb-4">
-            {% for tag in terms %}
-            <a href="{{ tag.permalink | safe }}">
-                <button type="button" class="btn rounded-pill btn-sm m-1 btn-primary">
-                    {{ tag.name }} <span class="badge text-bg-secondary">{{ tag.pages | length }}</span>
-                </button>
-            </a>
-            {% endfor %}
-        </div>
-        {% endblock content %}
+    <div>
+        <section id="tags">
+
+            <h1 class="text-center">
+                All Tags
+            </h1>
+            <div class="col all-tags mb-4">
+                {% for tag in terms %}
+                <a href="{{ tag.permalink | safe }}">
+                    <button type="button" class="btn rounded-pill btn-sm m-1 btn-primary">
+                        {{ tag.name }} <span class="badge text-bg-secondary">{{ tag.pages | length }}</span>
+                    </button>
+                </a>
+                {% endfor %}
+            </div>
+            {% endblock content %}
     </div>
-    {{ foot::footer(extra_classes="fixed-bottom") }}
+    </section>
+
+    {{ foot::footer() }}
 </body>
 {% endblock body %}
