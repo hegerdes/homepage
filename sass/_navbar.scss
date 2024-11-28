@@ -13,6 +13,14 @@
     }
 }
 
+.theme-select {
+    button {
+        border: none;
+    }
+
+    color: $thd-light;
+}
+
 .navbar-search-container {
     display: flex;
 

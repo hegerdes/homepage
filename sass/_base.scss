@@ -20,13 +20,26 @@
 // Theme
 :root {
     color-scheme: light dark;
+
+    // Fore color scheme
+    &:has(input[name="color-scheme"][value="light dark"]:checked) {
+        color-scheme: light dark;
+    }
+
+    &:has(input[name="color-scheme"][value="light"]:checked) {
+        color-scheme: light;
+    }
+
+    &:has(input[name="color-scheme"][value="dark"]:checked) {
+        color-scheme: dark;
+    }
 }
+
 
 body {
     font-size: 100%;
     scroll-behavior: smooth;
     line-height: 1.5;
-    color: $thd;
     font-family: 'Montserrat', sans-serif;
     padding-right: 0;
     padding-left: 0;
