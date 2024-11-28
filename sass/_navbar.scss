@@ -14,11 +14,15 @@
 }
 
 .theme-select {
+    color: $thd-light;
+
     button {
         border: none;
     }
 
-    color: $thd-light;
+    @media only screen and (max-width:$cut) {
+        padding-top: 1rem;
+    }
 }
 
 .navbar-search-container {
@@ -30,7 +34,10 @@
         font-size: 16px;
         border: 1px solid #ccc;
         border-radius: 20px;
-        transition: width 0.4s ease-in-out;
+        transition:
+            width 0.5s ease-in-out,
+            margin-right 0.5s ease;
+
         opacity: 0;
 
         @media only screen and (max-width:$cut) {
@@ -58,5 +65,6 @@
     &:hover input[type="search"] {
         width: 200px;
         opacity: 1;
+        margin-right: 1rem;
     }
 }
