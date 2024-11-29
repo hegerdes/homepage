@@ -18,14 +18,14 @@ let changeWords = () => {
   }, 2000);
 }
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
   try {
     let options = {
       offset: -100
     }
     new SweetScroll(options);
   } catch (error) {
-    console.warn("SweetScroll could not be oaded. Ignoring it!", error)
+    console.warn("SweetScroll could not be loaded. Ignoring it!", error)
   }
 
   try {
@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", function () {
       "retina_detect": true
     });
   } catch (error) {
-    console.warn("ParticleJS could not be oaded. Ignoring it!", error)
+    console.warn("ParticleJS could not be loaded. Ignoring it!", error)
   }
 
   try {
@@ -150,7 +150,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch("/search_index.en.json")
       .then(response => {
         if (!response.ok) {
-          throw new Error('Network response was not ok ' + response.statusText)
+          throw new Error('Network response for search index load was not ok ' + response.statusText)
         }
         return response.json(); // Parse the JSON from the response
       })
@@ -172,7 +172,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   goSearch = (event) => {
+    // Prevent devolt submit load
     event.preventDefault()
+    // Get main content container on screen
     const main1 = document.querySelector('body > section')
     const main2 = document.querySelector('body > div')
     const input = document.querySelector('input[type="search"]');
@@ -189,6 +191,7 @@ document.addEventListener("DOMContentLoaded", function () {
       console.error("Invalid search")
       return false
     }
+
     if (!fuse) {
       return false
     }
@@ -228,6 +231,8 @@ document.addEventListener("DOMContentLoaded", function () {
         html += card
       }
     }
+
+    // Replace main content with search res
     main.innerHTML = html
     footer.classList.remove("fixed-bottom")
 
@@ -251,6 +256,5 @@ document.addEventListener("DOMContentLoaded", function () {
     }
     return false
   }
-
 
 }, false);
