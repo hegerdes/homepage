@@ -1,9 +1,9 @@
-{% import "macros/shared.html" as shared %}
+{% import "macros/head.html" as base %}
 
 <!DOCTYPE html>
 <html lang="en" title="Homepage of {{ config.extra.username }}">
 
-{{ shared::head() }}
+{{ base::head() }}
 
 {% block body %} {% endblock %}
 
