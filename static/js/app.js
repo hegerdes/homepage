@@ -6,18 +6,6 @@ let sleep = (ms) => {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-let changeWords = () => {
-  let children = document.getElementsByClassName('codinfox-changing-keywords')[0].children;
-  let length = children.length;
-  let idx = 0;
-  setInterval(() => {
-    console.log(children)
-    children[idx].style.visibility = "hidden";
-    idx = (idx + 1) % length;
-    children[idx].style.visibility = "visible";
-  }, 2000);
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   try {
     let options = {
@@ -172,8 +160,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   goSearch = (event) => {
-    // Prevent devolt submit load
+    // Prevent default submit load
     event.preventDefault()
+
     // Get main content container on screen
     const main1 = document.querySelector('body > section')
     const main2 = document.querySelector('body > div')
@@ -236,10 +225,15 @@ document.addEventListener("DOMContentLoaded", () => {
     main.innerHTML = html
     footer.classList.remove("fixed-bottom")
 
+    // Collapse navbar if it is shown
+    if (document.getElementById("navbarSupportedContent")) {
+      document.getElementById("navbarSupportedContent").classList.remove("show")
+    }
+    // Remove particales if present
     if (document.getElementById("particles-js")) {
       document.getElementById("particles-js").remove()
     }
-
+    // Remove projects if present
     if (document.getElementById("projects")) {
       document.getElementById("projects").remove()
     }
