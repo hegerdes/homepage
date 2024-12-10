@@ -73,6 +73,11 @@
   max-width: $md;
   background: light-dark($bg-light, $main);
   color: light-dark($main, $white);
+
+  @media only screen and (max-width: $cut) {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
 }
 
 .search-link {
