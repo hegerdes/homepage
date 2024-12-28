@@ -1,6 +1,7 @@
 /* Libs loaded */
 let fuse = null
 let goSearch = null
+let cacheKey = "search_index.en.json"
 
 let sleep = (ms) => {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -134,27 +135,37 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   try {
-    // Fetch the JSON document
-    fetch("/search_index.en.json")
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response for search index load was not ok ' + response.statusText)
-        }
-        return response.json(); // Parse the JSON from the response
-      })
-      .then(data => {
-        const fuseOptions = {
-          isCaseSensitive: false,
-          keys: [
-            "title",
-            "description"
-          ]
-        };
-        fuse = new Fuse(data, fuseOptions);
-      })
-      .catch(error => {
-        throw error
-      });
+    const fuseOptions = {
+      isCaseSensitive: false,
+      keys: [
+        "title",
+        "description"
+      ]
+    };
+
+    // Check if the data is already in localStorage
+    const cachedData = localStorage.getItem(cacheKey);
+    if (cachedData) {
+      fuse = new Fuse(JSON.parse(cachedData), fuseOptions);
+      console.info('Loaded search-index from cache');
+    } else {
+      // Fetch the JSON document
+      fetch("/search_index.en.json")
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Network response for search index load was not ok ' + response.statusText)
+          }
+          return response.json();
+        })
+        .then(data => {
+          localStorage.setItem(cacheKey, JSON.stringify(data));
+          fuse = new Fuse(data, fuseOptions);
+          console.info('Loaded search-index from server');
+        })
+        .catch(error => {
+          throw error
+        });
+    }
   } catch (error) {
     console.warn("Fuse could not be loaded. Ignoring it!", error)
   }
