@@ -1,11 +1,11 @@
 +++
 title = "Productive Working - Be lazy and get things done - Part II"
 description = "Time is a valuable resource. Eliminating recuring, tidious and distracting tasks allowes you to spent your time on tasks important to you"
-date = '2022-02-12'
+date = "2022-02-12"
 
 [taxonomies]
 categories=["it"]
-tags = ['efficiency', 'Work', 'Tricks']
+tags = ["Efficiency", "Work", "Tricks"]
 
 [extra]
 pic = "/img/blog/smart_work.jpg"
