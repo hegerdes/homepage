@@ -28,7 +28,7 @@ The [GitHub Release](https://github.com/containerd/containerd/releases/tag/v2.0.
 
 **User-Namespaces**  
 This is a big one for me and will increase security of containerized workloads by a lot!  
-> Why is it impotent?
+> Why is it important?
 
 If you run a container today you can set the `UID`, the user UserID as which the main container process runs. Every single security guide regarding containers recommends to run container processes as none-root and as a unprivileged user, which IDs start at the 1000 range.  
 For most applications this is not an issue, but there are certain processes that require root. If processes need to install packages they require root, CI-Jobs often require root and it is really hard to run an `ssh` server as none-root. Even one of the most used containers, `nginx`, start as root and then drop their permissions to a none privileged user. The problem with root is that if an attacker manages to escape the container sandbox he is automatically root on the host system since UserIDs in a container map one to one to the ones on the host.  
