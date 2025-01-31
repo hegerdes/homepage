@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.removeItem(cacheKey)
         console.info('The search-index expired')
       } else {
-        fuse = new Fuse(JSON.parse(searchData.index), fuseOptions);
+        fuse = new Fuse(search_cache.index, fuseOptions);
         console.info('Loaded search-index from cache');
       }
     }
