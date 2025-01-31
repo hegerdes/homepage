@@ -144,12 +144,22 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     // Check if the data is already in localStorage
-    const cachedData = localStorage.getItem(cacheKey);
-    if (cachedData) {
-      fuse = new Fuse(JSON.parse(cachedData), fuseOptions);
-      console.info('Loaded search-index from cache');
-    } else {
-      // Fetch the JSON document
+    const searchData = localStorage.getItem(cacheKey);
+    const THIRTY_DAYS = 60 * 60 * 24 * 30 * 1000
+
+    if (searchData) {
+      let search_cache = JSON.parse(searchData)
+      if (new Date().getTime() - search_cache.timestamp > THIRTY_DAYS) {
+        localStorage.removeItem(cacheKey)
+        console.info('The search-index expired')
+      } else {
+        fuse = new Fuse(JSON.parse(searchData.index), fuseOptions);
+        console.info('Loaded search-index from cache');
+      }
+    }
+
+    // Fuse still not initialized - fetch the data
+    if (!fuse) {
       fetch("/search_index.en.json")
         .then(response => {
           if (!response.ok) {
@@ -158,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
           return response.json();
         })
         .then(data => {
-          localStorage.setItem(cacheKey, JSON.stringify(data));
+          localStorage.setItem(cacheKey, JSON.stringify({ timestamp: new Date().getTime(), index: data }));
           fuse = new Fuse(data, fuseOptions);
           console.info('Loaded search-index from server');
         })
