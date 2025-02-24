@@ -59,21 +59,23 @@ It looked great, entirely content orientated:
  * Auto generation for search index
 
 So I started porting over my first page as a proof of concept. And it worked great!  
-Exactly the feature-set I wanted and nothing more. Templating is done with [terra](https://keats.github.io/tera/), a python jinja2 like templating language which I was quite familiar with thanks to my cuntless hours in ansible. I had not a single issue with it. At least not with zola. CSS on the other hand reminded me why I will never be a frontend-developer. Getting things to look nice on every device is hard - even with bootstrap.
+Exactly the feature-set I wanted and nothing more. Templating is done with [terra](https://keats.github.io/tera/), a python jinja2 like templating language which I was quite familiar with thanks to my countless hours in ansible. I had not a single issue with it. At least not with zola. CSS on the other hand reminded me why I will never be a frontend-developer. Getting things to look nice on every device is hard - even with bootstrap.
 
 If I could change one thing regarding zola, it would be better control on how to pass classed into rendered content and more built-in code syntax highlight themes.
 
 ## The current state
 I moved my back on JavaScript frontend frameworks - at least for static content.  
-The whole site is now build with zola and adding new stuff is super easy. I also moved to site to cloudflare, better metrics, performance and I will not be billed 50k if I get DDOSed.
+The whole site is now build with zola and adding new stuff is super easy. I also moved to site to cloudflare, better metrics, performance and I will not be billed 50k if I get DDOSed.  
+The site works - even without JS enabled, the only thing that does not work without JS is search and the particle effect.
 
-I'm quite happy with it right now. I still need ballte some fights. But for my own sanity and well bing I'm shipping early and often to keep seeing progress.
+I'm quite happy with it right now. I still need battle some fights. But for my own sanity and well bing I'm shipping early and often to keep seeing progress.
 
 Things to do:
- * Fix sidebar layout on blog page
+ * Fix sidebar layout on blog page ✅
  * Add optional Live Demo button on some project
- * Dark Theme
- * Write more
+ * Dark Theme ✅
+ * Add Search ✅
+ * Write more 🔄️
 
 Some stats between my site:
 |            | RAW   | Nuxt  | Zola  |
