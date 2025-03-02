@@ -10,9 +10,9 @@ description = "Webpage of Henrik Gerdes"
 # theme = "hegerdes"
 
 taxonomies = [
-    { name = "tags", feed=true },
-    { name = "year", feed=true },
-    { name = "categories", feed=true },
+    { name = "tags", feed = true },
+    { name = "year", feed = true },
+    { name = "categories", feed = true },
 ]
 
 # Whether to automatically compile all Sass files in the sass directory
@@ -74,9 +74,9 @@ github_username = "hegerdes"
 gitlab_username = "hegerdes"
 linkedin_profile = "https://www.linkedin.com/in/henrik-gerdes-97603b22a/"
 mastodon_profile = "https://social.henrikgerdes.me/@hegerdes"
-
+bluesky_profile = "https://bsky.app/profile/hegerdes.bsky.social"
 # Extra settings
-use_cdn_resources = false # whether to use cdn for js/css libs or local paths
+use_cdn_resources = false                            # whether to use cdn for js/css libs or local paths
 page_source = "https://github.com/hegerdes/HomePage"
 page_version = "unknown"
 
