@@ -73,7 +73,7 @@ email = "hegerdes@outlook.de"
 github_username = "hegerdes"
 gitlab_username = "hegerdes"
 linkedin_profile = "https://www.linkedin.com/in/henrik-gerdes-97603b22a/"
-mastodon_profile = "https://social.henrikgerdes.me/@hegerdes"
+mastodon_profile = "https://https://mastodon.social/@hegerdes"
 bluesky_profile = "https://bsky.app/profile/hegerdes.bsky.social"
 # Extra settings
 use_cdn_resources = false                            # whether to use cdn for js/css libs or local paths
