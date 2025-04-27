@@ -16,13 +16,28 @@
         {% for page in section.pages %}
         {% if loop.index is odd%}
 
-        {{ shared::projectcard(title=page.title, side="left", pic=page.extra.pic, text=page.content,
-        link_source=page.extra.link_source, technology=page.description , pic_alt=page.extra.pic_alt |
-        default(value="")) }}
+        {{ shared::projectcard(
+        title=page.title,
+        side="left",
+        pic=page.extra.pic,
+        text=page.content,
+        link_source=page.extra.link_source,
+        technology=page.description ,
+        pic_alt=page.extra.pic_alt | default(value=""),
+        link_demo=page.extra.link_demo | default(value=""))
+        }}
         {% else %}
-        {{ shared::projectcard(title=page.title, side="right", pic=page.extra.pic, text=page.content,
-        link_source=page.extra.link_source, technology=page.description , pic_alt=page.extra.pic_alt |
-        default(value="")) }}
+        {{ shared::projectcard(
+        title=page.title,
+        side="right",
+        pic=page.extra.pic,
+        text=page.content,
+        link_source=page.extra.link_source,
+        technology=page.description,
+        pic_alt=page.extra.pic_alt |
+        default(value=""),
+        link_demo=page.extra.link_demo | default(value=""))
+        }}
         {% endif %}
 
         {% endfor %}

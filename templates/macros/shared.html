@@ -16,7 +16,7 @@
 </div>
 {% endmacro pagethump %}
 
-{% macro projectcard(title, pic, side, technology="", text="", link_source="", pic_alt="") %}
+{% macro projectcard(title, pic, side, technology="", text="", link_source="", pic_alt="", link_demo="") %}
 <div class="card mb-4 px-4 project-card">
   <!-- <div class="card-header text-end">Header</div> -->
   <div class="row">
@@ -34,7 +34,10 @@
         <div>
           {{ text | safe }}
         </div>
-        <a class="project-link" href="{{ link_source }}">Check it out</a>
+        <a class="project-link" href="{{ link_source }}">Check the code</a>
+        {% if link_demo %}
+        <a class="project-link mx-2" href="{{ link_demo }}">Check live demo</a>
+        {% endif %}
       </div>
     </div>
     {% if side == "right" %}
