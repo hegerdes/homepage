@@ -112,7 +112,7 @@
   padding: 5px;
 
   background-color: transparent;
-  border: 1px solid $white;
+  border: 1px solid light-dark($main, $white);
   border-radius: 10px;
   cursor: pointer;
 
