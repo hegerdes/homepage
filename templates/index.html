@@ -80,12 +80,10 @@
       <h1 class="text-center">Featured Projects</h1>
     </div>
     {% set featured_project_1 = "
-    <p>Want to play <strong>Pacman</strong> on your hometown streets?<br>
-      The map sections are based on the real world using <strong><a
-          href='https://www.openstreetmap.org/'>OSM-data</a></strong> so you
-      and your capture packages while
-      competing
-      against the crowd simulation based movements of the ghosts.
+    <p>The static <a href='https://github.com/hegerdes/kubelet-static-credential-provider'>kubelet credential
+        provider</a> lets your OnPrem Kubernetes Cluster feel like managed clusters, just like AKS/EKS/GKE. Reduce the
+      amount and management of secrets, use secure private container registries and make developers faster and happy.
+      <br>Fewer secrets, less shadow IT, more time for the fun stuff!
     </p>"
     %}
     {% set featured_project_2 = "
@@ -97,9 +95,10 @@
     </p>"
     %}
 
-    {{ shared::projectcard(title="Pacmap", side="left", pic="/img/pacmap-wide.webp",
-    text=featured_project_1,technology="Python, GameDev,
-    Network", link_source="https://github.com/hegerdes/RealWorldPacman", pic_alt="Gif of Pacman on relas streets") }}
+    {{ shared::projectcard(title="Kubelet Credential Provider", side="left", pic="/img/blog/kubelet-minimal.webp",
+    text=featured_project_1,technology="Go, Kubernetes,
+    Secrets", link_source="https://github.com/hegerdes/kubelet-static-credential-provider", pic_alt="Transparent kube on
+    light brown background ") }}
     {{ shared::projectcard(title="Beeblebrox CTF", side="right", pic="/img/ctf.png", text=featured_project_2,
     link_source="https://github.com/hegerdes/BeeblebroxCTF", technology="ITSac, Auth, Web", pic_alt="Terminal output
     with asci

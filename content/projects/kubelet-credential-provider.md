@@ -8,7 +8,7 @@ tags = []
 [extra]
 pic = "/img/blog/kubelet-minimal.webp"
 pic_alt="Minimalistic kube icon in tan colors"
-link_source="https://github.com/hegerdes/terraform-hcloud-hetzner-node-pool"
+link_source="https://github.com/hegerdes/kubelet-static-credential-provider"
 
 +++
 Secrets in Kubernetes are namespaced. When using private registries you have to create a pull-secret in every namespace and reference it in each deployment. This is a poor developer experience.  
