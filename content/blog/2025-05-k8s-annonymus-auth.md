@@ -1,6 +1,6 @@
 +++
 title = "Follow Up: Let's talk about anonymous access to Kubernetes"
-description = "Raesene's Ramblings posted a great article about Kubernetes default enabled anonymous-auth setting. But it can't always be disabled, nevertheless k8s evolves fast and now offers more granular control."
+description = "Rory McCune posted a great article about Kubernetes default enabled anonymous-auth setting. But it can't always be disabled, nevertheless k8s evolves fast and now offers more granular control."
 date = '2025-05-22'
 
 [taxonomies]
