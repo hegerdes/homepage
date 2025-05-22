@@ -30,7 +30,7 @@ But Kubernetes is a fast-moving platform and has heavily increased security in r
 
 It took me a few tries but with this authentication-config you can drastically reduce the information exposure of your cluster and still be able to join new nodes via `kubeadm` and check the cluster health.
 
-```yaml
+```yaml,linenos
 apiVersion: apiserver.config.k8s.io/v1beta1
 kind: AuthenticationConfiguration
 anonymous:
