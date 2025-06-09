@@ -6,6 +6,10 @@
     padding-right: 0;
     background: light-dark($bg-light, $main);
     color: light-dark($main, $white);
+
+    @media only screen and (max-width: $cut) {
+        max-width: 90%;
+    }
 }
 
 .archive-info-header {
@@ -16,6 +20,10 @@
     max-width: $lg;
     margin-left: auto;
     margin-right: auto;
+
+    @media only screen and (max-width: $cut) {
+        max-width: 90%;
+    }
 
     div,
     ul,
