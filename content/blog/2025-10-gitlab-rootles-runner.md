@@ -5,7 +5,7 @@ date = '2025-10-05'
 
 [taxonomies]
 categories=["it"]
-tags = ['GitLab', 'Security', 'Linux', 'CI/CD']
+tags = ['GitLab', 'Security', 'Linux', 'CI/CD', 'Container']
 
 [extra]
 pic = '/img/blog/rootless-gitlab-runner.webp'
