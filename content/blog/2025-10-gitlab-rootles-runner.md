@@ -31,12 +31,11 @@ This alone is kind of bad. It gets even worse if you run arbitrary, potentially 
 But how can you run jobs rootless and what about `docker build` jobs that need dind?
 
 ## Securing Docker & CI
-This can be mitigated by not running Docker as root at all. Rootless Docker used to be a pain but has become surprisingly easy on modern system.  
-Follow the instructions below to set it up:
+This can be mitigated by not running Docker as root at all. Rootless Docker used to be a pain but has become surprisingly easy on modern systems.
 
 **NOTE:** The instructions are based on a Debian system but can be adapted to others.
 
-First install Docker normally as a root user following the official docs
+First install Docker according to the official docs:
 ```bash,linenos
 # Install pre-requirements and some extra packages
 sudo apt update
@@ -58,7 +57,7 @@ sudo apt install docker-ce docker-ce-cli containerd.io \
     docker-buildx-plugin docker-compose-plugin docker-ce-rootless-extras
 ```
 
-Now Docker is running as root. Which we don't wand. Disable it via systemd and optionally allow normal users to open ports below 1024.
+Now Docker is running as root. Which we don't want. Disable it via systemd and optionally allow normal users to open ports below 1024.
 ```bash,linenos
 # Disable the root docker service
 sudo systemctl restart apparmor.service
@@ -78,7 +77,11 @@ curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/s
 sudo apt install gitlab-runner
 sudo systemctl stop gitlab-runner
 sudo systemctl disable --now gitlab-runner
+```
 
+We want to run docker rootless, but the users inside of containers are often root or require root. Since we want all our workloads to work with the new setup we use the *user-namespace* capability of the Linux kernel. This maps the root user form inside a container to an unprivileged user to the host. So even if an attacker manages to break out of a container, he will never have privileges higher than the newly created `gitlab-runner` user.
+
+```bash,linenos
 # Set user-namespace mapping
 sudo echo $(id -u gitlab-runner):100000:65536 >> /etc/subuid
 sudo echo $(id -u gitlab-runner):100000:65536 >> /etc/subgid
@@ -86,9 +89,8 @@ sudo echo $(id -u gitlab-runner):100000:65536 >> /etc/subgid
 # If you run everything headless without a login shell you need to enable lingering
 sudo loginctl enable-linger
 ```
-We want to run docker rootless, but the users inside a container are often root or require root. Since we want all our workloads to work with the new setup we use the *user-namespace* capability of the Linux kernel. This maps the root user form inside a container to an unprivileged user to the host. So even if an attacker manages to break out of a container, he will never have privileges higher than the `gitlab-runner` user.
 
-We can now switch to the new user and set up docker and the required configs:
+We can now switch to the new `gitlab-runner` user and set up docker and the required configs:
 
 <details>
   <summary><i>gitlab-runner.service</i></summary>
@@ -159,7 +161,7 @@ docker run --rm hello-world
 vim .config/systemd/user/gitlab-runner.service
 vim gitlab-runner-config.toml
 
-# Activate it
+# Activate the runner
 systemctl --user daemon-reload
 systemctl --user enable gitlab-runner.service
 systemctl --user start gitlab-runner.service
