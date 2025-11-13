@@ -11,8 +11,8 @@
     {% block content %}
 
     <section id="post" class="mb2">
-        <div class="row container-fluid">
-            <div class="col-lg-2 shadow d-none d-lg-block pb-4">
+        <div class="row container-fluid h-100" style="height: 100vh;">
+            <div class="col-lg-2 shadow d-none d-lg-block pb-4" style="overflow-y: auto;">
                 <div class="sidebar-content sticky-top">
                     <img src="{{get_url(path=config.extra.user_pic)}}" alt="runded avatar anime profile pricture"
                         class="rounded-circle">
@@ -39,28 +39,29 @@
                         {% endfor %}
                     </ul>
                     <h4>Recent Articles:</h4>
-
-                    {% set cat_tax = get_taxonomy(kind="categories") %}
-                    {% for cat in cat_tax.items %}
-                    {% for page in cat.pages | slice(start=1, end=4) %}
-                    <div class="card my-2 sidbar-cards">
-                        <div class="card-header sidebar-cards-header">
-                            {% if loop.index == 1 %}
-                            Most Recent
-                            {% else %}
-                            {{ page.date | date(format="%d/%m/%Y")}}
-                            {% endif %}
+                    <div class="overflow-auto">
+                        {% set cat_tax = get_taxonomy(kind="categories") %}
+                        {% for cat in cat_tax.items %}
+                        {% for page in cat.pages | slice(start=1, end=15) %}
+                        <div class="card my-2 sidbar-cards">
+                            <div class="card-header sidebar-cards-header">
+                                {% if loop.index == 1 %}
+                                Most Recent
+                                {% else %}
+                                {{ page.date | date(format="%d/%m/%Y")}}
+                                {% endif %}
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">{{ page.title }}</h4>
+                                <a href="{{ page.permalink }}" class="btn btn-primary">Read Now</a>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <h4 class="card-title">{{ page.title }}</h4>
-                            <a href="{{ page.permalink }}" class="btn btn-primary">Read Now</a>
-                        </div>
+                        {% endfor %}
+                        {% endfor %}
                     </div>
-                    {% endfor %}
-                    {% endfor %}
                 </div>
-
             </div>
+
             <div class="col">
                 <!-- Main Contenr -->
                 <article class="content-area">
