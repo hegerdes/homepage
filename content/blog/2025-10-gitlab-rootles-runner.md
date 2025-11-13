@@ -179,5 +179,10 @@ rootless-job:
     - echo "I am running as $(whoami)"
 ```
 
+## What about Kubernetes
+What if you use the Kubernetes GitLab-Executor and run buildkit in Kubernetes?  
+When you run modern Kubernetes with `containerd` version `>=2.x1` and Kubernetes `>= 1.33.x` you can use `userNamespace` with your pods. It is just one parameter. Just set `spec.hostUsers` to `false` in your `Pods` any thats it.
+
+
 ## And now?
 This is one measurement to avoid security issues that may overtake your CI runners, but it is by far not the only attack that often used. Supply chain security is a wide and deep topic and the upcoming post will explain how to protect your environment from credential threats and other attacks.
