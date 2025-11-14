@@ -47,15 +47,15 @@ Grafana OnCall is deprecated, and Grafana Agent and Agent Flow were deprecated w
 On the same day they deprecated the Grafana Agent, they announced Grafana Alloy. The all in one replacement. It can do Logs, Metrics, Traces (zipkin & jaeger) and OTEL. The solution for everything!  
 The solution kind of had a rough start and was a *little* buggy. But it got better over time. The Alloy Operator also entered the game because why not.
 
-> ℹ️ They choose to use their own configuration language for alloy. Something that looks like HCL. I can understand why thy did't want to use YAML but I'm still not a fan of this. Not everything needs their own DSL.
+> ℹ️ They choose to use their own configuration language for alloy. Something that looks like HCL. I can understand why thy didn't want to use YAML but I'm still not a fan of this. Not everything needs their own DSL.
 
 Happy End, right?  - Not quite  
-The all-in-one solution does not support everything. While Grafana built their own monitoring empire, the kube-prometheus community consistently and naturally developed. The Prometheus Operator with `ServiceMonitor` and `PodMonitor` CRDs became the defacto standards. So Alloy also supports the `monitoring.coreos.com` api-group CRDs, at least some of them. It natively works with `ServiceMonitor` and `PodMonitor`, but `PrometheusRules` needs extra configuration. The `AlertmanagerConfig` which would need to be implemented in Mimir is not supported. Because Mimir brings their own Alertmanager - at least sort of. There are version differences and small incompatibilities.  
+The all-in-one solution does not support everything. While Grafana built their own monitoring empire, the kube-prometheus community consistently and naturally developed. The Prometheus Operator with `ServiceMonitor` and `PodMonitor` CRDs became the defacto standards. So Alloy also supports the `monitoring.coreos.com` api-group CRDs, at least some parts of it. It natively works with `ServiceMonitor` and `PodMonitor`, but `PrometheusRules` needs extra configuration. The `AlertmanagerConfig` which would need to be implemented in Mimir is not supported. Because Mimir brings its own Alertmanager - at least sort of. There are version differences and small incompatibilities.  
 
 But I got it all working; now I can finally stop explaining to my boss why we need to re-structure the monitoring stack every year.
 
-Grafana just released Mimir 3.0. They rearchitected the ingestion logic for scalability, and now they use a message broker. Yes, Mimir in version 3.0 needs Apache Kafka to work.  
-None of the above things alone would be a reason to ditch Grafana products. Set aside the fact that they made it incredibly difficult now to find the ingestion endpoints for Grafana Cloud since they want to push users to use their new fleet-config management service. But all this together makes me uncomfortable recommending Grafana stuff.  
+Grafana just released Mimir 3.0. They re-architected the ingestion logic for scalability, and now they use a message broker. Yes, Mimir in version 3.0 needs Apache Kafka to work.  
+None of the above things alone would be a reason to ditch Grafana products. Set aside the fact that they made it incredibly difficult now to find the ingestion endpoints for Grafana Cloud since they want to push users to use their new fleet-config management service. But all this together makes me uncomfortable recommending Grafana stuff.  
 I just don't know what will change next.
 
 I want stability for my monitoring; I want it boring, and that's something Grafana is not offering.  
