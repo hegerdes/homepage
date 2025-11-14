@@ -17,7 +17,7 @@ pic = '/img/blog/grafana-decay-square.webp'
 > **_Disclaimer:_** This tells my personal experiences with Grafana products. It also incudes some facts but your experience may entirely vary and I would love to here your take.  
 ---
 
-I started my work life at a small software company near my university. They develop and run websites and different web services for multiple clients. Everyone had multiple responsibilities, and they heavily relied on interns and freshmen—which can be both bad and good.  
+I started my work life at a small software company near my university. They develop, run websites and operate web services for multiple clients. Everyone had multiple responsibilities, and they heavily relied on interns and freshmen—which can be both bad and good.  
 For me it was good because I learned a lot. 
 
 At some point we needed a monitoring solution, and Zabbix didn't fit well into the new and declarative world of containers and Docker. I was tasked to find a solution.
