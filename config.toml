@@ -64,7 +64,7 @@ smart_punctuation = true
 # Custom/Personal variables
 
 username = "Henrik Gerdes"
-user_pic = "img/avatar.jpeg"
+user_pic = "img/avatar.webp"
 user_description = "Hello there!"
 user_title = "Software Engineer"
 
