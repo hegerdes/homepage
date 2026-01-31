@@ -7,6 +7,7 @@ if command -v zola >/dev/null; then
 fi
 
 echo "Installing Zola..."
+ZOLA_VERSION=v0.21.0
 
 # Check if curl is installed
 if ! command -v curl >/dev/null; then
@@ -29,7 +30,7 @@ fi
 
 # Determine the latest version of Zola
 ZOLA_LATEST_VERSION=$(curl -s https://api.github.com/repos/getzola/zola/releases/latest | grep -Po '"tag_name": "\K.*?(?=")')
-ZOLA_VERSION=${LATEST_VERSION-$ZOLA_LATEST_VERSION}
+ZOLA_VERSION=${ZOLA_VERSION-$ZOLA_LATEST_VERSION}
 ZOLA_DOWNLOAD_URL="https://github.com/getzola/zola/releases/download/${ZOLA_VERSION}/zola-${ZOLA_VERSION}-x86_64-unknown-linux-gnu.tar.gz"
 
 # Download and install Zola
