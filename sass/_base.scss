@@ -96,6 +96,17 @@ sub {
     line-height: 0;
 }
 
+blockquote {
+    background-color: light-dark($grey, $main);
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 0 rgba(2, 6, 23, 0.04);
+    /* small vertical accent */
+    border-left: 4px solid #4f46e5;
+    // overflow: hidden;
+}
+
+
 table {
     margin-left: auto;
     margin-right: auto;
