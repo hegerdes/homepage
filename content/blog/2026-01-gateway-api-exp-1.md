@@ -29,7 +29,7 @@ I will not go into the debate of corporations exploiting open-source projects - 
 ## Why a new API?
 The `Ingress` API is a core component of the `networking.k8s.io` Kubernetes API-Group. It defines the routing path for HTTP-Traffic (L7-Layer) via a bunch of rules with `PATH` and `Host`. It can also do TLS for these rules but that's pretty much it.  
 It does not handle headers like `X-Forwarded`, cookies, authentication, payload size, compression, timeouts, redirects, traffic splitting and many more. All of these things **can** be done with ingress though, but not via its core API-Definition.  
-Annotations are commonly used to enrich API-Objects with additional information. Ingress-Nginx had over 110 of them. A problem that comes with Annotations is that they are not validated, since they are not part of the API-Spec and that they are not vendor agnostic. So you can't use same annotations from Ingress-Nginx for Kong, HAProxy, Traefik or the Apache-Webserver-Ingress. Each of these have their own feature- and annotation set, switching ingress-controller usually takes some time.
+Annotations are commonly used to enrich API-Objects with additional information. Ingress-Nginx had over 110 of them. A problem that comes with Annotations is that they are not validated, since they are not part of the API-Spec and that they are not vendor agnostic. So, you can't use the same annotations from Ingress-Nginx for Kong, HAProxy, Traefik or the Apache-Webserver-Ingress. Each of these have their own feature- and annotation set, switching ingress-controller usually takes some time.
 
 Another concern is that all these settings are applied at the ingress level. Should a developer with `Ingress` access really be able to alter the TLS config for a whole domain?
 
@@ -37,7 +37,7 @@ Gateway-API promises to fix this. A well-defined API that separates operational 
 
 ![Gateway-API Role Diagram](https://gateway-api.sigs.k8s.io/images/resource-model.png)
 
-Gateway-API introduces a stricter role-base approach. It has a mental model of *how does what* and which resources can be referenced from where. It's `HTTPRoute` supports native routing via hostname, header, path or query parameters. All well defined in its core API but still extendable via filters.  
+Gateway-API introduces a stricter role-based approach. It has a mental model of *how does what* and which resources can be referenced from where. It's `HTTPRoute` supports native routing via hostname, header, path or query parameters. All well defined in its core API but still extendable via filters.  
 Apart from HTTP routing, Gateway-API also proposes `GRPCRoutes`, `TLSRoutes`, `TCPRoutes` and `UDPRoutes`. While some of these are still experimental, having a well-defined, vendor-agnostic spec for all these use-cases is a killer feature.
 
 ## How does this affect Developers and Admins?
@@ -60,27 +60,27 @@ Right now, the selecting a Gateway is actually the hardest part. While the main 
 These on-paper comparisons don't replace real-word tests to catch any edge cases and say nothing about performance between all these. If you look for some real-world comparisons, you may wanna check out [this benchmark](https://github.com/howardjohn/gateway-api-bench) from [John Howard](https://github.com/howardjohn).
 
 ### Gateway API is not vendor agnostic
-Lets remember the goals of Gateway API: Separate personas, strict validation and a vendor-agnostic config.
+Let's remember the goals of Gateway API: Separate personas, strict validation and a vendor-agnostic config.
 
-Right now I see a trend that is actually moving against the last goal. Yes, TLS configuration and routing might be standardized, but the [nginx-gateway-fabric](https://github.com/nginx/nginx-gateway-fabric) for example already brings their own set of 10 `CRDs` for configuring the `Gateway` itself or for use cases that are not yet defined in the standard Gateway-API spec. And so does Kong and Envoy-Gateway with even more `CRDs`.  
-There is now native way to do auth or mTLS enforcement (for clients) in the Gateway-API yet, so implementations bring their own filters and `CRDs`.
+Right now, I see a trend that is moving against the last goal. Yes, TLS configuration and routing might be standardized, but the [nginx-gateway-fabric](https://github.com/nginx/nginx-gateway-fabric) for example already brings their own set of 10 `CRDs` for configuring the `Gateway` itself or for use cases that are not yet defined in the standard Gateway-API spec. And so does Kong and Envoy-Gateway with even more `CRDs`.  
+There is no native way to do auth or mTLS enforcement (for clients) in the Gateway-API yet, so implementations bring their own filters and `CRDs`.
 
-Gateway API, by design, is extendable and vendors are using this extendability to overcome the shortcomings of the core API. They are using these to separate themselves from each other and maybe - to create a vendor-lock-in. Never forget that there are companies behind these products that want and need to make money.
+Gateway API, by design, is extendable and vendors are using this extendibility to overcome the shortcomings of the core API. They are using these to separate themselves from each other and maybe - to create a vendor-lock-in. Never forget that there are companies behind these products that want and need to make money.
 
 Maybe over time more features will be covered by the core Gateway-API, but most of us know even if the spec is well defined, implementations can behave differently. My `TLSRoute` worked perfectly with Cilium but was not working with nginx-gateway-fabric.
 
 ### Gateway API is not widely supported yet
 New technologies need time for adoption, it is totally normal that most helm charts do not yet ship with `HTTPRoutes` alongside `Ingress`. Unfortunately a lot of helm charts do not support a `extraObjects` either, so you need multiple commands to deploy your app or a multi source GitOps solution.
 
-> Creating a general helm template for `HTTPRoutes` is actually quite hard. I know this because I crated the `HttpRoute` helm template that gets generated when you run `helm create <my-chart>` in recent versions of helm.
+> Creating a good general helm template for `HTTPRoutes` is quite hard. I know this because I crated the `HttpRoute` helm template that gets generated when you run `helm create <my-chart>` in recent versions of helm.
 
 I wanna give another example of a problem I encountered:  
 A common scenario in highly automated clusters is having an Ingress-Controller, CertManager and ExternalDNS. These work perfectly together. The ingress is created and uses a fallback TLS certificate, ExternalDNS checks the domain records and adds a new record if not set yet and Certmanager creates a `http-01-challenge` to obtain a valid certificate. It may take some minutes, but *eventually* you have a valid, working `Ingress` with TLS.  
 
 Now try the same with Gateway-API. It will not work, even with experimental flags. Why does it not work?  
-The Gateway handles the TLS, not the `HTTPRoute`. The default listener likely does not have a valid certificate for your new domain, so you add a new listener. The `HTTPRoute` references that listener, but never becomes ready because the listener is not healthy yet due to the missing certificate. ExternalDNS watches `HTTPRoutes`, but only the ones that are ready and have an IP. Now the circle closes, without a valid DNS record, you can't complete a `http-01-challenge`. It's a deadlock.
+The Gateway handles the TLS, not the `HTTPRoute`. The default listener likely does not have a valid certificate for your new domain, so you add a new listener. The `HTTPRoute` references that listener but never becomes ready because the listener is not healthy yet due to the missing certificate. ExternalDNS watches `HTTPRoutes`, but only the ones that are ready and have an IP. Now the circle closes, without a valid DNS record, you can't complete a `http-01-challenge`. It's a deadlock.
 
-The only way around this that I found was to switch to an `dns-01 challenge`. The ExternalDNS project is aware of this problem, but AFAIK the solution is still work-in-progress. 
+The only way around this that I found was to switch to a `dns-01 challenge`. The ExternalDNS project is aware of this problem, but AFAIK the solution is still work-in-progress. 
 
 ## Ingress-Nginx will be missed
 I don't want to make Gateway-API look bad; it is powerful - maybe not just ready yet.
