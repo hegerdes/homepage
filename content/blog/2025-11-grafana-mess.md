@@ -34,7 +34,7 @@ I also found out Grafana Labs has a cloud offering with a nice free tier. I even
 
 
 Time goes on, and I switched jobs. Now we have Kubernetes.  
-The Prometheus container was now switching nodes. Roming storage was a problem back then, and our workload increased by a lot. We also needed long-term storage (13 months). So I looked around and found Thanos and Mimir.  
+The Prometheus container was now switching nodes. Roaming storage was a problem back then, and our workload increased by a lot. We also needed long-term storage (13 months). So I looked around and found Thanos and Mimir.  
 Previous experiences with Grafana products were good, so I chose Mimir. Should be similar to Loki since both are based on Cortex. Now we didn't really need Prometheus anymore. We were only using `remote_write` from Prometheus. Grafana had a solution for this. With the Grafana Agent, you can ship both logs and metrics to a remote location all in one binary. This seemed like a no-brainer.
 
 Time goes on, and Grafana changed the Grafana Agent setup to Grafana Agent Flow Mode—some adjustments, but okay - software changes. And man, did Grafana like to change things.
