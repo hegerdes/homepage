@@ -7,8 +7,6 @@ if command -v zola >/dev/null; then
 fi
 
 echo "Installing Zola..."
-ZOLA_VERSION=v0.21.0
-
 # Check if curl is installed
 if ! command -v curl >/dev/null; then
     echo "Error: curl is not installed. Please install curl and try again."
