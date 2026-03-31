@@ -63,7 +63,7 @@ smart_punctuation = true
 
 light_theme = "github-light"
 dark_theme = "github-dark"
-# style = "class"
+style = "class"
 
 [extra]
 # Custom/Personal variables
