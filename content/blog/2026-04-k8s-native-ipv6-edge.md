@@ -1,7 +1,7 @@
 +++
 title = "Native IPv6 Kubernetes for true edge routing"
 description = "An opinionated look at running Kubernetes on IPv6, from basic cluster setups to fully routed edge architectures. It will make your networking easier and cheaper in the long run."
-date = '2026-04-22'
+date = '2026-04-18'
 
 [taxonomies]
 categories=["it"]
