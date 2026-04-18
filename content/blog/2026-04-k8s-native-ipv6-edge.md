@@ -23,15 +23,15 @@ Let's have some fun with that in Kubernetes!
 
 ## An easy IPv6 setup in Kubernetes
 Kubernetes has supported IPv6 since `v1.6`, but the usability heavily depends on the CNI. The easiest way to use IPv6 in Kubernetes is to set these two args on cluster initialization with:  
-`kubeadm init --pod-network-cidr=fe80:10:32::/56 --service-cidr=fe80:10:64::/112`
+`kubeadm init --pod-network-cidr=fd00:10:32::/56 --service-cidr=fd00:10:64::/112`
 
-This example uses link-local IPv6 addresses and does not need any special network requirements. Functionally it is equivalent to IPv4 clusters. These settings and the configured CNI will create an overlay network where pods can reach each other directly via the link-local addresses, but IP packets from and to the Internet need to be rewritten to reach anything. Nothing is really simplified here since we still distinguish between "private" and "public" IPs. Nevertheless, this is a great approach for testing and dev environments with tools like minikube, kind and more.
+This example uses unique local addresses (ULA) IPv6 addresses and does not need any special network requirements. Functionally it is equivalent to IPv4 clusters. These settings and the configured CNI will create an overlay network where pods can reach each other directly via the ULA addresses, but IP packets from and to the Internet need to be rewritten to reach anything. Nothing is really simplified here since we still distinguish between "private" and "public" IPs. Nevertheless, this is a great approach for testing and dev environments with tools like minikube, kind and more.
 
 ### Native Routing
 Since IPv6 allows anyone to get large, unique global address spaces, we should use them:  
 `kubeadm init --pod-network-cidr=2a01:10:32::/56 --service-cidr=2a01:34:e393::/112`
 
-It uses global unicast addresses (GUA) that were allocated to you by your ISP or cloud provider. This setup requires a little more planning. We need our own IPv6 prefix that is large enough and not used by other devices. By default, Kubernetes tries to allocate a `/64` from the pod network IPv6 CIDR to each node. In my opinion that is a very large default and wasteful, since we will never have 2^64 pods on one node. It can be changed by setting `--node-cidr-mask-size-ipv6` accordingly. Depending on your requirements, I would set a value between `/96` and `/112`. Even a `/112` would allow 2^16=65536 IPs for each node to be consumed by pods.  
+It uses global unicast addresses (GUA) that were allocated to you by your ISP or cloud provider. This setup requires a little more planning. We need our own IPv6 prefix that is large enough and not used by other devices. By default, Kubernetes tries to allocate a `/64` from the pod network IPv6 CIDR to each node. In my opinion that is a very large default and can wasteful in certain environments, since we will never have 2^64 pods on one node. It can be changed by setting `--node-cidr-mask-size-ipv6` accordingly. Depending on your requirements, I would set a value between `/64` and `/112`. Even a `/112` would allow 2^16=65536 IPs for each node to be consumed by pods.  
 Exactly the same cidr-mask-arg can be used when you don't have a `/56` IPv6 prefix or do not want to allocate the entire range to a single cluster. Service CIDRs can also be adjusted according to ones need.
 
 Due to this approach being tailored to the current environment it runs in, it is a little less flexible, BUT it allows much simpler routing. As long as you don't have any firewalls configured and all addresses are correctly advertised, every pod can directly reach the internet and can be reached from the internet. No service, loadbalancer, proxy or NAT required. Flat, native and efficient networking.
