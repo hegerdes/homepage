@@ -71,9 +71,9 @@ Now we need the gitlab-runner binary that communicates with GitLab and our execu
 
 ```bash,linenos
 # Create gitlab-runner user and install the GitLab Runner
-sudo useradd --create-home --comment gitlab-runner --shell /usr/bin/bash --user-group gitlab-runner
-curl -L "https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh" | \
-    sudo bash
+sudo useradd --create-home --shell /usr/bin/bash --user-group gitlab-runner
+curl -JOL https://packages.gitlab.com/install/repositories/runner/gitlab-runner/script.deb.sh 
+sudo bash script.deb.sh
 sudo apt install gitlab-runner
 sudo systemctl stop gitlab-runner
 sudo systemctl disable --now gitlab-runner
@@ -108,7 +108,10 @@ RestartSec=120
 StartLimitInterval=5
 StartLimitBurst=10
 Environment="DOCKER_HOST=unix:///run/user/<<YOUR_GITLAB_RUNNER_USERID>>/docker.sock"
-ExecStart='/usr/bin/gitlab-runner "run" "--config" "/home/gitlab-runner/gitlab-runner-config.toml" "--working-directory" "/home/gitlab-runner" "--service" "gitlab-runner" "--user" "gitlab-runner"'
+ExecStart=/usr/bin/gitlab-runner run \
+--config /home/gitlab-runner/gitlab-runner-config.toml \
+--working-directory /home/gitlab-runner \
+--service gitlab-runner --user gitlab-runner
 
 [Install]
 WantedBy="default.target"
