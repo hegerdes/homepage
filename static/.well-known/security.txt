@@ -1,0 +1,5 @@
+Contact: https://github.com/hegerdes/homepage/issues
+Preferred-Languages: en
+Canonical: https://henrikgerdes.me/.well-known/security.txt
+Expires: 2099-12-31T00:00:00Z
+Acknowledgments: https://github.com/hegerdes/homepage
