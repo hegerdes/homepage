@@ -1,6 +1,6 @@
 +++
-title = "AWS Web-Identity to Azure - Goodby Static Tokens"
-description = "How to get rid of static tokens. Federate your AWS, CI or OnPrem Identity to Azure without having to look at a single token. Also learn how to poor man IDP."
+title = "AWS Web-Identity to Azure - Goodbye Static Tokens"
+description = "How to get rid of static tokens. Federate your AWS, CI or OnPrem Identity to Azure without having to look at a single token. Also learn how to poor man IDP"
 date = '2026-06-26'
 
 [taxonomies]
@@ -17,11 +17,11 @@ pic = '/img/blog/aws-azure-oidc-federate.webp'
 > **TLDR:** AWS STS Web-Identity-Token function allows secure, low maintenance authentication via OIDC for all none AWS Services at no additional cost. Perfect for Azure, OnPrem system or CI.
 ---
 
-Late 2025 I wrote about [Reduce your Token-Usage for all non AWS-Apps](/blog/2025-12-aws-web-identity-token/) which looked at the new AWS capability to authenticate from AWS to OnPrem resources. But what about MultiCloud? Your DNS-Zone that is hosted on Azure or the "offside" backups.  
+Late 2025, I wrote about [Reduce your Token-Usage for all non AWS-Apps](/blog/2025-12-aws-web-identity-token/) which looked at the new AWS capability to authenticate from AWS to OnPrem resources. But what about MultiCloud? Your DNS-Zone that is hosted on Azure or the "offsite" backups.  
 No more expired credentials, no need for rotation and reduced risk of leakage.
 
 ## The Auth flow
-We want to use an AWS IAM Role (EC2, Lambda, etc) to authenticate to Azure to list our object storage: `AWS->Azure`  
+We want to use an AWS IAM Role (EC2, Lambda, and a like) to authenticate to Azure to list our object storage: `AWS->Azure`  
 But we could also start from GitLab CI, GitHub Actions or OnPrem, assume an AWS IAM Role via OIDC IDToken and move from there: `OnPrem->AWS->Azure`  
 > If we wanted we cloud probably go to Google and from there back to AWS
 
@@ -90,7 +90,7 @@ The decoded JWT will look like this:
 }
 ```
 
-Now we will need the Azure side. Since the Azure UI is a mess we will use Terraform/OpenTofu:
+Now we will need the Azure side. Since the Azure UI is a ever changing mess, I will use Terraform/OpenTofu:
 ```hcl,linenos
 data "azurerm_client_config" "current" {}
 data "azurerm_resource_group" "demo" {
@@ -159,6 +159,8 @@ output "tenantID" {
 #   claims_matching_expression = "claims['sub'] eq 'arn:aws:iam::xxx:role/MY-Role'"
 # }
 ```
+> **Note:** The flexible federation validation was requested in 2022 and now has a [GitHub Issue](https://github.com/Azure/azure-workload-identity/issues/373) with over 250 comments. While now in preview, it still seems to have problems with self hosted GitLab's or other none Microsoft issuer. AWS Supports this feature for years with their *Trust Federation IAM Policy* and their `"Condition": {"StringEquals": {"gitlab.com:user_login": "hegerdes"}}` blocks.  
+> MS is quiet behind on this.
 
 ## Token Exchange
 We now can test the trust relationship first with curl, then with the `az` cli:
@@ -189,7 +191,7 @@ az account show
 ```
 ## Looking Beyond AWS and Azure  
 
-This should already work with SDKs that support auth via service principles. And all this is **not** tailered to AWS. You can use your own IDP like Keycloak or Kanidm. You do not even need an server or an backend for OIDC. The used singed JWTs are based of asymmetric encryption. All you need is a static website that hosts two files. One with `.well-known/openid-configuration` and a second one that is referenced in the first pointing to your JSON-Web-Key (`jwks`), the public keys to verify the JWT.  
+This should already work with SDKs that support auth via service principles. And all this is **not** tailored to AWS. You can use your own IDP like Keycloak or Kanidm. You do not even need a server or a backend for OIDC. The used signed JWTs are based on asymmetric encryption. All you need is a static website that hosts two files. One with `.well-known/openid-configuration` and a second one that is referenced in the first pointing to your JSON-Web-Key (`jwks`), the public keys to verify the JWT.  
 
-I host my serverless IDP for local automation at [sts.hegerdes.com](https://sts.hegerdes.com), that is backed by an Cloudflace R2 Bucket. In the bucket is only `.well-known/openid-configuration` doc and my public keys. Only I have the private keys on my machine. I create an JWT, sign it and use it to assume an AWS IAM role or an Azure SP. No interactive auth needed.  
-Simple short lived auth without managing tokens by hand!
+I host my serverless IDP for local automation at [sts.hegerdes.com](https://sts.hegerdes.com), which is backed by a Cloudflace R2-Bucket. In the bucket is only `.well-known/openid-configuration` doc and my public keys. Only I have the private keys on my machine. I create an JWT, sign it and use it to assume an AWS IAM role or an Azure SP. No interactive auth required.  
+Simple, short lived auth without managing tokens by hand!
